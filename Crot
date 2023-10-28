@@ -29,7 +29,7 @@
 			["Auto Farm Select Monster"] = false,
 			["Auto Nearest"] = false,
 			["Sea Beast"] = false,
-			["Select Boat"] = 1,
+			["Select Boats"] = 1,
 			["Drive Boat"] = false,
 			["Boss List"] = 1,
 			["Auto Farm Boss"] = false,
@@ -1052,8 +1052,8 @@
 
 		function ShipTP(CFgo)
 			local tween_s = game:service"TweenService"
-			local info = TweenInfo.new((game:GetService("Workspace").Boats(_G.Settings.Main["Select Boat"]).VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/300, Enum.EasingStyle.Linear)
-			tween = tween_s:Create(game:GetService("Workspace").Boats(_G.Settings.Main["Select Boat"]).VehicleSeat, info, {CFrame = CFgo})
+			local info = TweenInfo.new((game:GetService("Workspace").Boats(_G.Settings.Main["Select Boats"]).VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/300, Enum.EasingStyle.Linear)
+			tween = tween_s:Create(game:GetService("Workspace").Boats(_G.Settings.Main["Select Boats"]).VehicleSeat, info, {CFrame = CFgo})
 			tween:Play()
 		
 			local tweenfunc = {}
@@ -12466,11 +12466,11 @@
 			Title = "Select Boat",
 			Values = {"MarineBrigade","Enforcer","Swan","Flower","RocketBoost","PirateBrigade","PirateBasic","MarineBasic"},
 			Multi = false,
-			Default = _G.Settings.Main["Select Boat"],
+			Default = _G.Settings.Main["Select Boats"],
 		})
 
 		Options.Kapal:OnChanged(function()
-			_G.Settings.Main["Select Boat"] = Options["Kapal"].Value
+			_G.Settings.Main["Select Boats"] = Options["Kapal"].Value
 			SaveSettings()
 		end)
 
@@ -12563,22 +12563,23 @@
 			while wait() do
 				if _G.Settings.SeaEvent["Auto Rough Sea"] and World3 then 
 					pcall(function()
-						if not game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boat"]) then
+						if not game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]) then
 							buyb = toTargetP(CFrame.new(-16228, 9, 480))
 							if (CFrame.new(-16228, 9, 480).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
 								if buyb then buyb:Stop() end wait(.1)
 								local args = {
 									[1] = "BuyBoat",
-									[2] = _G.Settings.Main["Select Boat"]
+									[2] = _G.Settings.Main["Select Boats"]
 								}
 								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 							end
-						elseif game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boat"]) then
+						elseif game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]) then
 							if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-								toTargetP(game:GetService("Workspace").Boats(_G.Settings.Main["Select Boat"]).VehicleSeat.CFrame * CFrame.new(0,1,0))
+								print("Dodok")
+								toTargetP(game:GetService("Workspace").Boats(_G.Settings.Main["Select Boats"]).VehicleSeat.CFrame * CFrame.new(0,1,0))
 							else
 								for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
-									if v.Name == (_G.Settings.Main["Select Boat"]) then
+									if v.Name == (_G.Settings.Main["Select Boats"]) then
 										repeat wait()
 											if (CFrame.new(-16134.0342, 31.8834934, 432.397369, 0.0973715559, 0.00666408008, -0.995225787, -0.0682799816, 0.99766618, -5.36700684e-10, 0.992903113, 0.0679539964, 0.097599335).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
 												ShipTP(CFrame.new(-41750, 18, 13432))
