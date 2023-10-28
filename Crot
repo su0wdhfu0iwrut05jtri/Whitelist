@@ -1052,8 +1052,8 @@
 
 		function ShipTP(CFgo)
 			local tween_s = game:service"TweenService"
-			local info = TweenInfo.new((game:GetService("Workspace").Boats(_G.Settings.Main["Select Boats"]).VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/300, Enum.EasingStyle.Linear)
-			tween = tween_s:Create(game:GetService("Workspace").Boats(_G.Settings.Main["Select Boats"]).VehicleSeat, info, {CFrame = CFgo})
+			local info = TweenInfo.new((game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/300, Enum.EasingStyle.Linear)
+			tween = tween_s:Create(game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat, info, {CFrame = CFgo})
 			tween:Play()
 		
 			local tweenfunc = {}
@@ -12464,7 +12464,7 @@
 		local Melaut = Tabs.LautFunction:AddSection("[ Boat's ]")
 		Melaut:AddDropdown("Kapal", {
 			Title = "Select Boat",
-			Values = {"MarineBrigade","Enforcer","Swan","Flower","RocketBoost","PirateBrigade","PirateBasic","MarineBasic"},
+			Values = {"PirateGrandBrigade","MarineGrandBrigade","Guardian","MarineBrigade","Enforcer","Swan","Flower","RocketBoost","PirateBrigade","PirateBasic","MarineBasic"},
 			Multi = false,
 			Default = _G.Settings.Main["Select Boats"],
 		})
@@ -12586,6 +12586,11 @@
 												ShipTP(CFrame.new(-41750, 18, 13432))
 											end 
 										until game:GetService("Workspace").Map:FindFirstChild("FrozenIsland") or _G.Settings.SeaEvent["Auto Rough Sea"] == false
+									end
+								end
+								for _, v in pairs(workspace.Boats:FindFirstChild(_G.Settings.Main["Select Boats"]):GetDescendants()) do
+									if v:IsA("BasePart") or v:IsA("Part") then
+										v.CanCollide = false    
 									end
 								end
 							end
