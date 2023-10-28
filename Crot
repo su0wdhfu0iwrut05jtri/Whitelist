@@ -12462,10 +12462,9 @@
 		end
 
 		local Melaut = Tabs.LautFunction:AddSection("[ Boat's ]")
-		BoatList = {"MarineBrigade","Enforcer","Swan","Flower","RocketBoost","PirateBrigade","PirateBasic","MarineBasic"}
 		Melaut:AddDropdown("Kapal", {
 			Title = "Select Boat",
-			Values = BoatList,
+			Values = {"MarineBrigade","Enforcer","Swan","Flower","RocketBoost","PirateBrigade","PirateBasic","MarineBasic"},
 			Multi = false,
 			Default = _G.Settings.Main["Select Boat"],
 		})
