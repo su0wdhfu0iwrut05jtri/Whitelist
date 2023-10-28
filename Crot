@@ -12589,7 +12589,12 @@
 												end
 												ShipTP(CFrame.new(-41750, 18, 13432))
 											end 
-										until game:GetService("Workspace").Map:FindFirstChild("FrozenIsland") or _G.Settings.SeaEvent["Auto Rough Sea"] == false
+										until game:GetService("Workspace").Map:FindFirstChild("FrozenIsland") or _G.Settings.SeaEvent["Auto Rough Sea"] == false or (CFrame.new(-41750, 18, 13432).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10
+										for _, v in pairs(workspace.Boats:FindFirstChild(_G.Settings.Main["Select Boats"]):GetDescendants()) do
+											if v:IsA("BasePart") or v:IsA("Part") or v.ClassName == "MeshPart" then
+												v.CanCollide = true    
+											end
+										end
 									end
 								end
 							end
