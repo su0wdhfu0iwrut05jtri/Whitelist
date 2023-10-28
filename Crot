@@ -12557,8 +12557,302 @@
 				Title = "GO TO SEA 3",
 				Content = ""
 			})
+			_G.Settings.SeaEvent["Auto Kill Leviathan"] = false
+			_G.Settings.SeaEvent["Auto Kill Piranha"] = false
+			_G.Settings.SeaEvent["Auto Rough Sea"] = false
+			_G.Settings.SeaEvent["Auto Kill Shark"] = false
+			_G.Settings.SeaEvent["Auto Kill Terror Shark"] = false
+			_G.Settings.SeaEvent["Auto Kill Ship"] = false
+			_G.Settings.SeaEvent["Auto Kill Sea Beast"] = false
 		end
 		
+		function CheckBoatEnemy()
+            local CheckBoat = {"PirateGrandBrigade", "PirateBrigade"}
+            for r, v in next, game:GetService("Workspace").Enemies:GetChildren() do
+                if table.find(CheckBoat, v.Name) and v:FindFirstChild("Health") and v.Health.Value > 0 then
+                    return v
+                end
+            end
+        end
+
+		spawn(function()
+			while wait() do
+				if _G.Settings.SeaEvent["Auto Kill Ship"] and World3 then
+					pcall(function()
+						if game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") or game:GetService("Workspace").Enemies:FindFirstChild("PirateBasic") or game:GetService("Workspace").Enemies:FindFirstChild("PirateGrandBrigade") then
+							for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+								if v.Name == "PirateBasic" or v.Name == "PirateBrigade" or v.Name == "PirateGrandBrigade" then
+									if v:FindFirstChild("VehicleSeat") then
+										repeat wait()
+											BoatAktif = true
+											FastAttack = true
+											game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+											toTargetP(v.VehicleSeat.CFrame * CFrame.new(0,30,0))
+											if not _G.Settings.Config["Fast Attack"] then
+												game:GetService("VirtualUser"):CaptureController()
+												game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+											end
+										until v.Health.Value <= 0 or not v.Parent or _G.Settings.SeaEvent["Auto Kill Ship"] == false or v.Health.Value <= 0 or not v:FindFirstChild("VehicleSeat") 
+										FastAttack = false
+										BoatAktif = false
+									end
+								end
+							end
+						end
+					end)
+				end
+			end
+		end)
+
+		spawn(function()
+			while wait() do
+				if _G.Settings.SeaEvent["Auto Kill Sea Beast"] or _G.Settings.SeaEvent["Auto Kill Leviathan"] then
+					pcall(function()                   
+						for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
+							if v:FindFirstChild("HumanoidRootPart") then
+								repeat wait()
+									BoatAktif = true
+									game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+									AutoHaki()
+									toTargetP(v.HumanoidRootPart.CFrame * CFrame.new(1,450,45))
+									game:GetService("VirtualUser"):CaptureController()
+									game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+									for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+										if v:IsA("Tool") then
+											if v.ToolTip == "Melee" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+												game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+											end
+										end
+									end
+									game:GetService("VirtualInputManager"):SendKeyEvent(true,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									game:GetService("VirtualInputManager"):SendKeyEvent(false,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									wait(.2)
+									game:GetService("VirtualInputManager"):SendKeyEvent(true,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									game:GetService("VirtualInputManager"):SendKeyEvent(false,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									wait(.2)
+									game:GetService("VirtualInputManager"):SendKeyEvent(true,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									game:GetService("VirtualInputManager"):SendKeyEvent(false,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									wait(.2)
+									game:GetService("VirtualInputManager"):SendKeyEvent(false,"C",false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+										if v:IsA("Tool") then
+											if v.ToolTip == "Blox Fruit" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+												game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+											end
+										end
+									end
+									game:GetService("VirtualInputManager"):SendKeyEvent(true,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									game:GetService("VirtualInputManager"):SendKeyEvent(false,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									wait(.2)
+									game:GetService("VirtualInputManager"):SendKeyEvent(true,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									game:GetService("VirtualInputManager"):SendKeyEvent(false,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									wait(.2)
+									game:GetService("VirtualInputManager"):SendKeyEvent(true,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									game:GetService("VirtualInputManager"):SendKeyEvent(false,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									wait(.2)
+									game:GetService("VirtualInputManager"):SendKeyEvent(true,"V",false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									game:GetService("VirtualInputManager"):SendKeyEvent(false,"V",false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									wait(0.6)
+									for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+										if v:IsA("Tool") then
+											if v.ToolTip == "Sword" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+												game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+											end
+										end
+									end
+									game:GetService("VirtualInputManager"):SendKeyEvent(true,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									game:GetService("VirtualInputManager"):SendKeyEvent(false,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									wait(.2)
+									game:GetService("VirtualInputManager"):SendKeyEvent(true,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									game:GetService("VirtualInputManager"):SendKeyEvent(false,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									wait(.2)
+									game:GetService("VirtualInputManager"):SendKeyEvent(true,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									game:GetService("VirtualInputManager"):SendKeyEvent(false,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									wait(0.5)
+									for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+										if v:IsA("Tool") then
+											if v.ToolTip == "Gun" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+												game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+											end
+										end
+									end
+									game:GetService("VirtualInputManager"):SendKeyEvent(true,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									game:GetService("VirtualInputManager"):SendKeyEvent(false,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									wait(.2)
+									game:GetService("VirtualInputManager"):SendKeyEvent(true,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									game:GetService("VirtualInputManager"):SendKeyEvent(false,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									wait(.2)
+									game:GetService("VirtualInputManager"):SendKeyEvent(true,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+									game:GetService("VirtualInputManager"):SendKeyEvent(false,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								until not v.Parent or v.Health.Value <= 0 or _G.Settings.SeaEvent["Auto Kill Sea Beast"] == false or v.Health.Value <= 0 or not v:FindFirstChild("HumanoidRootPart") or _G.Settings.SeaEvent["Auto Kill Leviathan"] == false
+								BoatAktif = false
+							end
+						end
+					end)
+				end
+			end
+		end)
+
+		spawn(function()
+			while wait() do
+				if _G.Settings.SeaEvent["Auto Kill Piranha"] and World3 then
+					pcall(function()
+						if game:GetService("Workspace").Enemies:FindFirstChild("Piranha") then
+							for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+								if v.Name == "Piranha" then
+									if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+										repeat wait()
+											BoatAktif = true
+											EquipWeapon(_G.Settings.Config["Select Weapon"]);
+											AutoHaki()
+											v.HumanoidRootPart.CanCollide = false
+											PosMon = v.HumanoidRootPart.CFrame
+											toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Config["Distance Enemy"],0))
+											if not _G.Settings.Config["Fast Attack"] then
+												game:GetService("VirtualUser"):CaptureController()
+												game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+											end
+											FastAttack = true
+										until not _G.Settings.SeaEvent["Auto Kill Piranha"] or not v.Parent or v.Humanoid.Health <= 0
+										FastAttack = false
+										BoatAktif = false
+									end
+								end
+							end
+						end
+					end)
+				end
+			end
+		end)
+
+		spawn(function()
+			while wait() do
+				if _G.Settings.SeaEvent["Auto Kill Shark"] and World3 then
+					pcall(function()
+						if game:GetService("Workspace").Enemies:FindFirstChild("Shark") then
+							for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+								if v.Name == "Shark" then
+									if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+										repeat wait()
+											BoatAktif = true
+											EquipWeapon(_G.Settings.Config["Select Weapon"]);
+											AutoHaki()
+											v.HumanoidRootPart.CanCollide = false
+											PosMon = v.HumanoidRootPart.CFrame
+											toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Config["Distance Enemy"],0))
+											if not _G.Settings.Config["Fast Attack"] then
+												game:GetService("VirtualUser"):CaptureController()
+												game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+											end
+											FastAttack = true
+										until not _G.Settings.SeaEvent["Auto Kill Shark"] or not v.Parent or v.Humanoid.Health <= 0
+										FastAttack = false
+										BoatAktif = false
+									end
+								end
+							end
+						end
+					end)
+				end
+			end
+		end)
+
+		spawn(function()
+			while wait() do
+				if _G.Settings.SeaEvent["Auto Kill Shark"] and World3 then
+					pcall(function()
+						if game:GetService("Workspace").Enemies:FindFirstChild("Shark") then
+							for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+								if v.Name == "Shark" then
+									if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+										repeat wait()
+											BoatAktif = true
+											EquipWeapon(_G.Settings.Config["Select Weapon"]);
+											AutoHaki()
+											v.HumanoidRootPart.CanCollide = false
+											PosMon = v.HumanoidRootPart.CFrame
+											toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Config["Distance Enemy"],0))
+											if not _G.Settings.Config["Fast Attack"] then
+												game:GetService("VirtualUser"):CaptureController()
+												game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+											end
+											FastAttack = true
+										until not _G.Settings.SeaEvent["Auto Kill Shark"] or not v.Parent or v.Humanoid.Health <= 0
+										FastAttack = false
+										BoatAktif = false
+									end
+								end
+							end
+						end
+					end)
+				end
+			end
+		end)
+
+		spawn(function()
+			while wait() do
+				if _G.Settings.SeaEvent["Auto Kill Shark"] and World3 then
+					pcall(function()
+						if game:GetService("Workspace").Enemies:FindFirstChild("Shark") then
+							for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+								if v.Name == "Shark" then
+									if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+										repeat wait()
+											BoatAktif = true
+											EquipWeapon(_G.Settings.Config["Select Weapon"]);
+											AutoHaki()
+											v.HumanoidRootPart.CanCollide = false
+											PosMon = v.HumanoidRootPart.CFrame
+											toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Config["Distance Enemy"],0))
+											if not _G.Settings.Config["Fast Attack"] then
+												game:GetService("VirtualUser"):CaptureController()
+												game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+											end
+											FastAttack = true
+										until not _G.Settings.SeaEvent["Auto Kill Shark"] or not v.Parent or v.Humanoid.Health <= 0
+										FastAttack = false
+										BoatAktif = false
+									end
+								end
+							end
+						end
+					end)
+				end
+			end
+		end)
+
+		spawn(function()
+			while wait() do
+				if _G.Settings.SeaEvent["Auto Kill Terror Shark"] and World3 then
+					pcall(function()
+						if game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") then
+							for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+								if v.Name == "Terrorshark" then
+									if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+										repeat wait()
+											BoatAktif = true
+											EquipWeapon(_G.Settings.Config["Select Weapon"]);
+											AutoHaki()
+											v.HumanoidRootPart.CanCollide = false
+											PosMon = v.HumanoidRootPart.CFrame
+											toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Config["Distance Enemy"],0))
+											if not _G.Settings.Config["Fast Attack"] then
+												game:GetService("VirtualUser"):CaptureController()
+												game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+											end
+											FastAttack = true
+										until not _G.Settings.SeaEvent["Auto Kill Terror Shark"] or not v.Parent or v.Humanoid.Health <= 0
+										FastAttack = false
+										BoatAktif = false
+									end
+								end
+							end
+						end
+					end)
+				end
+			end
+		end)
+
 		spawn(function()
 			while wait() do
 				if _G.Settings.SeaEvent["Auto Rough Sea"] and World3 then 
@@ -12575,7 +12869,6 @@
 							end
 						elseif game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]) then
 							if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-								print("Duduk")
 								toTargetP(game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat.CFrame * CFrame.new(0,1,0))
 							else
 								for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
@@ -12589,7 +12882,7 @@
 												end
 												ShipTP(CFrame.new(-41750, 18, 13432))
 											end 
-										until game:GetService("Workspace").Map:FindFirstChild("FrozenIsland") or _G.Settings.SeaEvent["Auto Rough Sea"] == false or (CFrame.new(-41750, 18, 13432).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10
+										until BoatAktif == true or game:GetService("Workspace").Map:FindFirstChild("FrozenIsland") or _G.Settings.SeaEvent["Auto Rough Sea"] == false or (CFrame.new(-41750, 18, 13432).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10
 										for _, v in pairs(workspace.Boats:FindFirstChild(_G.Settings.Main["Select Boats"]):GetDescendants()) do
 											if v:IsA("BasePart") or v:IsA("Part") or v.ClassName == "MeshPart" then
 												v.CanCollide = true    
