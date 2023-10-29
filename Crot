@@ -12565,15 +12565,6 @@
 			_G.Settings.SeaEvent["Auto Kill Ship"] = false
 			_G.Settings.SeaEvent["Auto Kill Sea Beast"] = false
 		end
-		
-		function CheckBoatEnemy()
-            local CheckBoat = {"PirateGrandBrigade", "PirateBrigade"}
-            for r, v in next, game:GetService("Workspace").Enemies:GetChildren() do
-                if table.find(CheckBoat, v.Name) and v:FindFirstChild("Health") and v.Health.Value > 0 then
-                    return v
-                end
-            end
-        end
 
 		spawn(function()
 			while wait() do
@@ -12872,7 +12863,7 @@
 								toTargetP(game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat.CFrame * CFrame.new(0,1,0))
 							else
 								for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
-									if v.Name == (_G.Settings.Main["Select Boats"]) then
+									if v.Name == (_G.Settings.Main["Select Boats"]) and BoatAktif == false then
 										repeat wait()
 											if (game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
 												for _, v in pairs(workspace.Boats:FindFirstChild(_G.Settings.Main["Select Boats"]):GetDescendants()) do
@@ -12882,7 +12873,7 @@
 												end
 												ShipTP(CFrame.new(-41750, 18, 13432))
 											end 
-										until BoatAktif == true or game:GetService("Workspace").Map:FindFirstChild("FrozenIsland") or _G.Settings.SeaEvent["Auto Rough Sea"] == false or (CFrame.new(-41750, 18, 13432).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10
+										until BoatAktif == true or game:GetService("Workspace").Map:FindFirstChild("FrozenIsland") or _G.Settings.SeaEvent["Auto Rough Sea"] == false
 										for _, v in pairs(workspace.Boats:FindFirstChild(_G.Settings.Main["Select Boats"]):GetDescendants()) do
 											if v:IsA("BasePart") or v:IsA("Part") or v.ClassName == "MeshPart" then
 												v.CanCollide = true    
