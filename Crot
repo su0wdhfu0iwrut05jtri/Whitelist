@@ -12863,7 +12863,7 @@
 								toTargetP(game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat.CFrame * CFrame.new(0,1,0))
 							else
 								for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
-									if v.Name == (_G.Settings.Main["Select Boats"]) and BoatAktif == false then
+									if v.Name == (_G.Settings.Main["Select Boats"]) and then
 										repeat wait()
 											if (game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
 												for _, v in pairs(workspace.Boats:FindFirstChild(_G.Settings.Main["Select Boats"]):GetDescendants()) do
