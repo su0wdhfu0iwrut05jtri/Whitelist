@@ -134,7 +134,6 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
 end
 
 -- [Normal Haki]
-local haki = string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "")
 local color = "16777215"
 local colordata = {
 	["Orange Soda"] = "16741120",
@@ -152,7 +151,7 @@ local colordata = {
 	["Winter Sky"] = "14745855",
 }
 for i, v in pairs(colordata) do
-	if i == haki then
+	if i == string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "") then
 		color = v
 		break
 	end
@@ -174,7 +173,7 @@ local bijix = {
             ["fields"] = {
                 {
                     ["name"] = "[ 💎 ]  Color :",
-                    ["value"] = "```"..haki.."```"
+                    ["value"] = "```"..string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "").."```"
                 },
                 {
                     ["name"] = "[ 👥 ]  Players In Server :",
