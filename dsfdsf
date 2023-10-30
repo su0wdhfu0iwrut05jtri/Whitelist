@@ -9,7 +9,7 @@ local currentDateTime = os.date("*t", currentUnixTime + timeZoneOffset)
 local formattedTime = string.format("%02d:%02d:%02d", currentDateTime.hour, currentDateTime.min, currentDateTime.sec)
 local formattedDate = string.format("%d-%02d-%02d", currentDateTime.year, currentDateTime.month, currentDateTime.day)
 
--- [Haki Color]
+-- [Legendary Haki Color]
 if not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Snow White" then
     local hakicolor = {
         ["content"] = "",
@@ -133,6 +133,75 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
     })
 end
 
+-- [Normal Haki]
+local haki = string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "")
+local color = "16777215"
+local colordata = {
+	["Orange Soda"] = "16741120",
+	["Bright Yellow"] = "16774912",
+	["Yellow Sunshine"] = "16769280",
+	["Slimy Green"] = "2031360",
+	["Green Lizard"] = "12582656",
+	["Blue Jean"] = "39423",
+	["Plump Purple"] = "8388736",
+	["Fiery Rose"] = "16711791",
+	["Heat Wave"] = "16730112",
+	["Absolute Zero"] = "209",
+	["Snow White"] = "16777215",
+	["Pure Red"] = "16711680",
+	["Winter Sky"] = "14745855",
+}
+for i, v in pairs(colordata) do
+    print(i,v)
+	if i == haki then
+		color = v
+		break
+	end
+end
+
+local bijix = {
+    ["content"] = "",
+    ["username"] = "Normal Haki Checker",
+    ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+    ["embeds"] = {
+        {   
+            ["author"] = {
+                ["name"] = "Thunder Z | https://discord.gg/EAasK6nBMr",
+                ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+            },
+            ["type"] = "rich",
+            ["title"] = "**Haki Color Checker**",
+            ["color"] = color,
+            ["fields"] = {
+                {
+                    ["name"] = "[ 💎 ]  Color :",
+                    ["value"] = "```"..haki.."```"
+                },
+                {
+                    ["name"] = "[ 👥 ]  Players In Server :",
+                    ["value"] = "```"..PlayerCount.."/12".."```"
+                },
+                {
+                    ["name"] = "[ 📃 ]  Job Id :",
+                    ["value"] = "```"..game.JobId.."```"
+                },
+                {
+                    ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
+                    ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                }
+            },
+            ["footer"] = {
+                ["text"] = formattedDate
+            }
+        }
+    }
+}
+request({
+    Url = "https://discord.com/api/webhooks/1168544203198963784/rGnoDvwe_5eOnoIB_-6LmhB2JrpHsQ5jLoAH_DdU-8cJAyQrGmUGLQnVZpwZScnelUzh",
+    Body = game:GetService("HttpService"):JSONEncode(bijix),
+    Method = "POST",
+    Headers = {["content-type"] = "application/json"}
+})
 -- [Mystic Island]
 if World3 and game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
 
