@@ -202,7 +202,19 @@ request({
 })
 -- [Mystic Island]
 if World3 and game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
-
+    if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
+        Moon = "🌕 : Full Moon 100%";
+    elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149052" then
+        Moon = "🌔 : Full Moon 75%";
+    elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709143733" then
+        Moon = "🌓 : Full Moon 50%";
+    elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709150401" then
+        Moon = "🌓 : Full Moon 25%";
+    elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149680" then
+        Moon = "🌒 : Full Moon 15%";
+    else
+        Moon = "🌑 : Full Moon 0%";
+    end
     local mirage = {
         ["content"] = "",
         ["username"] = "Mirage Island",
@@ -220,6 +232,10 @@ if World3 and game:GetService("Workspace").Map:FindFirstChild("MysticIsland") th
                     {
                         ["name"] = "**[🏝️] Mirrage Status:**",
                         ["value"] = "``` Mirrage Island Spawn : ✅ ```"
+                    },
+                    {
+                        ["name"] = "**[ 🌕 ] Moon Phase :**",
+                        ["value"] = "```".. Moon .."```"
                     },
                     {
                         ["name"] = "**[👥] Players In Server:**",
