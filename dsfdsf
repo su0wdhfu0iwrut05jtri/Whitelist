@@ -281,7 +281,7 @@ elseif World3 and game:GetService("Lighting").Sky.MoonTextureId=="http://www.rob
                 ["fields"] = {
                     {
                         ["name"] = "**[ 🌕 ] Moon Phase :**",
-                        ["value"] = "``` Full Moon : ✅ ```"
+                        ["value"] = "``` 🌕 : Full Moon 100% ```"
                     },
                     {
                         ["name"] = "**[👥] Players In Server:**",
