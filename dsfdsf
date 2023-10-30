@@ -1,5 +1,10 @@
 -- [Main Requiment Webhook]
-local PlayerCount = #game.Players:GetPlayers()
+local timeZoneOffset = 25200 -- 7 hours ahead of UTC
+
+local currentUnixTime = os.time()
+local currentDateTime = os.date("*t", currentUnixTime + timeZoneOffset)
+
+local formattedTime = string.format("%02d:%02d:%02d", currentDateTime.hour, currentDateTime.min, currentDateTime.sec)
 local formattedDate = string.format("%d-%02d-%02d", currentDateTime.year, currentDateTime.month, currentDateTime.day)
 
 -- [Haki Color]
