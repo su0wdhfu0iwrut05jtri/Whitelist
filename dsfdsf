@@ -1,0 +1,570 @@
+-- [Main Requiment Webhook]
+local PlayerCount = #game.Players:GetPlayers()
+local formattedDate = string.format("%d-%02d-%02d", currentDateTime.year, currentDateTime.month, currentDateTime.day)
+
+-- [Haki Color]
+local haki = string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "")
+local color = "16777215"
+local colordata = {
+	["Snow White"] = "16777215",
+	["Pure Red"] = "16711680",
+	["Winter Sky"] = "14745855",
+}
+for i, v in pairs(colordata) do
+    print(i,v)
+	if i == haki then
+		color = v
+		break
+	end
+end
+local hakicolor = {
+    ["content"] = "",
+    ["username"] = "Legendary Haki",
+    ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+    ["embeds"] = {
+        {   
+            ["author"] = {
+                ["name"] = "Thunder Z | [Discord](https://discord.gg/EAasK6nBMr)",
+                ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+            },
+            ["type"] = "rich",
+            ["title"] = "**Legendary Haki Color Checker**",
+            ["color"] = color,
+            ["fields"] = {
+                {
+                    ["name"] = "[ 💎 ]  Color :",
+                    ["value"] = "```"..haki.."```"
+                },
+                {
+                    ["name"] = "[ 👥 ]  Players In Server :",
+                    ["value"] = "```"..PlayerCount.."/12".."```"
+                },
+                {
+                    ["name"] = "[ 📃 ]  Job Id :",
+                    ["value"] = "```"..game.JobId.."```"
+                },
+                {
+                    ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
+                    ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                }
+            },
+            ["footer"] = {
+                ["text"] = formattedDate
+            }
+        }
+    }
+}
+request({
+    Url = "https://discord.com/api/webhooks/1168531590784229426/-77FgjnreITASp_H2MbXfbtZOyl6Vm6EgXVsK2oZcLH2bCzyMq-QeMtOBLYH_PEdL-YM",
+    Body = game:GetService("HttpService"):JSONEncode(hakicolor),
+    Method = "POST",
+    Headers = {["content-type"] = "application/json"}
+})
+
+-- [Mystic Island]
+if World3 and game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
+
+    local mirage = {
+        ["content"] = "",
+        ["username"] = "Mirage Island",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z | [Discord](https://discord.gg/EAasK6nBMr)",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Mirage Island Checker**",
+                ["color"] = tonumber(0xf1c40f),
+                ["fields"] = {
+                    {
+                        ["name"] = "**[🏝️] Mirrage Status:**",
+                        ["value"] = "``` Mirrage Island Spawn : ✅ ```"
+                    },
+                    {
+                        ["name"] = "**[👥] Players In Server:**",
+                        ["value"] = "``` ".. PlayerCount .."/12 ```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = formattedDate
+                }
+            }
+        }
+    }
+    request({
+        Url = "https://discord.com/api/webhooks/1168531590784229426/-77FgjnreITASp_H2MbXfbtZOyl6Vm6EgXVsK2oZcLH2bCzyMq-QeMtOBLYH_PEdL-YM",
+        Body = game:GetService("HttpService"):JSONEncode(mirage),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+-- [Full Moon]
+elseif World3 and game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
+   
+    local moon = {
+        ["content"] = "",
+        ["username"] = "Moon Phase",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z | [Discord](https://discord.gg/EAasK6nBMr)",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Full Moon Checker**",
+                ["color"] = tonumber(0xf1c40f),
+                ["fields"] = {
+                    {
+                        ["name"] = "**[ 🌕 ] Moon Phase :**",
+                        ["value"] = "``` Full Moon : ✅ ```"
+                    },
+                    {
+                        ["name"] = "**[👥] Players In Server:**",
+                        ["value"] = "``` ".. PlayerCount .."/12 ```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = formattedDate
+                }
+            }
+        }
+    }
+    request({
+        Url = "https://discord.com/api/webhooks/1168531590784229426/-77FgjnreITASp_H2MbXfbtZOyl6Vm6EgXVsK2oZcLH2bCzyMq-QeMtOBLYH_PEdL-YM",
+        Body = game:GetService("HttpService"):JSONEncode(moon),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+elseif World2 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LegendarySwordDealer","1") == "Shisui" then
+    local sword = {
+        ["content"] = "",
+        ["username"] = "Legendary Sword Dealer",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z | [Discord](https://discord.gg/EAasK6nBMr)",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Legendary Sword Checker**",
+                ["color"] = tonumber(0x800080),
+                ["fields"] = {
+                    {
+                        ["name"] = "**[ ⚔️ ] Sword Type :**",
+                        ["value"] = "``` Shisui ```"
+                    },
+                    {
+                        ["name"] = "**[👥] Players In Server:**",
+                        ["value"] = "``` ".. PlayerCount .."/12 ```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = formattedDate
+                }
+            }
+        }
+    }
+    request({
+        Url = "https://discord.com/api/webhooks/1168531590784229426/-77FgjnreITASp_H2MbXfbtZOyl6Vm6EgXVsK2oZcLH2bCzyMq-QeMtOBLYH_PEdL-YM",
+        Body = game:GetService("HttpService"):JSONEncode(sword),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+elseif World2 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LegendarySwordDealer","1") == "Saddi" then
+    local sword = {
+        ["content"] = "",
+        ["username"] = "Legendary Sword Dealer",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z | [Discord](https://discord.gg/EAasK6nBMr)",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Legendary Sword Checker**",
+                ["color"] = tonumber(0xff0000),
+                ["fields"] = {
+                    {
+                        ["name"] = "**[ ⚔️ ] Sword Type :**",
+                        ["value"] = "``` Saddi ```"
+                    },
+                    {
+                        ["name"] = "**[👥] Players In Server:**",
+                        ["value"] = "``` ".. PlayerCount .."/12 ```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = formattedDate
+                }
+            }
+        }
+    }
+    request({
+        Url = "https://discord.com/api/webhooks/1168531590784229426/-77FgjnreITASp_H2MbXfbtZOyl6Vm6EgXVsK2oZcLH2bCzyMq-QeMtOBLYH_PEdL-YM",
+        Body = game:GetService("HttpService"):JSONEncode(sword),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+elseif World2 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LegendarySwordDealer","1") == "Wando" then
+    local sword = {
+        ["content"] = "",
+        ["username"] = "Legendary Sword Dealer",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z | [Discord](https://discord.gg/EAasK6nBMr)",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Legendary Sword Checker**",
+                ["color"] = tonumber(0xffffff),
+                ["fields"] = {
+                    {
+                        ["name"] = "**[ ⚔️ ] Sword Type :**",
+                        ["value"] = "``` Wando ```"
+                    },
+                    {
+                        ["name"] = "**[👥] Players In Server:**",
+                        ["value"] = "``` ".. PlayerCount .."/12 ```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = formattedDate
+                }
+            }
+        }
+    }
+    request({
+        Url = "https://discord.com/api/webhooks/1168531590784229426/-77FgjnreITASp_H2MbXfbtZOyl6Vm6EgXVsK2oZcLH2bCzyMq-QeMtOBLYH_PEdL-YM",
+        Body = game:GetService("HttpService"):JSONEncode(sword),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+    
+end
+
+for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+    if World3 then
+        if v.Name == "rip_indra True Form" then
+            local data = {
+                ["content"] = "",
+                ["username"] = "Boss Raid",
+                ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+                ["embeds"] = {
+                    {   
+                        ["author"] = {
+                            ["name"] = "Thunder Z | [Discord](https://discord.gg/EAasK6nBMr)",
+                            ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                        },
+                        ["type"] = "rich",
+                        ["title"] = "**Boss Raid Checker**",
+                        ["color"] = tonumber(0x00ffff),
+                        ["fields"] = {
+                            {
+                                ["name"] = "**[ 💀 ] Boss Name :**",
+                                ["value"] = "```" ..v.Name.. "```"
+                            },
+                            {
+                                ["name"] = "**[👥] Players In Server:**",
+                                ["value"] = "``` ".. PlayerCount .."/12 ```"
+                            },
+                            {
+                                ["name"] = "[ 📃 ]  Job Id :",
+                                ["value"] = "```"..game.JobId.."```"
+                            },
+                            {
+                                ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
+                                ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                            }
+                        },
+                        ["footer"] = {
+                            ["text"] = formattedDate
+                        }
+                    }
+                }
+            }
+        elseif v.Name == "Dough King" then
+            local data = {
+                ["content"] = "",
+                ["username"] = "Boss Raid",
+                ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+                ["embeds"] = {
+                    {   
+                        ["author"] = {
+                            ["name"] = "Thunder Z | [Discord](https://discord.gg/EAasK6nBMr)",
+                            ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                        },
+                        ["type"] = "rich",
+                        ["title"] = "**Boss Raid Checker**",
+                        ["color"] = tonumber(0x00ffff),
+                        ["fields"] = {
+                            {
+                                ["name"] = "**[ 💀 ] Boss Name :**",
+                                ["value"] = "```" ..v.Name.. "```"
+                            },
+                            {
+                                ["name"] = "**[👥] Players In Server:**",
+                                ["value"] = "``` ".. PlayerCount .."/12 ```"
+                            },
+                            {
+                                ["name"] = "[ 📃 ]  Job Id :",
+                                ["value"] = "```"..game.JobId.."```"
+                            },
+                            {
+                                ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
+                                ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                            }
+                        },
+                        ["footer"] = {
+                            ["text"] = formattedDate
+                        }
+                    }
+                }
+            }
+        elseif v.Name == "Cake Prince" then
+            local data = {
+                ["content"] = "",
+                ["username"] = "Boss Raid",
+                ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+                ["embeds"] = {
+                    {   
+                        ["author"] = {
+                            ["name"] = "Thunder Z | [Discord](https://discord.gg/EAasK6nBMr)",
+                            ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                        },
+                        ["type"] = "rich",
+                        ["title"] = "**Boss Raid Checker**",
+                        ["color"] = tonumber(0x00ffff),
+                        ["fields"] = {
+                            {
+                                ["name"] = "**[ 💀 ] Boss Name :**",
+                                ["value"] = "```" ..v.Name.. "```"
+                            },
+                            {
+                                ["name"] = "**[👥] Players In Server:**",
+                                ["value"] = "``` ".. PlayerCount .."/12 ```"
+                            },
+                            {
+                                ["name"] = "[ 📃 ]  Job Id :",
+                                ["value"] = "```"..game.JobId.."```"
+                            },
+                            {
+                                ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
+                                ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                            }
+                        },
+                        ["footer"] = {
+                            ["text"] = formattedDate
+                        }
+                    }
+                }
+            }
+        elseif v.Name == "Soul Reaper" then
+            local data = {
+                ["content"] = "",
+                ["username"] = "Boss Raid",
+                ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+                ["embeds"] = {
+                    {   
+                        ["author"] = {
+                            ["name"] = "Thunder Z | [Discord](https://discord.gg/EAasK6nBMr)",
+                            ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                        },
+                        ["type"] = "rich",
+                        ["title"] = "**Boss Raid Checker**",
+                        ["color"] = tonumber(0x00ffff),
+                        ["fields"] = {
+                            {
+                                ["name"] = "**[ 💀 ] Boss Name :**",
+                                ["value"] = "```" ..v.Name.. "```"
+                            },
+                            {
+                                ["name"] = "**[👥] Players In Server:**",
+                                ["value"] = "``` ".. PlayerCount .."/12 ```"
+                            },
+                            {
+                                ["name"] = "[ 📃 ]  Job Id :",
+                                ["value"] = "```"..game.JobId.."```"
+                            },
+                            {
+                                ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
+                                ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                            }
+                        },
+                        ["footer"] = {
+                            ["text"] = formattedDate
+                        }
+                    }
+                }
+            }
+        elseif v.Name == "Leviathan" then
+            local data = {
+                ["content"] = "",
+                ["username"] = "Boss Raid",
+                ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+                ["embeds"] = {
+                    {   
+                        ["author"] = {
+                            ["name"] = "Thunder Z | [Discord](https://discord.gg/EAasK6nBMr)",
+                            ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                        },
+                        ["type"] = "rich",
+                        ["title"] = "**Boss Raid Checker**",
+                        ["color"] = tonumber(0x00ffff),
+                        ["fields"] = {
+                            {
+                                ["name"] = "**[ 💀 ] Boss Name :**",
+                                ["value"] = "```" ..v.Name.. "```"
+                            },
+                            {
+                                ["name"] = "**[👥] Players In Server:**",
+                                ["value"] = "``` ".. PlayerCount .."/12 ```"
+                            },
+                            {
+                                ["name"] = "[ 📃 ]  Job Id :",
+                                ["value"] = "```"..game.JobId.."```"
+                            },
+                            {
+                                ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
+                                ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                            }
+                        },
+                        ["footer"] = {
+                            ["text"] = formattedDate
+                        }
+                    }
+                }
+            }
+        end
+    elseif World2 then
+        if v.Name == "Darkbeard" then
+            local data = {
+                ["content"] = "",
+                ["username"] = "Boss Raid",
+                ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+                ["embeds"] = {
+                    {   
+                        ["author"] = {
+                            ["name"] = "Thunder Z | [Discord](https://discord.gg/EAasK6nBMr)",
+                            ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                        },
+                        ["type"] = "rich",
+                        ["title"] = "**Boss Raid Checker**",
+                        ["color"] = tonumber(0x00ffff),
+                        ["fields"] = {
+                            {
+                                ["name"] = "**[ 💀 ] Boss Name :**",
+                                ["value"] = "```" ..v.Name.. "```"
+                            },
+                            {
+                                ["name"] = "**[👥] Players In Server:**",
+                                ["value"] = "``` ".. PlayerCount .."/12 ```"
+                            },
+                            {
+                                ["name"] = "[ 📃 ]  Job Id :",
+                                ["value"] = "```"..game.JobId.."```"
+                            },
+                            {
+                                ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
+                                ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                            }
+                        },
+                        ["footer"] = {
+                            ["text"] = formattedDate
+                        }
+                    }
+                }
+            }
+        elseif v.Name == "Cursed Captain" then
+            local data = {
+                ["content"] = "",
+                ["username"] = "Boss Raid",
+                ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+                ["embeds"] = {
+                    {   
+                        ["author"] = {
+                            ["name"] = "Thunder Z | [Discord](https://discord.gg/EAasK6nBMr)",
+                            ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                        },
+                        ["type"] = "rich",
+                        ["title"] = "**Boss Raid Checker**",
+                        ["color"] = tonumber(0x00ffff),
+                        ["fields"] = {
+                            {
+                                ["name"] = "**[ 💀 ] Boss Name :**",
+                                ["value"] = "```" ..v.Name.. "```"
+                            },
+                            {
+                                ["name"] = "**[👥] Players In Server:**",
+                                ["value"] = "``` ".. PlayerCount .."/12 ```"
+                            },
+                            {
+                                ["name"] = "[ 📃 ]  Job Id :",
+                                ["value"] = "```"..game.JobId.."```"
+                            },
+                            {
+                                ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
+                                ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                            }
+                        },
+                        ["footer"] = {
+                            ["text"] = formattedDate
+                        }
+                    }
+                }
+            }
+        end
+    end
+    request({
+        Url = "https://discord.com/api/webhooks/1156577331452846110/gGEnoSM8pM3D_D_n6qyAgs_LaQDM9eQI39FuexAUr6PUJD4aStKyXRanCiK9QKwbdY5c",
+        Body = game:GetService("HttpService"):JSONEncode(data),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+    
+end
