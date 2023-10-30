@@ -10,62 +10,128 @@ local formattedTime = string.format("%02d:%02d:%02d", currentDateTime.hour, curr
 local formattedDate = string.format("%d-%02d-%02d", currentDateTime.year, currentDateTime.month, currentDateTime.day)
 
 -- [Haki Color]
-local haki = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1") == "Snow White" or game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1") == "Pure Red" or game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1") == "Winter Sky"
-local color = "16777215"
-local colordata = {
-	["Snow White"] = "16777215",
-	["Pure Red"] = "16711680",
-	["Winter Sky"] = "14745855",
-}
-for i, v in pairs(colordata) do
-	if i == haki then
-		color = v
-		break
-	end
-end
-local hakicolor = {
-    ["content"] = "",
-    ["username"] = "Legendary Haki",
-    ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
-    ["embeds"] = {
-        {   
-            ["author"] = {
-                ["name"] = "Thunder Z",
-                ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
-            },
-            ["type"] = "rich",
-            ["title"] = "**Legendary Haki Color Checker**",
-            ["color"] = color,
-            ["fields"] = {
-                {
-                    ["name"] = "[ 💎 ]  Color :",
-                    ["value"] = "```"..haki.."```"
+if not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Snow White" then
+    local hakicolor = {
+        ["content"] = "",
+        ["username"] = "Legendary Haki",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
                 },
-                {
-                    ["name"] = "[ 👥 ]  Players In Server :",
-                    ["value"] = "```"..PlayerCount.."/12".."```"
+                ["type"] = "rich",
+                ["title"] = "**Legendary Haki Color Checker**",
+                ["color"] = tonumber(0xffffff),
+                ["fields"] = {
+                    {
+                        ["name"] = "[ 💎 ]  Color :",
+                        ["value"] = "``` Snow White ```"
+                    },
+                    {
+                        ["name"] = "[ 👥 ]  Players In Server :",
+                        ["value"] = "```"..PlayerCount.."/12".."```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    }
                 },
-                {
-                    ["name"] = "[ 📃 ]  Job Id :",
-                    ["value"] = "```"..game.JobId.."```"
-                },
-                {
-                    ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
-                    ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                ["footer"] = {
+                    ["text"] = formattedDate
                 }
-            },
-            ["footer"] = {
-                ["text"] = formattedDate
             }
         }
     }
-}
-request({
-    Url = "https://discord.com/api/webhooks/1168532830809235466/0EywiqYlVaPpy8eePL5hK0m3wYwlKDcL3iB-qLbE8AEKOPPuFc-71y7tI4lkpc9Xp3R2",
-    Body = game:GetService("HttpService"):JSONEncode(hakicolor),
-    Method = "POST",
-    Headers = {["content-type"] = "application/json"}
-})
+elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Pure Red" then
+    local hakicolor = {
+        ["content"] = "",
+        ["username"] = "Legendary Haki",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Legendary Haki Color Checker**",
+                ["color"] = tonumber(0xff0000),
+                ["fields"] = {
+                    {
+                        ["name"] = "[ 💎 ]  Color :",
+                        ["value"] = "``` Pure Red ```"
+                    },
+                    {
+                        ["name"] = "[ 👥 ]  Players In Server :",
+                        ["value"] = "```"..PlayerCount.."/12".."```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = formattedDate
+                }
+            }
+        }
+    }
+elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Winter Sky" then
+    local hakicolor = {
+        ["content"] = "",
+        ["username"] = "Legendary Haki",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Legendary Haki Color Checker**",
+                ["color"] = tonumber(0xff00e0),
+                ["fields"] = {
+                    {
+                        ["name"] = "[ 💎 ]  Color :",
+                        ["value"] = "``` Winter Sky ```"
+                    },
+                    {
+                        ["name"] = "[ 👥 ]  Players In Server :",
+                        ["value"] = "```"..PlayerCount.."/12".."```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = formattedDate
+                }
+            }
+        }
+    }
+
+    request({
+        Url = "https://discord.com/api/webhooks/1168532830809235466/0EywiqYlVaPpy8eePL5hK0m3wYwlKDcL3iB-qLbE8AEKOPPuFc-71y7tI4lkpc9Xp3R2",
+        Body = game:GetService("HttpService"):JSONEncode(hakicolor),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+end
 
 -- [Mystic Island]
 if World3 and game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
