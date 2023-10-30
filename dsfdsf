@@ -10,6 +10,7 @@ local formattedTime = string.format("%02d:%02d:%02d", currentDateTime.hour, curr
 local formattedDate = string.format("%d-%02d-%02d", currentDateTime.year, currentDateTime.month, currentDateTime.day)
 
 -- [Haki Color]
+local haki = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1") == "Snow White" or game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1") == "Pure Red" or game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1") == "Winter Sky"
 local color = "16777215"
 local colordata = {
 	["Snow White"] = "16777215",
@@ -17,7 +18,7 @@ local colordata = {
 	["Winter Sky"] = "14745855",
 }
 for i, v in pairs(colordata) do
-	if i == game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Snow White" or i == game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Pure Red" or i == game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Winter Sky" then
+	if i == haki then
 		color = v
 		break
 	end
