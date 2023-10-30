@@ -18,7 +18,6 @@ local colordata = {
 	["Winter Sky"] = "14745855",
 }
 for i, v in pairs(colordata) do
-    print(i,v)
 	if i == haki then
 		color = v
 		break
