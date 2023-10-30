@@ -1,4 +1,6 @@
 -- [Main Requiment Webhook]
+local PlayerCount = #game.Players:GetPlayers()
+
 local timeZoneOffset = 25200 -- 7 hours ahead of UTC
 
 local currentUnixTime = os.time()
