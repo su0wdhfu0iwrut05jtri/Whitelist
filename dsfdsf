@@ -55,7 +55,7 @@ local hakicolor = {
     }
 }
 request({
-    Url = "https://discord.com/api/webhooks/1168531590784229426/-77FgjnreITASp_H2MbXfbtZOyl6Vm6EgXVsK2oZcLH2bCzyMq-QeMtOBLYH_PEdL-YM",
+    Url = "https://discord.com/api/webhooks/1168532830809235466/0EywiqYlVaPpy8eePL5hK0m3wYwlKDcL3iB-qLbE8AEKOPPuFc-71y7tI4lkpc9Xp3R2",
     Body = game:GetService("HttpService"):JSONEncode(hakicolor),
     Method = "POST",
     Headers = {["content-type"] = "application/json"}
@@ -102,7 +102,7 @@ if World3 and game:GetService("Workspace").Map:FindFirstChild("MysticIsland") th
         }
     }
     request({
-        Url = "https://discord.com/api/webhooks/1168531590784229426/-77FgjnreITASp_H2MbXfbtZOyl6Vm6EgXVsK2oZcLH2bCzyMq-QeMtOBLYH_PEdL-YM",
+        Url = "https://discord.com/api/webhooks/1168532960014774312/8ZHSUJ5WEOPWmbfCrRZ1j369N9u0FZwgbTu6-W4qDlk08FALCNQ0kjY6cjlZvJ0FNgtG",
         Body = game:GetService("HttpService"):JSONEncode(mirage),
         Method = "POST",
         Headers = {["content-type"] = "application/json"}
@@ -148,7 +148,7 @@ elseif World3 and game:GetService("Lighting").Sky.MoonTextureId=="http://www.rob
         }
     }
     request({
-        Url = "https://discord.com/api/webhooks/1168531590784229426/-77FgjnreITASp_H2MbXfbtZOyl6Vm6EgXVsK2oZcLH2bCzyMq-QeMtOBLYH_PEdL-YM",
+        Url = "https://discord.com/api/webhooks/1168532286606684282/6mdbKXlWgX6hqDIzgrAe6ugLtzBzVa2uJU7yreYZQr_a2RTyzUzociAzUKR0lnXT_BkK",
         Body = game:GetService("HttpService"):JSONEncode(moon),
         Method = "POST",
         Headers = {["content-type"] = "application/json"}
@@ -561,7 +561,7 @@ for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
         end
     end
     request({
-        Url = "https://discord.com/api/webhooks/1156577331452846110/gGEnoSM8pM3D_D_n6qyAgs_LaQDM9eQI39FuexAUr6PUJD4aStKyXRanCiK9QKwbdY5c",
+        Url = "https://discord.com/api/webhooks/1168532194009022625/MR6jflZpU7l2Z-6myIRwl2qxpbyAoPQqeIk2fGioUQ6H_ZV1C1iXPponw901rWRE2PMn",
         Body = game:GetService("HttpService"):JSONEncode(data),
         Method = "POST",
         Headers = {["content-type"] = "application/json"}
