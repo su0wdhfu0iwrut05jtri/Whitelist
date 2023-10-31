@@ -159,15 +159,14 @@ local colordata = {
 	["Pure Red"] = "16711680",
 	["Winter Sky"] = "14745855",
 }
-for i, v in pairs(colordata) do
-	if i == string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "") then
-		color = v
-		break
-    else
-        print("nil")
+pcall(function()
+    for i, v in pairs(colordata) do
+        if i == string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "") then
+            color = v
+            break
+        end
     end
-end
-
+end)    
 local bijix = {
     ["content"] = "",
     ["username"] = "Normal Haki Checker",
