@@ -40,6 +40,9 @@ if not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServ
                     {
                         ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
                         ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    },
+                    {
+                        ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
                     }
                 },
                 ["footer"] = {
@@ -78,6 +81,9 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
                     {
                         ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
                         ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    },
+                    {
+                        ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
                     }
                 },
                 ["footer"] = {
@@ -116,6 +122,9 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
                     {
                         ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
                         ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    },
+                    {
+                        ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
                     }
                 },
                 ["footer"] = {
@@ -188,6 +197,9 @@ local bijix = {
                 {
                     ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
                     ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                },
+                {
+                    ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
                 }
             },
             ["footer"] = {
@@ -299,9 +311,6 @@ elseif World3 and game:GetService("Lighting").Sky.MoonTextureId=="http://www.rob
                     {
                         ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
                         ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
-                    },
-                    {
-                        ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
                     },
                     {
                         ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
