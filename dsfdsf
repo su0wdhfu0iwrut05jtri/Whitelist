@@ -184,8 +184,8 @@ if World3 and game:GetService("Workspace").Map:FindFirstChild("MysticIsland") th
                 ["color"] = tonumber(0xf1c40f),
                 ["fields"] = {
                     {
-                        ["name"] = "**[🏝️] Mirrage Status:**",
-                        ["value"] = "``` Mirrage Island Spawn : ✅ ```"
+                        ["name"] = "**[🏝️] Mirage Status:**",
+                        ["value"] = "``` Mirage Island Spawn : ✅ ```"
                     },
                     {
                         ["name"] = "**[ 🌕 ] Moon Phase :**",
