@@ -152,6 +152,487 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
         Method = "POST",
         Headers = {["content-type"] = "application/json"}
     })
+-- [Normal Haki]
+elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Orange Soda" then
+    local normalmek = {
+        ["content"] = "",
+        ["username"] = "Normal Haki",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Normal Haki Color Checker**",
+                ["color"] = 16741120,
+                ["fields"] = {
+                    {
+                        ["name"] = "[ 💎 ]  Color :",
+                        ["value"] = "``` Orange Soda ```"
+                    },
+                    {
+                        ["name"] = "[ 👥 ]  Players In Server :",
+                        ["value"] = "```"..PlayerCount.."/12".."```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    },
+                    {
+                        ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
+                }
+            }
+        }
+    }
+
+    request({
+        Url = "https://discord.com/api/webhooks/1168544203198963784/rGnoDvwe_5eOnoIB_-6LmhB2JrpHsQ5jLoAH_DdU-8cJAyQrGmUGLQnVZpwZScnelUzh",
+        Body = game:GetService("HttpService"):JSONEncode(normalmek),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Bright Yellow" then
+    local normalmek = {
+        ["content"] = "",
+        ["username"] = "Normal Haki",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Normal Haki Color Checker**",
+                ["color"] = 16774912,
+                ["fields"] = {
+                    {
+                        ["name"] = "[ 💎 ]  Color :",
+                        ["value"] = "``` Bright Yellow ```"
+                    },
+                    {
+                        ["name"] = "[ 👥 ]  Players In Server :",
+                        ["value"] = "```"..PlayerCount.."/12".."```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    },
+                    {
+                        ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
+                }
+            }
+        }
+    }
+
+    request({
+        Url = "https://discord.com/api/webhooks/1168544203198963784/rGnoDvwe_5eOnoIB_-6LmhB2JrpHsQ5jLoAH_DdU-8cJAyQrGmUGLQnVZpwZScnelUzh",
+        Body = game:GetService("HttpService"):JSONEncode(normalmek),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Yellow Sunshine" then
+    local normalmek = {
+        ["content"] = "",
+        ["username"] = "Normal Haki",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Normal Haki Color Checker**",
+                ["color"] = 16769280,
+                ["fields"] = {
+                    {
+                        ["name"] = "[ 💎 ]  Color :",
+                        ["value"] = "``` Yellow Sunshine ```"
+                    },
+                    {
+                        ["name"] = "[ 👥 ]  Players In Server :",
+                        ["value"] = "```"..PlayerCount.."/12".."```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    },
+                    {
+                        ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
+                }
+            }
+        }
+    }
+
+    request({
+        Url = "https://discord.com/api/webhooks/1168544203198963784/rGnoDvwe_5eOnoIB_-6LmhB2JrpHsQ5jLoAH_DdU-8cJAyQrGmUGLQnVZpwZScnelUzh",
+        Body = game:GetService("HttpService"):JSONEncode(normalmek),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Slimy Green" then
+    local normalmek = {
+        ["content"] = "",
+        ["username"] = "Normal Haki",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Normal Haki Color Checker**",
+                ["color"] = 2031360,
+                ["fields"] = {
+                    {
+                        ["name"] = "[ 💎 ]  Color :",
+                        ["value"] = "``` Slimy Green ```"
+                    },
+                    {
+                        ["name"] = "[ 👥 ]  Players In Server :",
+                        ["value"] = "```"..PlayerCount.."/12".."```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    },
+                    {
+                        ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
+                }
+            }
+        }
+    }
+
+    request({
+        Url = "https://discord.com/api/webhooks/1168544203198963784/rGnoDvwe_5eOnoIB_-6LmhB2JrpHsQ5jLoAH_DdU-8cJAyQrGmUGLQnVZpwZScnelUzh",
+        Body = game:GetService("HttpService"):JSONEncode(normalmek),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Green Lizard" then
+    local normalmek = {
+        ["content"] = "",
+        ["username"] = "Normal Haki",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Normal Haki Color Checker**",
+                ["color"] = 12582656,
+                ["fields"] = {
+                    {
+                        ["name"] = "[ 💎 ]  Color :",
+                        ["value"] = "``` Green Lizard ```"
+                    },
+                    {
+                        ["name"] = "[ 👥 ]  Players In Server :",
+                        ["value"] = "```"..PlayerCount.."/12".."```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    },
+                    {
+                        ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
+                }
+            }
+        }
+    }
+
+    request({
+        Url = "https://discord.com/api/webhooks/1168544203198963784/rGnoDvwe_5eOnoIB_-6LmhB2JrpHsQ5jLoAH_DdU-8cJAyQrGmUGLQnVZpwZScnelUzh",
+        Body = game:GetService("HttpService"):JSONEncode(normalmek),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Blue Jean" then
+    local normalmek = {
+        ["content"] = "",
+        ["username"] = "Normal Haki",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Normal Haki Color Checker**",
+                ["color"] = 39423,
+                ["fields"] = {
+                    {
+                        ["name"] = "[ 💎 ]  Color :",
+                        ["value"] = "``` Blue Jean ```"
+                    },
+                    {
+                        ["name"] = "[ 👥 ]  Players In Server :",
+                        ["value"] = "```"..PlayerCount.."/12".."```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    },
+                    {
+                        ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
+                }
+            }
+        }
+    }
+
+    request({
+        Url = "https://discord.com/api/webhooks/1168544203198963784/rGnoDvwe_5eOnoIB_-6LmhB2JrpHsQ5jLoAH_DdU-8cJAyQrGmUGLQnVZpwZScnelUzh",
+        Body = game:GetService("HttpService"):JSONEncode(normalmek),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Plump Purple" then
+    local normalmek = {
+        ["content"] = "",
+        ["username"] = "Normal Haki",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Normal Haki Color Checker**",
+                ["color"] = 8388736,
+                ["fields"] = {
+                    {
+                        ["name"] = "[ 💎 ]  Color :",
+                        ["value"] = "``` Plump Purple ```"
+                    },
+                    {
+                        ["name"] = "[ 👥 ]  Players In Server :",
+                        ["value"] = "```"..PlayerCount.."/12".."```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    },
+                    {
+                        ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
+                }
+            }
+        }
+    }
+
+    request({
+        Url = "https://discord.com/api/webhooks/1168544203198963784/rGnoDvwe_5eOnoIB_-6LmhB2JrpHsQ5jLoAH_DdU-8cJAyQrGmUGLQnVZpwZScnelUzh",
+        Body = game:GetService("HttpService"):JSONEncode(normalmek),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Fiery Rose" then
+    local normalmek = {
+        ["content"] = "",
+        ["username"] = "Normal Haki",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Normal Haki Color Checker**",
+                ["color"] = 16711791,
+                ["fields"] = {
+                    {
+                        ["name"] = "[ 💎 ]  Color :",
+                        ["value"] = "``` Fiery Rose ```"
+                    },
+                    {
+                        ["name"] = "[ 👥 ]  Players In Server :",
+                        ["value"] = "```"..PlayerCount.."/12".."```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    },
+                    {
+                        ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
+                }
+            }
+        }
+    }
+
+    request({
+        Url = "https://discord.com/api/webhooks/1168544203198963784/rGnoDvwe_5eOnoIB_-6LmhB2JrpHsQ5jLoAH_DdU-8cJAyQrGmUGLQnVZpwZScnelUzh",
+        Body = game:GetService("HttpService"):JSONEncode(normalmek),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Heat Wave" then
+    local normalmek = {
+        ["content"] = "",
+        ["username"] = "Normal Haki",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Normal Haki Color Checker**",
+                ["color"] = 16730112,
+                ["fields"] = {
+                    {
+                        ["name"] = "[ 💎 ]  Color :",
+                        ["value"] = "``` Heat Wave ```"
+                    },
+                    {
+                        ["name"] = "[ 👥 ]  Players In Server :",
+                        ["value"] = "```"..PlayerCount.."/12".."```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    },
+                    {
+                        ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
+                }
+            }
+        }
+    }
+
+    request({
+        Url = "https://discord.com/api/webhooks/1168544203198963784/rGnoDvwe_5eOnoIB_-6LmhB2JrpHsQ5jLoAH_DdU-8cJAyQrGmUGLQnVZpwZScnelUzh",
+        Body = game:GetService("HttpService"):JSONEncode(normalmek),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Absolute Zero" then
+    local normalmek = {
+        ["content"] = "",
+        ["username"] = "Normal Haki",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
+                },
+                ["type"] = "rich",
+                ["title"] = "**Normal Haki Color Checker**",
+                ["color"] = 209,
+                ["fields"] = {
+                    {
+                        ["name"] = "[ 💎 ]  Color :",
+                        ["value"] = "``` Absolute Zero ```"
+                    },
+                    {
+                        ["name"] = "[ 👥 ]  Players In Server :",
+                        ["value"] = "```"..PlayerCount.."/12".."```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ] Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    },
+                    {
+                        ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
+                }
+            }
+        }
+    }
+
+    request({
+        Url = "https://discord.com/api/webhooks/1168544203198963784/rGnoDvwe_5eOnoIB_-6LmhB2JrpHsQ5jLoAH_DdU-8cJAyQrGmUGLQnVZpwZScnelUzh",
+        Body = game:GetService("HttpService"):JSONEncode(normalmek),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
 end
 
 -- [Mystic Island]
@@ -184,7 +665,7 @@ if World3 and game:GetService("Workspace").Map:FindFirstChild("MysticIsland") th
                 ["color"] = tonumber(0xf1c40f),
                 ["fields"] = {
                     {
-                        ["name"] = "**[🏝️] Mirage Status:**",
+                        ["name"] = "**[🏝️] Mirrage Status:**",
                         ["value"] = "``` Mirage Island Spawn : ✅ ```"
                     },
                     {
