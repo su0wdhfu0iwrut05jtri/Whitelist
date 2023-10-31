@@ -162,58 +162,58 @@ local colordata = {
 pcall(function()
     local hakitol = string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "")
     for i, v in pairs(colordata) do
-        if i == string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "") then
+        if i == hakitol then
             color = v
             break
         end
     end
-end)    
-local bijix = {
-    ["content"] = "",
-    ["username"] = "Normal Haki Checker",
-    ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
-    ["embeds"] = {
-        {   
-            ["author"] = {
-                ["name"] = "Thunder Z | https://discord.gg/EAasK6nBMr",
-                ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
-            },
-            ["type"] = "rich",
-            ["title"] = "**Haki Color Checker**",
-            ["color"] = color,
-            ["fields"] = {
-                {
-                    ["name"] = "[ 💎 ]  Color :",
-                    ["value"] = "```"..hakitol.."```"
+    local bijix = {
+        ["content"] = "",
+        ["username"] = "Normal Haki Checker",
+        ["avatar_url"] = "https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png",
+        ["embeds"] = {
+            {   
+                ["author"] = {
+                    ["name"] = "Thunder Z | https://discord.gg/EAasK6nBMr",
+                    ["icon_url"] = 'https://cdn.discordapp.com/attachments/962302731308105758/1071360247781924955/THUNDERZ_HUB_4.png'
                 },
-                {
-                    ["name"] = "[ 👥 ]  Players In Server :",
-                    ["value"] = "```"..PlayerCount.."/12".."```"
+                ["type"] = "rich",
+                ["title"] = "**Haki Color Checker**",
+                ["color"] = color,
+                ["fields"] = {
+                    {
+                        ["name"] = "[ 💎 ]  Color :",
+                        ["value"] = "```"..hakitol.."```"
+                    },
+                    {
+                        ["name"] = "[ 👥 ]  Players In Server :",
+                        ["value"] = "```"..PlayerCount.."/12".."```"
+                    },
+                    {
+                        ["name"] = "[ 📃 ]  Job Id :",
+                        ["value"] = "```"..game.JobId.."```"
+                    },
+                    {
+                        ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
+                        ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
+                    },
+                    {
+                        ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
+                    }
                 },
-                {
-                    ["name"] = "[ 📃 ]  Job Id :",
-                    ["value"] = "```"..game.JobId.."```"
-                },
-                {
-                    ["name"] = "[ 🔗 ]  Join Server - Execute this to join Server :",
-                    ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
-                },
-                {
-                    ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
+                ["footer"] = {
+                    ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
-            },
-            ["footer"] = {
-                ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
             }
         }
     }
-}
-request({
-    Url = "https://discord.com/api/webhooks/1168544203198963784/rGnoDvwe_5eOnoIB_-6LmhB2JrpHsQ5jLoAH_DdU-8cJAyQrGmUGLQnVZpwZScnelUzh",
-    Body = game:GetService("HttpService"):JSONEncode(bijix),
-    Method = "POST",
-    Headers = {["content-type"] = "application/json"}
-})
+    request({
+        Url = "https://discord.com/api/webhooks/1168544203198963784/rGnoDvwe_5eOnoIB_-6LmhB2JrpHsQ5jLoAH_DdU-8cJAyQrGmUGLQnVZpwZScnelUzh",
+        Body = game:GetService("HttpService"):JSONEncode(bijix),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
+end)    
 -- [Mystic Island]
 if World3 and game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
     if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
