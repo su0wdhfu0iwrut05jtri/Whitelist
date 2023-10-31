@@ -1,6 +1,5 @@
 -- [Main Requiment Webhook]
 local PlayerCount = #game.Players:GetPlayers()
-
 local timeZoneOffset = 25200 -- 7 hours ahead of UTC
 
 local currentUnixTime = os.time()
@@ -8,7 +7,14 @@ local currentDateTime = os.date("*t", currentUnixTime + timeZoneOffset)
 
 local formattedTime = string.format("%02d:%02d:%02d", currentDateTime.hour, currentDateTime.min, currentDateTime.sec)
 local formattedDate = string.format("%d-%02d-%02d", currentDateTime.year, currentDateTime.month, currentDateTime.day)
-
+-- [Place Id Check]
+if game.PlaceId == 2753915549 then
+    World1 = true
+elseif game.PlaceId == 4442272183 then
+    World2 = true
+elseif game.PlaceId == 7449423635 then
+    World3 = true
+end
 -- [Legendary Haki Color]
 if not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Snow White" then
     local hakicolor = {
