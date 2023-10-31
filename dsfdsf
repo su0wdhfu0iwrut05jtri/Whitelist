@@ -51,6 +51,12 @@ if not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServ
             }
         }
     }
+    request({
+        Url = "https://discord.com/api/webhooks/1168532830809235466/0EywiqYlVaPpy8eePL5hK0m3wYwlKDcL3iB-qLbE8AEKOPPuFc-71y7tI4lkpc9Xp3R2",
+        Body = game:GetService("HttpService"):JSONEncode(hakicolor),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
 elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Pure Red" then
     local hakicolor = {
         ["content"] = "",
@@ -92,6 +98,12 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
             }
         }
     }
+    request({
+        Url = "https://discord.com/api/webhooks/1168532830809235466/0EywiqYlVaPpy8eePL5hK0m3wYwlKDcL3iB-qLbE8AEKOPPuFc-71y7tI4lkpc9Xp3R2",
+        Body = game:GetService("HttpService"):JSONEncode(hakicolor),
+        Method = "POST",
+        Headers = {["content-type"] = "application/json"}
+    })
 elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1") == "Winter Sky" then
     local hakicolor = {
         ["content"] = "",
@@ -159,15 +171,16 @@ local colordata = {
 	["Pure Red"] = "16711680",
 	["Winter Sky"] = "14745855",
 }
-local sempak = nil
+local sempak = {}
     
 for i, v in pairs(colordata) do
-    if i == string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "") then
+    if i == string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "") == nil then
+        print("nil")
+    elseif i == string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "") then
         print(i,v)
         color = v
+        table.insert(i,sempak)
         break
-    elseif i == string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "") == nil then
-        print("Nil")
     end
 end
 local bijix = {
@@ -186,7 +199,7 @@ local bijix = {
             ["fields"] = {
                 {
                     ["name"] = "[ 💎 ]  Color :",
-                    ["value"] = "```"..string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "").."```"
+                    ["value"] = "```"..sempak.."```"
                 },
                 {
                     ["name"] = "[ 👥 ]  Players In Server :",
