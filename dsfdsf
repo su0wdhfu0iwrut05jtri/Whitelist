@@ -160,6 +160,7 @@ local colordata = {
 	["Winter Sky"] = "14745855",
 }
 pcall(function()
+    local hakitol = string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "")
     for i, v in pairs(colordata) do
         if i == string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "") then
             color = v
@@ -183,7 +184,7 @@ local bijix = {
             ["fields"] = {
                 {
                     ["name"] = "[ 💎 ]  Color :",
-                    ["value"] = "```"..string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "").."```"
+                    ["value"] = "```"..hakitol.."```"
                 },
                 {
                     ["name"] = "[ 👥 ]  Players In Server :",
