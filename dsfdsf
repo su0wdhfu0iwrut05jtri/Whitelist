@@ -174,7 +174,7 @@ local colordata = {
 local sempak = {}
     
 for i, v in pairs(colordata) do
-    if string.find(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "") == nil then
+    if not i == string.gsub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","1"), "%d+", "") then
         print("nil")
     elseif i == string.gsub(game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1"), "%d+", "") then
         print(i,v)
