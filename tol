@@ -16,6 +16,247 @@ if not game:IsLoaded() then
 end;
 
 if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local ThunderNotification = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThunderZ-05/HUB/main/Main/UI/Notification')))()
+
+_G.Settings = {
+
+	Main = {
+		--_G.Settings.Main[""]
+		["Auto Farm Level"] = false,
+		["Fast Farm Level"] = false,
+		["Auto Farm Select Monster"] = false,
+		["Auto Nearest"] = false,
+		["Sea Beast"] = false,
+		["Select Boats"] = 1,
+		["Drive Boat"] = false,
+		["Boss List"] = 1,
+		["Auto Farm Boss"] = false,
+		["Auto Farm All Boss"] = false,
+		["Auto Farm Boss Hop"] = false,
+		--Mastery
+		["Auto Farm Fruit Mastery"] = false,
+		["Auto Farm Gun Mastey"] = false,
+		["Type Mastery"] = 1,
+		["Distance Mastery"] = 10,
+		--Setting Mastery
+		["Kill At"] = 20,
+		["Use Skill"] = {},
+		["Hold Skill"] = {},
+
+		--Items
+		["Items Drop"] = false,
+		["Select Item"] = 1,
+		["Hop Item Drop"] = false,
+
+		--World 1
+		["Auto Second Sea"] = false,
+		["Auto Saber Quest"] = false,
+
+		--World 2
+		["Auto Third Sea"] = false,
+		["Auto Ectoplasm"] = false,
+		["Auto Factory"] = false,
+		["Auto Factory Hop"] = false,
+		["Auto Don Swan Quest"] = false,
+		["Auto Bartilo Quest"] = false,
+		--	["Legendary Sword List"] = {},
+		["Auto Legendary Sword Dealer"] = false,
+		["Auto Legendary Sword Dealer Hop"] = false,
+		["Color List"] = {},
+		["Auto Color Haki Dealer"] = false,
+		["Auto Color Haki Dealer Hop"] = false,
+
+		--World 3
+		["Pirate Raid"] = false,
+		["Auto Bone"] = false,
+		["Random Suprise"] = false,
+		["Auto KatakuriV1"] = false,
+		["Auto KatakuriV2"] = false,
+		["Auto Elite Hunter"] = false,
+		["Elite Hop"] = false,
+		["Elite Cup"] = false,
+		["Auto Rainbow Haki Quest"] = false,
+		["Auto Haki V2 Quest"] = false,
+	},
+
+	Material = {
+		["Choose"] = 1,
+		["Enable"] = false,
+	},
+
+	Observation = {
+		["Delay"] = 30,
+		["Enable"] = false,
+		["Hop"] = false,
+	},
+
+	SeaEvent = {
+		-- Mirage
+		["Auto Spawn Mirage"] = false,
+		-- Rough Sea
+		["Auto Rough Sea"] = false,
+		["Auto Kill Shark"] = false,
+		["Auto Kill Terror Shark"] = false,
+		["Auto Kill Ship"] = false,
+		["Auto Kill Sea Beast"] = false,
+		["Auto Kill Piranha"] = false,
+		["Auto Kill Leviathan"] = false,
+	},
+
+	Dungeon = {
+		["Auto Farm Dungeon"] = false,
+		["Select Fruit Rarity"] = 1,
+		["Chip"] = 1,
+		-- Manual Raid
+		["Auto Next Island"] = false,
+		["Kill Aura"] = false,
+		["Auto Awakener"] = false,
+		-- Law Raid
+		["Auto Law Raid"] = false,
+	},
+
+	Chest = {
+		["Tween Chest"] = false,
+		["Instant Chest"] = false,
+		["God Chalice"] = false,
+		["Fist of Darkness"] = false,
+		["Hop"] = false,
+	},
+
+	Sword = {
+		["Tushita"] = false,
+		["Yama"] = false,
+		["Rengoku"] = false,
+		["Scythe"] = false,
+		--[Hop]
+		["Tushita Hop"] = false,
+		["Scythe Hop"] = false,
+
+	},
+
+	Stats = {
+		["Dropdown Stats"] = {},
+		["Point Stats"] = 1,
+	},
+	
+	FightingStyle = {
+
+	},
+
+	Ability = {
+		["Inf Ability"] = true,
+		["Inf Geppo"] = false,
+		["Inf Soru"] = false,
+		["Inf Energy"] = false,
+		["Water Walk"] = false,
+		["Dodge No CD"] = false,
+	},
+
+	Mirage = {
+		["Spawn"] = false,
+		["Fog"] = false,
+		["Hop"] = false,
+		["ESP"] = false,
+	},
+
+	Config = {
+		--_G.Settings.Config[""]
+		["Double Quest"] = false,
+		["Bypass TP"] = false,
+		["Select Team"] = 1, --{Pirate,Marine}
+		["Start Magnet"] = true,
+		["Rejoin"] = true,
+		["Remove Effect"] = false,	
+		["Distance Enemy"] = 30,
+
+		["Fast Attack"] = true,
+		["Fast Attack Delay"] = 0.050, --{Normal,Fast,Slow}
+
+		["Weapon Type"] = 1,
+	},
+}
+
+-- [Save Settings]
+
+function LoadSettings()
+	if readfile and writefile and isfile and isfolder then
+		if not isfolder("ThunderZ Hub") then
+			makefolder("ThunderZ Hub")
+		end
+		if not isfolder("ThunderZ Hub/Blox Fruits/") then
+			makefolder("ThunderZ Hub/Blox Fruits/")
+		end
+		if not isfile("ThunderZ Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json") then
+			writefile("ThunderZ Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", game:GetService("HttpService"):JSONEncode(_G.Settings))
+		else
+			local Decode = game:GetService("HttpService"):JSONDecode(readfile("ThunderZ Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"))
+			for i,v in pairs(Decode) do
+				_G.Settings[i] = v
+			end
+		end
+	else
+		return warn("Status : Undetected Executor")
+	end
+end
+
+function SaveSettings()
+	if readfile and writefile and isfile and isfolder then
+		if not isfile("ThunderZ Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json") then
+			LoadSettings()
+		else
+			local Decode = game:GetService("HttpService"):JSONDecode(readfile("ThunderZ Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"))
+			local Array = {}
+			for i,v in pairs(_G.Settings) do
+				Array[i] = v
+			end
+			writefile("ThunderZ Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", game:GetService("HttpService"):JSONEncode(Array))
+		end
+	else
+		return warn("Status : Undetected Executor")
+	end
+end
+
+LoadSettings()
+
+if game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+	repeat wait()
+		if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseTeam.Visible == true then
+			if _G.Settings.Config["Select Team"] == "Pirate" then
+				for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
+					v.Function()
+				end
+			elseif _G.Settings.Config["Select Team"] == "Marine" then
+				for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Marines.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
+					v.Function()
+				end
+			else
+				for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
+					v.Function()
+				end
+			end
+		end
+	until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+end
+
+
+-- [Place Id Check]
+if game.PlaceId == 2753915549 then
+	World1 = true
+elseif game.PlaceId == 4442272183 then
+	World2 = true
+elseif game.PlaceId == 7449423635 then
+	World3 = true
+end
+
+-- [Anti AFK]
+
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+	game:GetService("VirtualUser"):Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	wait(1)
+	game:GetService("VirtualUser"):Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
 
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -684,7 +925,7 @@ function KeySystem()
 	end)
 end
 
-task.spawn(function()
+spawn(function()
 	local queueteleport = syn and syn.queue_on_teleport or queue_on_teleport or fluxus and fluxus.queue_on_teleport
 	local hasExistingKey = isfile("THUNDERZKey.txt")
 	if hasExistingKey and hasExistingKey ~= nil then
@@ -713,248 +954,11 @@ task.spawn(function()
 			KeySystem()
 		end
 	elseif not hasExistingKey then
+		writefile("THUNDERZKey.txt","THUNDERZ_R5")
+		wait(1)
 		KeySystem()
 	end
 end)
-
-_G.Settings = {
-
-	Main = {
-		--_G.Settings.Main[""]
-		["Auto Farm Level"] = false,
-		["Fast Farm Level"] = false,
-		["Auto Farm Select Monster"] = false,
-		["Auto Nearest"] = false,
-		["Sea Beast"] = false,
-		["Select Boat"] = {"MarineBrigade"},
-		["Drive Boat"] = false,
-		["Boss List"] = 1,
-		["Auto Farm Boss"] = false,
-		["Auto Farm All Boss"] = false,
-		["Auto Farm Boss Hop"] = false,
-		--Mastery
-		["Auto Farm Fruit Mastery"] = false,
-		["Auto Farm Gun Mastey"] = false,
-		["Type Mastery"] = 1,
-		["Distance Mastery"] = 10,
-		--Setting Mastery
-		["Kill At"] = 20,
-		["Use Skill"] = {},
-		["Hold Skill"] = {},
-
-		--Items
-		["Items Drop"] = false,
-		["Select Item"] = 1,
-		["Hop Item Drop"] = false,
-
-		--World 1
-		["Auto Second Sea"] = false,
-		["Auto Saber Quest"] = false,
-
-		--World 2
-		["Auto Third Sea"] = false,
-		["Auto Ectoplasm"] = false,
-		["Auto Factory"] = false,
-		["Auto Factory Hop"] = false,
-		["Auto Don Swan Quest"] = false,
-		["Auto Bartilo Quest"] = false,
-		--	["Legendary Sword List"] = {},
-		["Auto Legendary Sword Dealer"] = false,
-		["Auto Legendary Sword Dealer Hop"] = false,
-		["Color List"] = {},
-		["Auto Color Haki Dealer"] = false,
-		["Auto Color Haki Dealer Hop"] = false,
-
-		--World 3
-		["Pirate Raid"] = false,
-		["Auto Bone"] = false,
-		["Random Suprise"] = false,
-		["Auto KatakuriV1"] = false,
-		["Auto KatakuriV2"] = false,
-		["Auto Elite Hunter"] = false,
-		["Elite Hop"] = false,
-		["Elite Cup"] = false,
-		["Auto Rainbow Haki Quest"] = false,
-		["Auto Haki V2 Quest"] = false,
-	},
-
-	Material = {
-		["Choose"] = 1,
-		["Enable"] = false,
-	},
-
-	Observation = {
-		["Delay"] = 30,
-		["Enable"] = false,
-		["Hop"] = false,
-	},
-
-	SeaEvent = {
-		-- Mirage
-		["Auto Spawn Mirage"] = false,
-		-- Rough Sea
-		["Auto Rough Sea"] = false,
-		["Auto Kill Shark"] = false,
-		["Auto Kill Terror Shark"] = false,
-		["Auto Kill Ship"] = false,
-		["Auto Kill Sea Beast"] = false,
-		["Auto Kill Piranha"] = false,
-		["Auto Kill Leviathan"] = false,
-	},
-
-	Dungeon = {
-		["Auto Farm Dungeon"] = false,
-		["Select Fruit Rarity"] = 1,
-		["Chip"] = 1,
-		-- Manual Raid
-		["Auto Next Island"] = false,
-		["Kill Aura"] = false,
-		["Auto Awakener"] = false,
-		-- Law Raid
-		["Auto Law Raid"] = false,
-	},
-
-	Chest = {
-		["Tween Chest"] = false,
-		["Instant Chest"] = false,
-		["God Chalice"] = false,
-		["Fist of Darkness"] = false,
-		["Hop"] = false,
-	},
-
-	Sword = {
-		["Tushita"] = false,
-		["Yama"] = false,
-		["Rengoku"] = false,
-		["Scythe"] = false,
-		--[Hop]
-		["Tushita Hop"] = false,
-		["Scythe Hop"] = false,
-
-	},
-
-	Stats = {
-		["Dropdown Stats"] = {},
-		["Point Stats"] = 1,
-	},
-	
-	FightingStyle = {
-
-	},
-
-	Ability = {
-		["Inf Ability"] = true,
-		["Inf Geppo"] = false,
-		["Inf Soru"] = false,
-		["Inf Energy"] = false,
-		["Water Walk"] = false,
-		["Dodge No CD"] = false,
-	},
-
-	Mirage = {
-		["Spawn"] = false,
-		["Fog"] = false,
-		["Hop"] = false,
-		["ESP"] = false,
-	},
-
-	Config = {
-		--_G.Settings.Config[""]
-		["Double Quest"] = false,
-		["Bypass TP"] = false,
-		["Select Team"] = 1, --{Pirate,Marine}
-		["Start Magnet"] = true,
-		["Rejoin"] = true,
-		["Remove Effect"] = false,	
-		["Distance Enemy"] = 30,
-
-		["Fast Attack"] = true,
-		["Fast Attack Delay"] = 0.050, --{Normal,Fast,Slow}
-
-		["Weapon Type"] = 1,
-	},
-}
-
--- [Save Settings]
-
-function LoadSettings()
-	if readfile and writefile and isfile and isfolder then
-		if not isfolder("ThunderZ Hub") then
-			makefolder("ThunderZ Hub")
-		end
-		if not isfolder("ThunderZ Hub/Blox Fruits/") then
-			makefolder("ThunderZ Hub/Blox Fruits/")
-		end
-		if not isfile("ThunderZ Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json") then
-			writefile("ThunderZ Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", game:GetService("HttpService"):JSONEncode(_G.Settings))
-		else
-			local Decode = game:GetService("HttpService"):JSONDecode(readfile("ThunderZ Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"))
-			for i,v in pairs(Decode) do
-				_G.Settings[i] = v
-			end
-		end
-	else
-		return warn("Status : Undetected Executor")
-	end
-end
-
-function SaveSettings()
-	if readfile and writefile and isfile and isfolder then
-		if not isfile("ThunderZ Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json") then
-			LoadSettings()
-		else
-			local Decode = game:GetService("HttpService"):JSONDecode(readfile("ThunderZ Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"))
-			local Array = {}
-			for i,v in pairs(_G.Settings) do
-				Array[i] = v
-			end
-			writefile("ThunderZ Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", game:GetService("HttpService"):JSONEncode(Array))
-		end
-	else
-		return warn("Status : Undetected Executor")
-	end
-end
-
-LoadSettings()
-
-if game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
-	repeat wait()
-		if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseTeam.Visible == true then
-			if _G.Settings.Config["Select Team"] == "Pirate" then
-				for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
-					v.Function()
-				end
-			elseif _G.Settings.Config["Select Team"] == "Marine" then
-				for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Marines.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
-					v.Function()
-				end
-			else
-				for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
-					v.Function()
-				end
-			end
-		end
-	until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
-end
-
-
--- [Place Id Check]
-if game.PlaceId == 2753915549 then
-	World1 = true
-elseif game.PlaceId == 4442272183 then
-	World2 = true
-elseif game.PlaceId == 7449423635 then
-	World3 = true
-end
-
--- [Anti AFK]
-
-game:GetService("Players").LocalPlayer.Idled:connect(function()
-	game:GetService("VirtualUser"):Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-	wait(1)
-	game:GetService("VirtualUser"):Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-end)
-
 
 function LoadScript()
 	-- [Functions Equip Weapon]
@@ -1048,8 +1052,8 @@ function LoadScript()
 
 	function ShipTP(CFgo)
 		local tween_s = game:service"TweenService"
-		local info = TweenInfo.new((game:GetService("Workspace").Boats(_G.Settings.Main["Select Boat"]).VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/300, Enum.EasingStyle.Linear)
-		tween = tween_s:Create(game:GetService("Workspace").Boats(_G.Settings.Main["Select Boat"]).VehicleSeat, info, {CFrame = CFgo})
+		local info = TweenInfo.new((game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/300, Enum.EasingStyle.Linear)
+		tween = tween_s:Create(game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat, info, {CFrame = CFgo})
 		tween:Play()
 	
 		local tweenfunc = {}
@@ -12457,6 +12461,19 @@ function LoadScript()
 		_G.Settings.Main["Auto Color Haki Dealer Hop"] = false
 	end
 
+	local Melaut = Tabs.LautFunction:AddSection("[ Boat's ]")
+	Melaut:AddDropdown("Kapal", {
+		Title = "Select Boat",
+		Values = {"PirateGrandBrigade","MarineGrandBrigade","Guardian","MarineBrigade","Enforcer","Swan","Flower","RocketBoost","PirateBrigade","PirateBasic","MarineBasic"},
+		Multi = false,
+		Default = _G.Settings.Main["Select Boats"],
+	})
+
+	Options.Kapal:OnChanged(function()
+		_G.Settings.Main["Select Boats"] = Options["Kapal"].Value
+		SaveSettings()
+	end)
+
 	local AutoRoughSea = Tabs.LautFunction:AddSection("[ Rough Sea ]")
 	if World3 then
 		AutoRoughSea:AddToggle("Rough", {Title = "Auto Rough Sea", Default = _G.Settings.SeaEvent["Auto Rough Sea"]})
@@ -12540,7 +12557,280 @@ function LoadScript()
 			Title = "GO TO SEA 3",
 			Content = ""
 		})
+		_G.Settings.SeaEvent["Auto Kill Leviathan"] = false
+		_G.Settings.SeaEvent["Auto Kill Piranha"] = false
+		_G.Settings.SeaEvent["Auto Rough Sea"] = false
+		_G.Settings.SeaEvent["Auto Kill Shark"] = false
+		_G.Settings.SeaEvent["Auto Kill Terror Shark"] = false
+		_G.Settings.SeaEvent["Auto Kill Ship"] = false
+		_G.Settings.SeaEvent["Auto Kill Sea Beast"] = false
 	end
+
+	spawn(function()
+		while wait() do
+			if _G.Settings.SeaEvent["Auto Kill Ship"] and World3 then
+				pcall(function()
+					if game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") or game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") or game:GetService("Workspace").Enemies:FindFirstChild("PirateBasic") or game:GetService("Workspace").Enemies:FindFirstChild("PirateGrandBrigade") then
+						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							if v.Name == "PirateBasic" or v.Name == "PirateBrigade" or v.Name == "PirateGrandBrigade" or v.Name == "FishBoat" then
+								if v:FindFirstChild("VehicleSeat") and v:FindFirstChild("Health") and v.Health.Value > 0 then
+									repeat wait()
+										game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+										BoatAktif = true
+										FastAttack = true
+										game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+										toTargetP(v.VehicleSeat.CFrame * CFrame.new(0,30,0))
+										if not _G.Settings.Config["Fast Attack"] then
+											game:GetService("VirtualUser"):CaptureController()
+											game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+										end
+									until v.Health.Value <= 0 or not v.Parent or _G.Settings.SeaEvent["Auto Kill Ship"] == false or v.Health.Value <= 0 or not v:FindFirstChild("VehicleSeat") 
+									FastAttack = false
+									BoatAktif = false
+								end
+							end
+						end
+					end
+				end)
+			end
+		end
+	end)
+
+	spawn(function()
+		while wait() do
+			if _G.Settings.SeaEvent["Auto Kill Sea Beast"] or _G.Settings.SeaEvent["Auto Kill Leviathan"] then
+				pcall(function()                   
+					for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
+						if v:FindFirstChild("HumanoidRootPart") then
+							repeat wait()
+								BoatAktif = true
+								game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+								AutoHaki()
+								toTargetP(v.HumanoidRootPart.CFrame * CFrame.new(1,450,45))
+								game:GetService("VirtualUser"):CaptureController()
+								game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+								for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+									if v:IsA("Tool") then
+										if v.ToolTip == "Melee" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+											game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+										end
+									end
+								end
+								game:GetService("VirtualInputManager"):SendKeyEvent(true,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								game:GetService("VirtualInputManager"):SendKeyEvent(false,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								wait(.2)
+								game:GetService("VirtualInputManager"):SendKeyEvent(true,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								game:GetService("VirtualInputManager"):SendKeyEvent(false,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								wait(.2)
+								game:GetService("VirtualInputManager"):SendKeyEvent(true,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								game:GetService("VirtualInputManager"):SendKeyEvent(false,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								wait(.2)
+								game:GetService("VirtualInputManager"):SendKeyEvent(false,"C",false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+									if v:IsA("Tool") then
+										if v.ToolTip == "Blox Fruit" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+											game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+										end
+									end
+								end
+								game:GetService("VirtualInputManager"):SendKeyEvent(true,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								game:GetService("VirtualInputManager"):SendKeyEvent(false,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								wait(.2)
+								game:GetService("VirtualInputManager"):SendKeyEvent(true,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								game:GetService("VirtualInputManager"):SendKeyEvent(false,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								wait(.2)
+								game:GetService("VirtualInputManager"):SendKeyEvent(true,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								game:GetService("VirtualInputManager"):SendKeyEvent(false,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								wait(.2)
+								game:GetService("VirtualInputManager"):SendKeyEvent(true,"V",false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								game:GetService("VirtualInputManager"):SendKeyEvent(false,"V",false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								wait(0.6)
+								for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+									if v:IsA("Tool") then
+										if v.ToolTip == "Sword" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+											game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+										end
+									end
+								end
+								game:GetService("VirtualInputManager"):SendKeyEvent(true,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								game:GetService("VirtualInputManager"):SendKeyEvent(false,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								wait(.2)
+								game:GetService("VirtualInputManager"):SendKeyEvent(true,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								game:GetService("VirtualInputManager"):SendKeyEvent(false,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								wait(.2)
+								game:GetService("VirtualInputManager"):SendKeyEvent(true,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								game:GetService("VirtualInputManager"):SendKeyEvent(false,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								wait(0.5)
+								for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+									if v:IsA("Tool") then
+										if v.ToolTip == "Gun" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+											game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+										end
+									end
+								end
+								game:GetService("VirtualInputManager"):SendKeyEvent(true,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								game:GetService("VirtualInputManager"):SendKeyEvent(false,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								wait(.2)
+								game:GetService("VirtualInputManager"):SendKeyEvent(true,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								game:GetService("VirtualInputManager"):SendKeyEvent(false,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								wait(.2)
+								game:GetService("VirtualInputManager"):SendKeyEvent(true,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+								game:GetService("VirtualInputManager"):SendKeyEvent(false,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							until not v.Parent or v.Health.Value <= 0 or _G.Settings.SeaEvent["Auto Kill Sea Beast"] == false or v.Health.Value <= 0 or not v:FindFirstChild("HumanoidRootPart") or _G.Settings.SeaEvent["Auto Kill Leviathan"] == false
+							BoatAktif = false
+						end
+					end
+				end)
+			end
+		end
+	end)
+
+	spawn(function()
+		while wait() do
+			if _G.Settings.SeaEvent["Auto Kill Piranha"] and World3 then
+				pcall(function()
+					if game:GetService("Workspace").Enemies:FindFirstChild("Piranha") then
+						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							if v.Name == "Piranha" then
+								if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+									repeat wait()
+										BoatAktif = true
+										game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+										EquipWeapon(_G.Settings.Config["Select Weapon"]);
+										AutoHaki()
+										v.HumanoidRootPart.CanCollide = false
+										PosMon = v.HumanoidRootPart.CFrame
+										toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Config["Distance Enemy"],0))
+										if not _G.Settings.Config["Fast Attack"] then
+											game:GetService("VirtualUser"):CaptureController()
+											game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+										end
+										FastAttack = true
+									until not _G.Settings.SeaEvent["Auto Kill Piranha"] or not v.Parent or v.Humanoid.Health <= 0
+									FastAttack = false
+									BoatAktif = false
+								end
+							end
+						end
+					end
+				end)
+			end
+		end
+	end)
+
+	spawn(function()
+		while wait() do
+			if _G.Settings.SeaEvent["Auto Kill Shark"] and World3 then
+				pcall(function()
+					if game:GetService("Workspace").Enemies:FindFirstChild("Shark") then
+						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							if v.Name == "Shark" then
+								if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+									repeat wait()
+										game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+										BoatAktif = true
+										EquipWeapon(_G.Settings.Config["Select Weapon"]);
+										AutoHaki()
+										v.HumanoidRootPart.CanCollide = false
+										PosMon = v.HumanoidRootPart.CFrame
+										toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Config["Distance Enemy"],0))
+										if not _G.Settings.Config["Fast Attack"] then
+											game:GetService("VirtualUser"):CaptureController()
+											game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+										end
+										FastAttack = true
+									until not _G.Settings.SeaEvent["Auto Kill Shark"] or not v.Parent or v.Humanoid.Health <= 0
+									FastAttack = false
+									BoatAktif = false
+								end
+							end
+						end
+					end
+				end)
+			end
+		end
+	end)
+
+	spawn(function()
+		while wait() do
+			if _G.Settings.SeaEvent["Auto Kill Terror Shark"] and World3 then
+				pcall(function()
+					if game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") then
+						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							if v.Name == "Terrorshark" then
+								if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+									repeat wait()
+										game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+										BoatAktif = true
+										EquipWeapon(_G.Settings.Config["Select Weapon"]);
+										AutoHaki()
+										v.HumanoidRootPart.CanCollide = false
+										PosMon = v.HumanoidRootPart.CFrame
+										toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Config["Distance Enemy"],0))
+										if not _G.Settings.Config["Fast Attack"] then
+											game:GetService("VirtualUser"):CaptureController()
+											game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+										end
+										FastAttack = true
+									until not _G.Settings.SeaEvent["Auto Kill Terror Shark"] or not v.Parent or v.Humanoid.Health <= 0
+									FastAttack = false
+									BoatAktif = false
+								end
+							end
+						end
+					end
+				end)
+			end
+		end
+	end)
+
+	spawn(function()
+		while wait() do
+			if _G.Settings.SeaEvent["Auto Rough Sea"] and World3 then 
+				pcall(function()
+					if not game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]) then
+						buyb = toTargetP(CFrame.new(-16228, 9, 480))
+						if (CFrame.new(-16228, 9, 480).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
+							if buyb then buyb:Stop() end wait(.1)
+							local args = {
+								[1] = "BuyBoat",
+								[2] = _G.Settings.Main["Select Boats"]
+							}
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+						end
+					elseif game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]) then
+						if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false and BoatAktif == false then
+							toTargetP(game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat.CFrame * CFrame.new(0,1,0))
+						else
+							for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
+								if v.Name == (_G.Settings.Main["Select Boats"]) then
+									if v:FindFirstChild("Owner").Value == (game.Players.LocalPlayer.Name) then
+										repeat wait()
+											if (game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
+												for _, t in pairs(workspace.Boats:FindFirstChild(_G.Settings.Main["Select Boats"]):GetDescendants()) do
+													if t:IsA("BasePart") or v:IsA("Part") or t.ClassName == "MeshPart" then
+														t.CanCollide = false    
+													end
+												end
+												ShipTP(CFrame.new(-41750, 18, 13432))
+											end 
+										until BoatAktif == true or game:GetService("Workspace").Map:FindFirstChild("FrozenIsland") or _G.Settings.SeaEvent["Auto Rough Sea"] == false
+									else
+										local args = {
+											[1] = "BuyBoat",
+											[2] = _G.Settings.Main["Select Boats"]
+										}
+										game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+									end
+								end
+							end
+						end
+					end
+				end)
+			end
+		end
+	end)
+
 
 	if not World1 then
 		local AutoDungeon = Tabs.DungeonFunction:AddSection("[ Auto Raid ]")
