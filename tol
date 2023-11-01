@@ -870,14 +870,7 @@ function KeySystem()
 		})
 		local key = KEY_ENTER.Text; --Get from Key Tab
 		
-		if PandaAuth:ValidateKey(service_name, SecurityrandomString(10)) then
-            -- When They hooked the Validation, it always set as true, when the first key which make sure its not valid goes valid, it kick the bypaaser
-            ThunderNotification({
-                Title = "Key System",
-                Content = "Bypass Detected",
-                Delay = 2
-            })
-		elseif PandaAuth:ValidateKey(service_name, key)   then
+		if PandaAuth:ValidateKey(service_name, key)   then
 			ThunderNotification({
 				Title = "Key System",
 				Content = "Key Valid ! , Load Script",
