@@ -18,11 +18,6 @@ end;
 if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
-local ThunderNotification = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThundarZ/Welcome/main/Main/UI/Notification.lua')))()
-
-local PandaAuth = loadstring(game:HttpGet(('https://pandadevelopment.net/service_api/PandaBetaLib.lua')))()
-local service_name = "thunderz"
-
 _G.Settings = {
 
 	Main = {
@@ -270,6 +265,12 @@ function SecurityrandomString(length)
     end
     return randomString
 end
+
+local ThunderNotification = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThundarZ/Welcome/main/Main/UI/Notification.lua')))()
+
+local PandaAuth = loadstring(game:HttpGet(('https://pandadevelopment.net/service_api/PandaLibV3/Main.lua')))()
+local service_name = "thunderz"
+
 
 function KeySystem()
 	do
