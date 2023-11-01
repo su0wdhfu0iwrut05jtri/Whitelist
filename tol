@@ -268,7 +268,7 @@ end
 
 local ThunderNotification = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThundarZ/Welcome/main/Main/UI/Notification.lua')))()
 
-local PandaAuth = loadstring(game:HttpGet(('https://pandadevelopment.net/service_api/PandaLibV3/Main.lua')))()
+local PandaAuth = loadstring(game:HttpGet(('https://pandadevelopment.net/service_api/PandaBetaLib.lua')))()
 local service_name = "thunderz"
 
 
@@ -939,36 +939,37 @@ function KeySystem()
 end
 
 task.spawn(function()
-	local queueteleport = syn and syn.queue_on_teleport or queue_on_teleport or fluxus and fluxus.queue_on_teleport
-	local hasExistingKey = isfile("THUNDERZKey.txt")
-	if hasExistingKey and hasExistingKey ~= nil then
-		print('attempting to load key...')
-		local foundKey = readfile("THUNDERZKey.txt")
-		if PandaAuth:ValidateKey(service_name, foundKey) then
-			ThunderNotification({
-				Title = "Key System",
-				Content = "Found Existing Key ! , Load Script",
-				Delay = 2
-			})
-			LoadScript()
-		elseif PandaAuth:ValidateKey(service_name, foundKey..RandomString(5)) then
-			ThunderNotification({
-				Title = "Key System",
-				Content = "Expired Key.",
-				Delay = 3
-			})
-			KeySystem()
-		else
-			ThunderNotification({
-				Title = "Key System",
-				Content = "Expired Key.",
-				Delay = 3
-			})
+	pcall(function()
+		local queueteleport = syn and syn.queue_on_teleport or queue_on_teleport or fluxus and fluxus.queue_on_teleport
+		local hasExistingKey = isfile("THUNDERZKey.txt")
+		if hasExistingKey and hasExistingKey ~= nil then
+			local foundKey = readfile("THUNDERZKey.txt")
+			if PandaAuth:ValidateKey(service_name, foundKey) then
+				ThunderNotification({
+					Title = "Key System",
+					Content = "Found Existing Key ! , Load Script",
+					Delay = 2
+				})
+				LoadScript()
+			elseif PandaAuth:ValidateKey(service_name, foundKey..RandomString(5)) then
+				ThunderNotification({
+					Title = "Key System",
+					Content = "Expired Key.",
+					Delay = 3
+				})
+				KeySystem()
+			else
+				ThunderNotification({
+					Title = "Key System",
+					Content = "Expired Key.",
+					Delay = 3
+				})
+				KeySystem()
+			end
+		elseif not hasExistingKey then
 			KeySystem()
 		end
-	elseif not hasExistingKey then
-		KeySystem()
-	end
+	end)
 end)
 
 function LoadScript()
