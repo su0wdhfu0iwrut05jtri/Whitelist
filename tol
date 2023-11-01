@@ -941,39 +941,41 @@ function KeySystem()
 	end)
 end
 
-spawn(function()
-	local queueteleport = syn and syn.queue_on_teleport or queue_on_teleport or fluxus and fluxus.queue_on_teleport
-	local hasExistingKey = isfile("THUNDERZKey.txt")
-	if hasExistingKey and hasExistingKey ~= nil then
-		print('attempting to load key...')
-		local foundKey = readfile("THUNDERZKey.txt")
-		if PandaAuth:ValidateKey(service_name, foundKey) then -- idk for the respone
-			ThunderNotification({
-				Title = "Key System",
-				Content = "Found Existing Key ! , Load Script",
-				Delay = 2
-			})
-			LoadScript()
-		elseif PandaAuth:ValidateKey(service_name, foundKey..RandomString(5)) then
-			ThunderNotification({
-				Title = "Key System",
-				Content = "Expired Key.",
-				Delay = 3
-			})
-			KeySystem()
-		else
-			ThunderNotification({
-				Title = "Key System",
-				Content = "Expired Key.",
-				Delay = 3
-			})
+task.spawn(function()
+	pcall(function()
+		local queueteleport = syn and syn.queue_on_teleport or queue_on_teleport or fluxus and fluxus.queue_on_teleport
+		local hasExistingKey = isfile("THUNDERZKey.txt")
+		if hasExistingKey and hasExistingKey ~= nil then
+			print('attempting to load key...')
+			local foundKey = readfile("THUNDERZKey.txt")
+			if PandaAuth:ValidateKey(service_name, foundKey) then -- idk for the respone
+				ThunderNotification({
+					Title = "Key System",
+					Content = "Found Existing Key ! , Load Script",
+					Delay = 2
+				})
+				LoadScript()
+			elseif PandaAuth:ValidateKey(service_name, foundKey..RandomString(5)) then
+				ThunderNotification({
+					Title = "Key System",
+					Content = "Expired Key.",
+					Delay = 3
+				})
+				KeySystem()
+			else
+				ThunderNotification({
+					Title = "Key System",
+					Content = "Expired Key.",
+					Delay = 3
+				})
+				KeySystem()
+			end
+		elseif not hasExistingKey then
+			writefile("THUNDERZKey.txt","THUNDERZ_R5")
+			wait(1)
 			KeySystem()
 		end
-	elseif not hasExistingKey then
-		writefile("THUNDERZKey.txt","THUNDERZ_R5")
-		wait(1)
-		KeySystem()
-	end
+	end)
 end)
 
 function LoadScript()
