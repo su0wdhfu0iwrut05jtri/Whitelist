@@ -1231,10 +1231,6 @@ function LoadScript()
 	if not game:GetService("UserInputService").TouchEnabled and not game:GetService("UserInputService").KeyboardEnabled == false then
 
 	else
-		if game.CoreGui:FindFirstChild("PretKampret") then 
-			game.CoreGui:FindFirstChild("PretKampret"):Destroy();
-		end
-
 		local PretKampret = Instance.new("ScreenGui")
 		local ThunderToggleUI = Instance.new("TextButton")
 		local ThunderCornerUI = Instance.new("UICorner")
