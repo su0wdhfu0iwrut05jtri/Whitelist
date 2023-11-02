@@ -18,6 +18,21 @@ end;
 if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
+function SecurityrandomString(length)
+    local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    local randomString = ""
+    for i = 1, length do
+        local randomIndex = math.random(1, #charset)
+        randomString = randomString .. string.sub(charset, randomIndex, randomIndex)
+    end
+    return randomString
+end
+
+local ThunderNotification = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThundarZ/Welcome/main/Main/UI/Notification.lua')))()
+
+local PandaAuth = loadstring(game:HttpGet(('https://pandadevelopment.net/service_api/PandaBetaLib.lua')))()
+local service_name = "thunderz"
+
 _G.Settings = {
 
 	Main = {
@@ -255,22 +270,6 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 	wait(1)
 	game:GetService("VirtualUser"):Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
-
-function SecurityrandomString(length)
-    local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    local randomString = ""
-    for i = 1, length do
-        local randomIndex = math.random(1, #charset)
-        randomString = randomString .. string.sub(charset, randomIndex, randomIndex)
-    end
-    return randomString
-end
-
-local ThunderNotification = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThundarZ/Welcome/main/Main/UI/Notification.lua')))()
-
-local PandaAuth = loadstring(game:HttpGet(('https://pandadevelopment.net/service_api/PandaBetaLib.lua')))()
-local service_name = "thunderz"
-
 
 function KeySystem()
 	do
@@ -870,7 +869,7 @@ function KeySystem()
 		})
 		local key = KEY_ENTER.Text; --Get from Key Tab
 		
-		if PandaAuth:ValidateKey(service_name, key)   then
+		if PandaAuth:ValidateKey(service_name, key) then
 			ThunderNotification({
 				Title = "Key System",
 				Content = "Key Valid ! , Load Script",
@@ -878,12 +877,6 @@ function KeySystem()
 			})
 			isKeyValid = true
 			keydone = true
-		elseif PandaAuth:ValidateKey(service_name, key..RandomString(5)) then
-			ThunderNotification({
-				Title = "Key System",
-				Content = "Invalid Key.",
-				Delay = 3
-			})
 		else
 			ThunderNotification({
 				Title = "Key System",
@@ -1236,6 +1229,7 @@ function LoadScript()
 	-- [UI Fluet]
 
 	if not game:GetService("UserInputService").TouchEnabled and not game:GetService("UserInputService").KeyboardEnabled == false then
+
 	else
 		do local Asox = game.CoreGui:FindFirstChild("PretKampret");if Asox then Asox:Destroy();end end
 
@@ -1260,8 +1254,8 @@ function LoadScript()
 		ThunderToggleUI.TextSize = 14.000
 		ThunderToggleUI.Draggable = true
 		ThunderToggleUI.MouseButton1Click:Connect(function()
-		game:GetService("VirtualInputManager"):SendKeyEvent(true,277,false,game)
-		game:GetService("VirtualInputManager"):SendKeyEvent(false,277,false,game)
+			game:GetService("VirtualInputManager"):SendKeyEvent(true,277,false,game)
+			game:GetService("VirtualInputManager"):SendKeyEvent(false,277,false,game)
 		end)
 
 
