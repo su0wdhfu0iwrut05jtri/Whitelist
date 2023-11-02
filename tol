@@ -1231,10 +1231,8 @@ function LoadScript()
 	if not game:GetService("UserInputService").TouchEnabled and not game:GetService("UserInputService").KeyboardEnabled == false then
 
 	else
-		do local Asox = game.CoreGui:FindFirstChild("PretKampret");
-			if Asox then 
-				Asox:Destroy();
-			end 
+		if game.CoreGui:FindFirstChild("PretKampret") then 
+			game.CoreGui:FindFirstChild("PretKampret"):Destroy();
 		end
 
 		local PretKampret = Instance.new("ScreenGui")
