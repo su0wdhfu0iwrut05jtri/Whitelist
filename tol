@@ -12808,14 +12808,16 @@ function LoadScript()
 							for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
 								if v.Name == (_G.Settings.Main["Select Boats"]) then
 									repeat wait()
-										--if (game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
-											for _, t in pairs(workspace.Boats:FindFirstChild(_G.Settings.Main["Select Boats"]):GetDescendants()) do
-												if t:IsA("BasePart") or v:IsA("Part") or t.ClassName == "MeshPart" then
+										for _, t in pairs(workspace.Boats:FindFirstChild(_G.Settings.Main["Select Boats"]):GetDescendants()) do
+											if t:IsA("BasePart") or v:IsA("Part") or t.ClassName == "MeshPart" then
+												if (CFrame.new(-41750, 18, 13432).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude >= 10 then
 													t.CanCollide = false    
+												else
+													t.CanCollide = true
 												end
 											end
-											ShipTP(CFrame.new(-41750, 18, 13432))
-										--end 
+										end
+										ShipTP(CFrame.new(-41750, 18, 13432))
 									until BoatAktif == true or game:GetService("Workspace").Map:FindFirstChild("FrozenIsland") or _G.Settings.SeaEvent["Auto Rough Sea"] == false
 								end
 							end
