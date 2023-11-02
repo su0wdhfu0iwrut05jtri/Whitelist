@@ -1237,7 +1237,7 @@ function LoadScript()
 
 	if not game:GetService("UserInputService").TouchEnabled and not game:GetService("UserInputService").KeyboardEnabled == false then
 	else
-		do local Babix = game.CoreGui:FindFirstChild("PretKampret");if Babix then Babix:Destroy();end end
+		do local Asox = game.CoreGui:FindFirstChild("PretKampret");if Asox then Asox:Destroy();end end
 
 		local PretKampret = Instance.new("ScreenGui")
 		local ThunderToggleUI = Instance.new("TextButton")
