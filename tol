@@ -143,6 +143,7 @@ _G.Settings = {
 		["Yama"] = false,
 		["Rengoku"] = false,
 		["Scythe"] = false,
+		["Sea Anchor"] = false,
 		--[Hop]
 		["Tushita Hop"] = false,
 		["Scythe Hop"] = false,
@@ -938,13 +939,6 @@ task.spawn(function()
 					Delay = 2
 				})
 				LoadScript()
-			elseif PandaAuth:ValidateKey(service_name, foundKey..RandomString(5)) then
-				ThunderNotification({
-					Title = "Key System",
-					Content = "Expired Key.",
-					Delay = 3
-				})
-				KeySystem()
 			else
 				ThunderNotification({
 					Title = "Key System",
@@ -991,7 +985,7 @@ task.spawn(function()
 			--[World 2]
 			or _G.Settings.Main["Auto Third Sea"] or _G.Settings.Main["Auto Ectoplasm"] or _G.Settings.Main["Auto Bartilo Quest"] or _G.Settings.Main["Auto Don Swan Quest"] or _G.Settings.Main["Auto Factory"]
 			--[World 3]
-			or _G.Settings.Main["Auto Rainbow Haki Quest"] or _G.Settings.Main["Auto Haki V2 Quest"] or _G.Settings.Main["Auto Bone"] or _G.Settings.Main["Auto KatakuriV1"] or _G.Settings.Main["Auto KatakuriV2"] or _G.Settings.Main["Auto Elite Hunter"] or _G.Settings.Main["Pirate Raid"] or _G.Settings.Mirage["Spawn"] or _G.Settings.Sword["Tushita"] or _G.Settings.Main["Auto Haki V2 Quest"]
+			or _G.Settings.Main["Auto Rainbow Haki Quest"] or _G.Settings.Main["Auto Haki V2 Quest"] or _G.Settings.Main["Auto Bone"] or _G.Settings.Main["Auto KatakuriV1"] or _G.Settings.Main["Auto KatakuriV2"] or _G.Settings.Main["Auto Elite Hunter"] or _G.Settings.Main["Pirate Raid"] or _G.Settings.Mirage["Spawn"] or _G.Settings.Sword["Tushita"] or _G.Settings.Sword["Sea Anchor"] or _G.Settings.Main["Auto Haki V2 Quest"]
 			-- [Raid]
 			or _G.Settings.Dungeon["Auto Farm Dungeon"]
 			-- [Sea Event]
@@ -1713,6 +1707,21 @@ function LoadScript()
 		return false
 	end
 
+	--[GetAccesories]
+
+	function GetWear(AccessoriesName)
+		for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")) do
+			if type(v) == "table" then
+				if v.Type == "Wear" then
+					if v.Name == AccessoriesName then
+						return true
+					end
+				end
+			end
+		end
+		return false
+	end
+	
 	-- [GetMaterial]
 
 	function GetMaterial(matname)
@@ -12139,6 +12148,51 @@ function LoadScript()
 			end
 		end)
 
+		local AnchorSection = Tabs.ItemFunction:AddSection("[ Sea Anchor ]")
+		AnchorSection:AddToggle("Srot", {Title = "Auto Shark Anchor Full", Default = _G.Settings.Sword["Sea Anchor"]})
+		Options.Srot:OnChanged(function()
+			_G.Settings.Sword["Sea Anchor"] = Options["Srot"].Value
+			if Options["Srot"].Value == false then
+				wait()
+				toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+				wait()
+			end
+			SaveSettings()
+		end)
+
+		spawn(function()
+			while wait() do
+				if _G.Settings.Sword["Sea Anchor"] and World3 then
+					pcall(function()
+						if GetWeaponInventory("Shark Anchor") == false then
+							if GetWear("Shark Tooth Necklace") == false then
+								if GetMaterial("Shark Tooth") >= 5 and GetMaterial("Mutant Tooth") >= 1 then
+									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CraftItem","Check","ToothNecklace")
+								elseif not GetMaterial("Shark Tooth") or GetMaterial("Shark Tooth") <= 4 then
+									
+								elseif not GetMaterial("Mutant Tooth") or GetMaterial("Mutant Tooth") <= 0 then
+
+								end
+							elseif GetWear("Terror Jaw") == false then
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CraftItem","Check","TerrorJaw")
+							elseif GetMaterial("Monster Magnet") == false then
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CraftItem","PossibleHardcode","SharkAnchor")
+							elseif GetMaterial("Monster Magnet") == true and GetWear("Terror Jaw") == true and GetWear("Shark Tooth Necklace") == true then
+								-- KIll Terrorshark
+							end
+						else
+							wait(3)
+							Fluent:Notify({
+								Title = "Thunder Notification",
+								Content = "Shark Anchor",
+								SubContent = "You already Have Soul Guitar on Your Inventory !",
+								Duration = 3
+							})
+						end
+					end)
+				end
+			end
+		end)
 
 		local YamaSection = Tabs.ItemFunction:AddSection("[ Yama ]")
 		YamaSection:AddToggle("Yama", {Title = "Auto Yama", Default = _G.Settings.Sword["Yama"]})
@@ -12808,17 +12862,17 @@ function LoadScript()
 							for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
 								if v.Name == (_G.Settings.Main["Select Boats"]) then
 									repeat wait()
-										for _, t in pairs(workspace.Boats:FindFirstChild(_G.Settings.Main["Select Boats"]):GetDescendants()) do
-											if t:IsA("BasePart") or v:IsA("Part") or t.ClassName == "MeshPart" then
-												if (CFrame.new(-41750, 18, 13432).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude >= 10 then
-													t.CanCollide = false    
-												else
-													t.CanCollide = true
+										for _, t in pairs(workspace:GetChildren()) do
+											if table.find("SmallGroup", "SmallCluster", "MediumGroup", "MediumFlat", "Large", "Largest", t.Name) and t:IsA("Model") then
+												for _, part in pairs(v:GetDescendants()) do
+													if part:IsA("BasePart") then
+														part.CanCollide = false
+													end
 												end
 											end
 										end
 										ShipTP(CFrame.new(-41750, 18, 13432))
-									until BoatAktif == true or game:GetService("Workspace").Map:FindFirstChild("FrozenIsland") or _G.Settings.SeaEvent["Auto Rough Sea"] == false
+									until BoatAktif == true or game.Workspace._WorldOrigin.Locations:FindFirstChild('Frozen Dimension') or _G.Settings.SeaEvent["Auto Rough Sea"] == false
 								end
 							end
 						end
