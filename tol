@@ -953,274 +953,275 @@ task.spawn(function()
 	end)
 end)
 
--- [Functions Equip Weapon]
-function EquipWeapon(Tool)
-	pcall(function()
-		if game.Players.LocalPlayer.Backpack:FindFirstChild(Tool) then 
-			local ToolHumanoid = game.Players.LocalPlayer.Backpack:FindFirstChild(Tool) 
-			game.Players.LocalPlayer.Character.Humanoid:EquipTool(ToolHumanoid) 
-		end
-	end)
-end
-
-function EquipWeaponSword()
-	pcall(function()
-		for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-			if v.ToolTip == "Sword" and v:IsA('Tool') then
-				local ToolHumanoid = game.Players.LocalPlayer.Backpack:FindFirstChild(v.Name) 
+function LoadScript()
+	-- [Functions Equip Weapon]
+	function EquipWeapon(Tool)
+		pcall(function()
+			if game.Players.LocalPlayer.Backpack:FindFirstChild(Tool) then 
+				local ToolHumanoid = game.Players.LocalPlayer.Backpack:FindFirstChild(Tool) 
 				game.Players.LocalPlayer.Character.Humanoid:EquipTool(ToolHumanoid) 
 			end
-		end
-	end)
-end
+		end)
+	end
 
--- [Body Gyro]
-task.spawn(function()
-	game:GetService("RunService").Stepped:Connect(function()
+	function EquipWeaponSword()
 		pcall(function()
-			--[Main Function]
-			if _G.Settings.Main["Auto Farm Level"] or _G.Settings.Main["Fast Farm Level"] or _G.Settings.Main["Items Drop"] or _G.Settings.Main["Auto Farm Fruit Mastery"] or _G.Settings.Main["Auto Farm Select Monster"] or _G.Settings.Main["Auto Nearest"] or _G.Settings.Main["Sea Beast"] or _G.Settings.Main["Ship Raid"] or _G.Settings.Main["Drive Boat"] or _G.Settings.Main["Auto Farm Boss"] or _G.Settings.Main["Auto Farm All Boss"] or _G.Settings.Chest["Tween Chest"] or _G.Settings.Observation["Enable"] or _G.Settings.Material["Enable"]
-			--[World 1]
-			or _G.Settings.Main["Auto Second Sea"] or _G.Settings.Main["Auto Saber Quest"]
-			--[World 2]
-			or _G.Settings.Main["Auto Third Sea"] or _G.Settings.Main["Auto Ectoplasm"] or _G.Settings.Main["Auto Bartilo Quest"] or _G.Settings.Main["Auto Don Swan Quest"] or _G.Settings.Main["Auto Factory"]
-			--[World 3]
-			or _G.Settings.Main["Auto Rainbow Haki Quest"] or _G.Settings.Main["Auto Haki V2 Quest"] or _G.Settings.Main["Auto Bone"] or _G.Settings.Main["Auto KatakuriV1"] or _G.Settings.Main["Auto KatakuriV2"] or _G.Settings.Main["Auto Elite Hunter"] or _G.Settings.Main["Pirate Raid"] or _G.Settings.Mirage["Spawn"] or _G.Settings.Sword["Tushita"] or _G.Settings.Sword["Sea Anchor"] or _G.Settings.Main["Auto Haki V2 Quest"]
-			-- [Raid]
-			or _G.Settings.Dungeon["Auto Farm Dungeon"]
-			-- [Sea Event]
-			or _G.Settings.SeaEvent["Auto Spawn Mirage"] or _G.Settings.SeaEvent["Auto Rough Sea"] or _G.Settings.SeaEvent["Auto Kill Shark"] or _G.Settings.SeaEvent["Auto Kill Terror Shark"] or _G.Settings.SeaEvent["Auto Kill Ship"] or _G.Settings.SeaEvent["Auto Kill Sea Beast"] or _G.Settings.SeaEvent["Auto Kill Piranha"] or _G.Settings.SeaEvent["Auto Kill Leviathan"]
-			then
-				if syn then
-					setfflag("HumanoidParallelRemoveNoPhysics", "False")
-					setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
-					game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-					if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
-						game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+			for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+				if v.ToolTip == "Sword" and v:IsA('Tool') then
+					local ToolHumanoid = game.Players.LocalPlayer.Backpack:FindFirstChild(v.Name) 
+					game.Players.LocalPlayer.Character.Humanoid:EquipTool(ToolHumanoid) 
+				end
+			end
+		end)
+	end
+
+	-- [Body Gyro]
+	task.spawn(function()
+		game:GetService("RunService").Stepped:Connect(function()
+			pcall(function()
+				--[Main Function]
+				if _G.Settings.Main["Auto Farm Level"] or _G.Settings.Main["Fast Farm Level"] or _G.Settings.Main["Items Drop"] or _G.Settings.Main["Auto Farm Fruit Mastery"] or _G.Settings.Main["Auto Farm Select Monster"] or _G.Settings.Main["Auto Nearest"] or _G.Settings.Main["Sea Beast"] or _G.Settings.Main["Ship Raid"] or _G.Settings.Main["Drive Boat"] or _G.Settings.Main["Auto Farm Boss"] or _G.Settings.Main["Auto Farm All Boss"] or _G.Settings.Chest["Tween Chest"] or _G.Settings.Observation["Enable"] or _G.Settings.Material["Enable"]
+				--[World 1]
+				or _G.Settings.Main["Auto Second Sea"] or _G.Settings.Main["Auto Saber Quest"]
+				--[World 2]
+				or _G.Settings.Main["Auto Third Sea"] or _G.Settings.Main["Auto Ectoplasm"] or _G.Settings.Main["Auto Bartilo Quest"] or _G.Settings.Main["Auto Don Swan Quest"] or _G.Settings.Main["Auto Factory"]
+				--[World 3]
+				or _G.Settings.Main["Auto Rainbow Haki Quest"] or _G.Settings.Main["Auto Haki V2 Quest"] or _G.Settings.Main["Auto Bone"] or _G.Settings.Main["Auto KatakuriV1"] or _G.Settings.Main["Auto KatakuriV2"] or _G.Settings.Main["Auto Elite Hunter"] or _G.Settings.Main["Pirate Raid"] or _G.Settings.Mirage["Spawn"] or _G.Settings.Sword["Tushita"] or _G.Settings.Sword["Sea Anchor"] or _G.Settings.Main["Auto Haki V2 Quest"]
+				-- [Raid]
+				or _G.Settings.Dungeon["Auto Farm Dungeon"]
+				-- [Sea Event]
+				or _G.Settings.SeaEvent["Auto Spawn Mirage"] or _G.Settings.SeaEvent["Auto Rough Sea"] or _G.Settings.SeaEvent["Auto Kill Shark"] or _G.Settings.SeaEvent["Auto Kill Terror Shark"] or _G.Settings.SeaEvent["Auto Kill Ship"] or _G.Settings.SeaEvent["Auto Kill Sea Beast"] or _G.Settings.SeaEvent["Auto Kill Piranha"] or _G.Settings.SeaEvent["Auto Kill Leviathan"]
+				then
+					if syn then
+						setfflag("HumanoidParallelRemoveNoPhysics", "False")
+						setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
+							game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+						end
+					else
+						if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyVelocity") then
+							--if not _G.Settings.Mirage["Spawn"] then
+							--	if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
+								--	game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+							--	end
+						--	end
+							local BodyVelocity = Instance.new("BodyVelocity")
+							BodyVelocity.Name = "BodyVelocity"
+							BodyVelocity.Parent =  game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+							BodyVelocity.MaxForce = Vector3.new(10000, 10000, 10000)
+							BodyVelocity.Velocity = Vector3.new(0, 0, 0)
+						end
+						for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+							if v:IsA("BasePart") then
+								v.CanCollide = false    
+							end
+						end
 					end
 				else
-					if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyVelocity") then
-						--if not _G.Settings.Mirage["Spawn"] then
-						--	if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
-							--	game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-						--	end
-					--	end
-						local BodyVelocity = Instance.new("BodyVelocity")
-						BodyVelocity.Name = "BodyVelocity"
-						BodyVelocity.Parent =  game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-						BodyVelocity.MaxForce = Vector3.new(10000, 10000, 10000)
-						BodyVelocity.Velocity = Vector3.new(0, 0, 0)
-					end
-					for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-						if v:IsA("BasePart") then
-							v.CanCollide = false    
-						end
+					if game:GetService("Workspace"):FindFirstChild("BodyVelocity") then
+						game:GetService("Workspace"):FindFirstChild("BodyVelocity"):Destroy();
 					end
 				end
-			else
-				if game:GetService("Workspace"):FindFirstChild("BodyVelocity") then
-					game:GetService("Workspace"):FindFirstChild("BodyVelocity"):Destroy();
-				end
-			end
+			end)
 		end)
 	end)
-end)
 
--- [Auto Buso]
-function AutoHaki()
-	if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
-	end
-end
-
--- Teleport Boat
-function BTP(Position)
-	game.Players.LocalPlayer.Character.Head:Destroy()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Position
-	wait(1)
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Position
-	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-end
-
-function ShipTP(CFgo)
-	local tween_s = game:service"TweenService"
-	local info = TweenInfo.new((game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/300, Enum.EasingStyle.Linear)
-	tween = tween_s:Create(game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat, info, {CFrame = CFgo})
-	tween:Play()
-
-	local tweenfunc = {}
-
-	function tweenfunc:Stop()
-		tween:Cancel()
-	end
-
-	return tweenfunc
-end
-
--- [Bring Mon]
-function InMyNetWork(object)
-	if isnetworkowner then
-		return isnetworkowner(object)
-	else
-		if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 300 then 
-			return true
-		end
-		return false
-	end
-end
-
-task.spawn(function()
-	while true do task.wait()
-		if setscriptable then
-			setscriptable(game.Players.LocalPlayer, "SimulationRadius", true)
-		end
-		if sethiddenproperty then
-			sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+	-- [Auto Buso]
+	function AutoHaki()
+		if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
 		end
 	end
-end)
 
-task.spawn(function()
-	while task.wait() do
-		pcall(function()
-			if StartMagnet and _G.Settings.Config["Start Magnet"] == true then
-				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 500 then
-						if InMyNetWork(v.HumanoidRootPart) then
-							v.HumanoidRootPart.CFrame = PosMon
-							v.Humanoid.JumpPower = 0
-							v.Humanoid.WalkSpeed = 0
-							v.HumanoidRootPart.Transparency = 1
-							v.HumanoidRootPart.CanCollide = false
-							v.Head.CanCollide = false
-							if v.Humanoid:FindFirstChild("Animator") then
-								v.Humanoid.Animator:Destroy()
+	-- Teleport Boat
+	function BTP(Position)
+		game.Players.LocalPlayer.Character.Head:Destroy()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Position
+		wait(1)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Position
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+	end
+
+	function ShipTP(CFgo)
+		local tween_s = game:service"TweenService"
+		local info = TweenInfo.new((game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/300, Enum.EasingStyle.Linear)
+		tween = tween_s:Create(game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat, info, {CFrame = CFgo})
+		tween:Play()
+
+		local tweenfunc = {}
+
+		function tweenfunc:Stop()
+			tween:Cancel()
+		end
+
+		return tweenfunc
+	end
+
+	-- [Bring Mon]
+	function InMyNetWork(object)
+		if isnetworkowner then
+			return isnetworkowner(object)
+		else
+			if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 300 then 
+				return true
+			end
+			return false
+		end
+	end
+
+	task.spawn(function()
+		while true do task.wait()
+			if setscriptable then
+				setscriptable(game.Players.LocalPlayer, "SimulationRadius", true)
+			end
+			if sethiddenproperty then
+				sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+			end
+		end
+	end)
+
+	task.spawn(function()
+		while task.wait() do
+			pcall(function()
+				if StartMagnet and _G.Settings.Config["Start Magnet"] == true then
+					for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+						if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 500 then
+							if InMyNetWork(v.HumanoidRootPart) then
+								v.HumanoidRootPart.CFrame = PosMon
+								v.Humanoid.JumpPower = 0
+								v.Humanoid.WalkSpeed = 0
+								v.HumanoidRootPart.Transparency = 1
+								v.HumanoidRootPart.CanCollide = false
+								v.Head.CanCollide = false
+								if v.Humanoid:FindFirstChild("Animator") then
+									v.Humanoid.Animator:Destroy()
+								end
+								v.Humanoid:ChangeState(11)
+								v.Humanoid:ChangeState(14)
+								sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
 							end
-							v.Humanoid:ChangeState(11)
-							v.Humanoid:ChangeState(14)
-							sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
 						end
 					end
 				end
-			end
-		end)
-	end
-end)
-
---[Delete Effect Death and Spawn]
-
---[Fast Attack]
-
-new = {}
--- [require module]
-local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("CombatFramework"))
-local CombatFrameworkR = getupvalues(CombatFramework)[2]
-local RigController = require(game:GetService("Players")["LocalPlayer"].PlayerScripts.CombatFramework.RigController)
-
---spawn(function()
-	local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
-	CameraShakerR:Stop()
---end)
-
-function CurrentWeapon()
-	local ac = CombatFrameworkR.activeController
-	local ret = ac.blades[1]
-	if not ret then return game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Name end
-	pcall(function()
-		while ret.Parent~=game.Players.LocalPlayer.Character do ret=ret.Parent end
+			end)
+		end
 	end)
-	if not ret then return game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Name end
-	return ret
-end
 
-function getAllBladeHits(Sizes)
-	local Hits = {}
-	local Client = game.Players.LocalPlayer
-	local Enemies = game:GetService("Workspace").Enemies:GetChildren()
-	for i=1,#Enemies do local v = Enemies[i]
-		local Human = v:FindFirstChildOfClass("Humanoid")
-		if Human and Human.RootPart and Human.Health > 0 and Client:DistanceFromCharacter(Human.RootPart.Position) < Sizes+5 then
-			table.insert(Hits,Human.RootPart)
-		end
+	--[Delete Effect Death and Spawn]
+
+	--[Fast Attack]
+
+	new = {}
+	-- [require module]
+	local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("CombatFramework"))
+	local CombatFrameworkR = getupvalues(CombatFramework)[2]
+	local RigController = require(game:GetService("Players")["LocalPlayer"].PlayerScripts.CombatFramework.RigController)
+
+	--spawn(function()
+		local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
+		CameraShakerR:Stop()
+	--end)
+
+	function CurrentWeapon()
+		local ac = CombatFrameworkR.activeController
+		local ret = ac.blades[1]
+		if not ret then return game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Name end
+		pcall(function()
+			while ret.Parent~=game.Players.LocalPlayer.Character do ret=ret.Parent end
+		end)
+		if not ret then return game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Name end
+		return ret
 	end
-	return Hits
-end
 
-function AttackFunction()
-	local ac = CombatFrameworkR.activeController
-	if ac and ac.equipped then
-		for indexincrement = 1, 1 do
-			local bladehit = getAllBladeHits(60)
-			if #bladehit > 0 then
-				local AcAttack8 = debug.getupvalue(ac.attack, 5)
-				local AcAttack9 = debug.getupvalue(ac.attack, 6)
-				local AcAttack7 = debug.getupvalue(ac.attack, 4)
-				local AcAttack10 = debug.getupvalue(ac.attack, 7)
-				local NumberAc12 = (AcAttack8 * 798405 + AcAttack7 * 727595) % AcAttack9
-				local NumberAc13 = AcAttack7 * 798405
-				(function()
-					NumberAc12 = (NumberAc12 * AcAttack9 + NumberAc13) % 1099511627776
-					AcAttack8 = math.floor(NumberAc12 / AcAttack9)
-					AcAttack7 = NumberAc12 - AcAttack8 * AcAttack9
-				end)()
-				AcAttack10 = AcAttack10 + 1
-				debug.setupvalue(ac.attack, 5, AcAttack8)
-				debug.setupvalue(ac.attack, 6, AcAttack9)
-				debug.setupvalue(ac.attack, 4, AcAttack7)
-				debug.setupvalue(ac.attack, 7, AcAttack10)
-				for k, v in pairs(ac.animator.anims.basic) do
-					v:Play(0.1,0.5,0.2,0.8)
-				end                 
-				if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") and ac.blades and ac.blades[1] then 
-					game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(CurrentWeapon()))
-					game.ReplicatedStorage.Remotes.Validator:FireServer(math.floor(NumberAc12 / 1099511627776 * 16777215), AcAttack10)
-					game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, 2, "") 
+	function getAllBladeHits(Sizes)
+		local Hits = {}
+		local Client = game.Players.LocalPlayer
+		local Enemies = game:GetService("Workspace").Enemies:GetChildren()
+		for i=1,#Enemies do local v = Enemies[i]
+			local Human = v:FindFirstChildOfClass("Humanoid")
+			if Human and Human.RootPart and Human.Health > 0 and Client:DistanceFromCharacter(Human.RootPart.Position) < Sizes+5 then
+				table.insert(Hits,Human.RootPart)
+			end
+		end
+		return Hits
+	end
+
+	function AttackFunction()
+		local ac = CombatFrameworkR.activeController
+		if ac and ac.equipped then
+			for indexincrement = 1, 1 do
+				local bladehit = getAllBladeHits(60)
+				if #bladehit > 0 then
+					local AcAttack8 = debug.getupvalue(ac.attack, 5)
+					local AcAttack9 = debug.getupvalue(ac.attack, 6)
+					local AcAttack7 = debug.getupvalue(ac.attack, 4)
+					local AcAttack10 = debug.getupvalue(ac.attack, 7)
+					local NumberAc12 = (AcAttack8 * 798405 + AcAttack7 * 727595) % AcAttack9
+					local NumberAc13 = AcAttack7 * 798405
+					(function()
+						NumberAc12 = (NumberAc12 * AcAttack9 + NumberAc13) % 1099511627776
+						AcAttack8 = math.floor(NumberAc12 / AcAttack9)
+						AcAttack7 = NumberAc12 - AcAttack8 * AcAttack9
+					end)()
+					AcAttack10 = AcAttack10 + 1
+					debug.setupvalue(ac.attack, 5, AcAttack8)
+					debug.setupvalue(ac.attack, 6, AcAttack9)
+					debug.setupvalue(ac.attack, 4, AcAttack7)
+					debug.setupvalue(ac.attack, 7, AcAttack10)
+					for k, v in pairs(ac.animator.anims.basic) do
+						v:Play(0.1,0.5,0.2,0.8)
+					end                 
+					if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") and ac.blades and ac.blades[1] then 
+						game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("weaponChange",tostring(CurrentWeapon()))
+						game.ReplicatedStorage.Remotes.Validator:FireServer(math.floor(NumberAc12 / 1099511627776 * 16777215), AcAttack10)
+						game:GetService("ReplicatedStorage").RigControllerEvent:FireServer("hit", bladehit, 2, "") 
+					end
 				end
 			end
 		end
 	end
-end
 
-spawn(function()
-	while wait() do
-		local ac = CombatFrameworkR.activeController
-		if ac and ac.equipped and FastAttack then
-			pcall(function()
-				if FastAttack and _G.Settings.Config["Fast Attack"] and not _G.Settings.Main["Auto Farm Fruit Mastery"] then
-					repeat task.wait(_G.Settings.Config["Fast Attack Delay"])
-						AttackFunction()
-					until FastAttack == false or not _G.Settings.Config["Fast Attack"]
-				elseif FastAttack == false or not _G.Settings.Config["Fast Attack"] then
-					if ac.hitboxMagnitude ~= 55 then
-						ac.hitboxMagnitude = 55
+	spawn(function()
+		while wait() do
+			local ac = CombatFrameworkR.activeController
+			if ac and ac.equipped and FastAttack then
+				pcall(function()
+					if FastAttack and _G.Settings.Config["Fast Attack"] and not _G.Settings.Main["Auto Farm Fruit Mastery"] then
+						repeat task.wait(_G.Settings.Config["Fast Attack Delay"])
+							AttackFunction()
+						until FastAttack == false or not _G.Settings.Config["Fast Attack"]
+					elseif FastAttack == false or not _G.Settings.Config["Fast Attack"] then
+						if ac.hitboxMagnitude ~= 55 then
+							ac.hitboxMagnitude = 55
+						end
 					end
-				end
-			end)
+				end)
+			end
 		end
-	end
-end)
+	end)
 
-spawn(function()
-	while wait() do
-		local ac = CombatFrameworkR.activeController
-		if ac and ac.equipped and FastAttack then
-			pcall(function()
-				if FastAttack and _G.Settings.Config["Fast Attack"] and _G.Settings.Main["Auto Farm Fruit Mastery"] then
-					repeat task.wait(0.25)
-						AttackFunction()
-					until FastAttack == false or not _G.Settings.Config["Fast Attack"]
-				elseif FastAttack == false or not _G.Settings.Config["Fast Attack"] then
-					if ac.hitboxMagnitude ~= 55 then
-						ac.hitboxMagnitude = 55
+	spawn(function()
+		while wait() do
+			local ac = CombatFrameworkR.activeController
+			if ac and ac.equipped and FastAttack then
+				pcall(function()
+					if FastAttack and _G.Settings.Config["Fast Attack"] and _G.Settings.Main["Auto Farm Fruit Mastery"] then
+						repeat task.wait(0.25)
+							AttackFunction()
+						until FastAttack == false or not _G.Settings.Config["Fast Attack"]
+					elseif FastAttack == false or not _G.Settings.Config["Fast Attack"] then
+						if ac.hitboxMagnitude ~= 55 then
+							ac.hitboxMagnitude = 55
+						end
 					end
-				end
-			end)
+				end)
+			end
 		end
-	end
-end)
+	end)
 
 	-- [UI Fluet]
-function LoadScript()
+	--function LoadScript()
 	if not game:GetService("UserInputService").TouchEnabled and not game:GetService("UserInputService").KeyboardEnabled == false then
 
 	else
@@ -1289,7 +1290,7 @@ function LoadScript()
 		Fluent:Notify({
 			Title = "Thunder Z Hub",
 			Content = "Loading Script . . .",
-			Duration = 40
+			Duration = 999
 		})
 	end
 
@@ -12867,8 +12868,9 @@ function LoadScript()
 							for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
 								if v.Name == (_G.Settings.Main["Select Boats"]) then
 									repeat wait()
+										local StoneList = {"SmallGroup", "SmallCluster", "MediumGroup", "MediumFlat", "Large", "Largest"}
 										for _, t in pairs(workspace:GetChildren()) do
-											if string.find("SmallGroup", "SmallCluster", "MediumGroup", "MediumFlat", "Large", "Largest", t.Name) and t:IsA("Model") then
+											if string.table(StoneList, t.Name) and t:IsA("Model") then
 												for _, part in pairs(v:GetDescendants()) do
 													if part:IsA("BasePart") then
 														part.CanCollide = false
