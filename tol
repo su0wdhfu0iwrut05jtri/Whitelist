@@ -1287,13 +1287,11 @@ function LoadScript()
 	local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThundarZ/Welcome/main/Main/UI/Fluent/SaveManager.lua"))()
 	local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThundarZ/Welcome/main/Main/UI/Fluent/Interface.lua"))()
 
-	if not ScriptLoaded then
-		Fluent:Notify({
-			Title = "Thunder Z Hub",
-			Content = "Loading Script . . .",
-			Duration = 20
-		})
-	end
+	Fluent:Notify({
+		Title = "Thunder Z Hub",
+		Content = "Loading Script . . .",
+		Duration = 8
+	})
 
 	local Window = Fluent:CreateWindow({
 		Title = "Thunder Z | Blox Fruit",
@@ -12868,15 +12866,10 @@ function LoadScript()
 						else
 							for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
 								if v.Name == (_G.Settings.Main["Select Boats"]) then
-									repeat wait()
-										local StoneList = {"SmallGroup", "SmallCluster", "MediumGroup", "MediumFlat", "Large", "Largest"}
-										for _, t in pairs(workspace:GetChildren()) do
-											if string.table(StoneList, t.Name) and t:IsA("Model") then
-												for _, part in pairs(t:GetDescendants()) do
-													if part:IsA("BasePart") then
-														part.CanCollide = false
-													end
-												end
+									repeat task.wait()
+										for _, t in pairs(workspace.Boats:FindFirstChild(_G.Settings.Main["Select Boats"]):GetDescendants()) do
+											if t:IsA("BasePart") or v:IsA("Part") or t.ClassName == "MeshPart" then
+												t.CanCollide = false    
 											end
 										end
 										ShipTP(CFrame.new(-41750, 18, 13432))
@@ -13768,7 +13761,6 @@ function LoadScript()
 	
 	
 	Window:SelectTab(1)
-	ScriptLoaded = true
 	Fluent:Notify({
 		Title = "Thunder Z Hub",
 		Content = "The script has been loaded.",
