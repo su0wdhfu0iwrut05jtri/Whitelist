@@ -12148,7 +12148,7 @@ function LoadScript()
 			end
 		end)
 
-		local AnchorSection = Tabs.ItemFunction:AddSection("[ Sea Anchor ]")
+		local AnchorSection = Tabs.ItemFunction:AddSection("[ Shark Anchor ]")
 		AnchorSection:AddToggle("Srot", {Title = "Auto Shark Anchor Full", Default = _G.Settings.Sword["Sea Anchor"]})
 		Options.Srot:OnChanged(function()
 			_G.Settings.Sword["Sea Anchor"] = Options["Srot"].Value
@@ -12167,18 +12167,22 @@ function LoadScript()
 						if GetWeaponInventory("Shark Anchor") == false then
 							if GetWear("Shark Tooth Necklace") == false then
 								if GetMaterial("Shark Tooth") >= 5 and GetMaterial("Mutant Tooth") >= 1 then
+									print("Crafting Tooth Necklace")
 									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CraftItem","Check","ToothNecklace")
 								elseif not GetMaterial("Shark Tooth") or GetMaterial("Shark Tooth") <= 4 then
-									
+									print("Killing Shark")
+									-- KIll Shark
 								elseif not GetMaterial("Mutant Tooth") or GetMaterial("Mutant Tooth") <= 0 then
-
+									print("Killing Terrorshark")
+									-- KIll Terrorshark
 								end
 							elseif GetWear("Terror Jaw") == false then
 								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CraftItem","Check","TerrorJaw")
+								print("Crafting Terror Jaw")
 							elseif GetMaterial("Monster Magnet") == false then
 								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CraftItem","PossibleHardcode","SharkAnchor")
 							elseif GetMaterial("Monster Magnet") == true and GetWear("Terror Jaw") == true and GetWear("Shark Tooth Necklace") == true then
-								-- KIll Terrorshark
+								--Killing Terrorshark
 							end
 						else
 							wait(3)
@@ -12863,7 +12867,7 @@ function LoadScript()
 								if v.Name == (_G.Settings.Main["Select Boats"]) then
 									repeat wait()
 										for _, t in pairs(workspace:GetChildren()) do
-											if table.find("SmallGroup", "SmallCluster", "MediumGroup", "MediumFlat", "Large", "Largest", t.Name) and t:IsA("Model") then
+											if string.find("SmallGroup", "SmallCluster", "MediumGroup", "MediumFlat", "Large", "Largest", t.Name) and t:IsA("Model") then
 												for _, part in pairs(v:GetDescendants()) do
 													if part:IsA("BasePart") then
 														part.CanCollide = false
