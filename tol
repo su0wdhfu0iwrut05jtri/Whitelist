@@ -933,6 +933,7 @@ task.spawn(function()
 			print('attempting to load key...')
 			local foundKey = readfile("THUNDERZKey.txt")
 			if PandaAuth:ValidateKey(service_name, foundKey) then
+				print("Key Valid")
 				ThunderNotification({
 					Title = "Key System",
 					Content = "Found Existing Key ! , Load Script",
@@ -940,6 +941,7 @@ task.spawn(function()
 				})
 				LoadScript()
 			else
+				print("Key Invalid")
 				ThunderNotification({
 					Title = "Key System",
 					Content = "Expired Key.",
