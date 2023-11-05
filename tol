@@ -890,9 +890,9 @@ function KeySystem()
 		if isKeyValid == true and keydone == true then
 			ThunderFrame:TweenSize(UDim2.new(0,0,0,5),"Out","Quad",1,true)
 			wait(1)
+			ThunderFrame:Destroy()
 			LoadScript()
 			writefile("THUNDERZKey.txt", key)
-			ThunderFrame:Destroy()
 		end
 	end)
 		
