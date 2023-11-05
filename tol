@@ -890,9 +890,9 @@ function KeySystem()
 		if isKeyValid == true and keydone == true then
 			ThunderFrame:TweenSize(UDim2.new(0,0,0,5),"Out","Quad",1,true)
 			wait(1)
+			writefile("THUNDERZKey.txt", key)
 			ThunderFrame:Destroy()
 			LoadScript()
-			writefile("THUNDERZKey.txt", key)
 		end
 	end)
 		
@@ -8287,17 +8287,18 @@ function LoadScript()
 		BoneTab:AddToggle("RandomSuprise", {Title = "Auto Surprise Stop When Got Essence", Default = _G.Settings.Main["Random Suprise"]})
 		Options.RandomSuprise:OnChanged(function()
 			_G.Settings.Main["Random Suprise"] = Options["RandomSuprise"].Value
-			spawn(function()
-				while wait() do
-					if _G.Settings.Main["Random Suprise"] then
-						if not game.Players.LocalPlayer.Backpack:FindFirstChild("Hallow Essence") or not game.Players.LocalPlayer.Character:FindFirstChild("Hallow Essence") then
-							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
-						end
-					end
-				end
-			end)	
 			SaveSettings()
 		end)
+
+		spawn(function()
+			while wait() do
+				if _G.Settings.Main["Random Suprise"] then
+					if not game.Players.LocalPlayer.Backpack:FindFirstChild("Hallow Essence") or not game.Players.LocalPlayer.Character:FindFirstChild("Hallow Essence") then
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
+					end
+				end
+			end
+		end)	
 
 		OtherFunction:AddToggle("PirateRaid", {Title = "Auto Pirate Raid", Default = _G.Settings.Main["Pirate Raid"]})
 		Options.PirateRaid:OnChanged(function()
