@@ -1289,7 +1289,7 @@ function LoadScript()
 		Fluent:Notify({
 			Title = "Thunder Z Hub",
 			Content = "Loading Script . . .",
-			Duration = 15
+			Duration = 40
 		})
 	end
 
