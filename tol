@@ -12626,6 +12626,7 @@ function LoadScript()
 			Title = "GO TO SEA 3",
 			Content = ""
 		})
+		_G.Settings.SeaEvent["Remove Rough Sea"] = false
 		_G.Settings.SeaEvent["Auto Kill Leviathan"] = false
 		_G.Settings.SeaEvent["Auto Kill Piranha"] = false
 		_G.Settings.SeaEvent["Auto Rough Sea"] = false
@@ -12634,6 +12635,18 @@ function LoadScript()
 		_G.Settings.SeaEvent["Auto Kill Ship"] = false
 		_G.Settings.SeaEvent["Auto Kill Sea Beast"] = false
 	end
+
+	spawn(function()
+		while wait() do
+			if _G.Settings.SeaEvent["Remove Rough Sea"] and World3 then
+				pcall(function()
+					if game:GetService("Lighting").LightingLayers:FindFirstChild("DarkFog") then
+						game:GetService("Lighting").LightingLayers:FindFirstChild("DarkFog"):Destroy()
+					end
+				end)
+			end
+		end
+	end)
 
 	spawn(function()
 		while wait() do
@@ -12853,7 +12866,7 @@ function LoadScript()
 		end
 	end)
 
-	task.spawn(function()
+	spawn(function()
 		while wait() do
 			if _G.Settings.SeaEvent["Auto Rough Sea"] and World3 then 
 				pcall(function()
@@ -12873,23 +12886,19 @@ function LoadScript()
 						else
 							for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
 								if v.Name == (_G.Settings.Main["Select Boats"]) then
-									--if BoatAktif == false then
-										repeat wait()
-											dangerzone = ShipTP(CFrame.new(-41750, 18, 13432))
-											for _, t in pairs(workspace.Boats:FindFirstChild(_G.Settings.Main["Select Boats"]):GetDescendants()) do
-												if t:IsA("BasePart") or v:IsA("Part") or t.ClassName == "MeshPart" then
-													if (CFrame.new(-41750, 18, 13432).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude >= 10 then
-														print("false")
-														t.CanCollide = false   
-													else
-														print("Truee")
-														t.CanCollide = true
-														if dangerzone then dangerzone:Stop() end wait(.1)
-													end
+									repeat wait()
+										dangerzone = ShipTP(CFrame.new(-41750, 18, 13432))
+										for _, t in pairs(workspace.Boats:FindFirstChild(_G.Settings.Main["Select Boats"]):GetDescendants()) do
+											if t:IsA("BasePart") or v:IsA("Part") or t.ClassName == "MeshPart" then
+												if (CFrame.new(-41750, 18, 13432).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude >= 10 then
+													t.CanCollide = false   
+												else
+													t.CanCollide = true
+													if dangerzone then dangerzone:Stop() end wait(.1)
 												end
 											end
-										until BoatAktif == true or game.Workspace._WorldOrigin.Locations:FindFirstChild('Frozen Dimension') or _G.Settings.SeaEvent["Auto Rough Sea"] == false
-								--	end
+										end
+									until BoatAktif == true or game.Workspace._WorldOrigin.Locations:FindFirstChild('Frozen Dimension') or _G.Settings.SeaEvent["Auto Rough Sea"] == false
 								end
 							end
 						end
