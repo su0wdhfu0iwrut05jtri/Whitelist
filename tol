@@ -109,6 +109,7 @@ _G.Settings = {
 		-- Mirage
 		["Auto Spawn Mirage"] = false,
 		-- Rough Sea
+		["Remove Rough Sea"] = true,
 		["Auto Rough Sea"] = false,
 		["Auto Kill Shark"] = false,
 		["Auto Kill Terror Shark"] = false,
@@ -12538,6 +12539,12 @@ function LoadScript()
 
 	local AutoRoughSea = Tabs.LautFunction:AddSection("[ Rough Sea ]")
 	if World3 then
+		AutoRoughSea:AddToggle("FogRough", {Title = "Remove Fog Rough Sea", Default = _G.Settings.SeaEvent["Remove Rough Sea"]})
+		Options.Rough:OnChanged(function()
+			_G.Settings.SeaEvent["Remove Rough Sea"] = Options["FogRough"].Value
+			SaveSettings()
+		end)
+
 		AutoRoughSea:AddToggle("Rough", {Title = "Auto Rough Sea", Default = _G.Settings.SeaEvent["Auto Rough Sea"]})
 		Options.Rough:OnChanged(function()
 			_G.Settings.SeaEvent["Auto Rough Sea"] = Options["Rough"].Value
@@ -12867,16 +12874,13 @@ function LoadScript()
 							for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
 								if v.Name == (_G.Settings.Main["Select Boats"]) then
 									--if BoatAktif == false then
-										print("Asoy")
 										repeat task.wait()
 											dangerzone = ShipTP(CFrame.new(-41750, 18, 13432))
 											for _, t in pairs(workspace.Boats:FindFirstChild(_G.Settings.Main["Select Boats"]):GetDescendants()) do
 												if t:IsA("BasePart") or v:IsA("Part") or t.ClassName == "MeshPart" then
 													if (CFrame.new(-41750, 18, 13432).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude >= 10 then
 														t.CanCollide = false   
-														print("false")
 													else
-														print("true")
 														t.CanCollide = true
 														if dangerzone then dangerzone:Stop() end
 													end
