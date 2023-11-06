@@ -12878,7 +12878,7 @@ function LoadScript()
 													else
 														print("true")
 														t.CanCollide = true
-														if dangerzone then dangerzone:Stop()
+														if dangerzone then dangerzone:Stop() end
 													end
 												end
 											end
