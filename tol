@@ -12540,7 +12540,7 @@ function LoadScript()
 	local AutoRoughSea = Tabs.LautFunction:AddSection("[ Rough Sea ]")
 	if World3 then
 		AutoRoughSea:AddToggle("FogRough", {Title = "Remove Fog Rough Sea", Default = _G.Settings.SeaEvent["Remove Rough Sea"]})
-		Options.Rough:OnChanged(function()
+		Options.FogRough:OnChanged(function()
 			_G.Settings.SeaEvent["Remove Rough Sea"] = Options["FogRough"].Value
 			SaveSettings()
 		end)
