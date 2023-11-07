@@ -1183,6 +1183,29 @@ function AttackFunction()
 		end
 	end
 end
+ToiCanOxi = 0
+spawn(function()
+	while wait() do 
+		if _G.Settings.Config["Fast Attack"] and FastAttack then 
+			pcall(function()
+				if ToiCanOxi % 2 == 1 then 
+					repeat wait() until ToiCanOxi % 2 == 0 
+				end
+				local Fastflux = getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))[2]
+				Fastflux.activeController.hitboxMagnitude = 55
+				Fastflux.activeController.timeToNextAttack = 0
+				Fastflux.activeController.attacking = false
+			   -- Fastflux.activeController.increment = 3
+				Fastflux.activeController.blocking = false
+				Fastflux.activeController.timeToNextBlock = 0
+				local VirtualUser = game:GetService("VirtualUser")
+				VirtualUser:CaptureController()
+				VirtualUser:ClickButton1(Vector2.new(851, 158), game:GetService("Workspace").Camera.CFrame)
+				wait(0.2)
+			end)
+		end
+	end
+end)
 
 spawn(function()
 	while wait() do
