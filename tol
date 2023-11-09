@@ -12171,59 +12171,68 @@ function LoadScript()
 								if GetMaterial("Shark Tooth") >= 5 and GetMaterial("Mutant Tooth") >= 1 then
 									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CraftItem","Check","ToothNecklace")
 								elseif not GetMaterial("Shark Tooth") or GetMaterial("Shark Tooth") <= 4 then
-									if game:GetService("Workspace").Enemies:FindFirstChild("Shark") then
-										for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-											if v.Name == "Shark" then
-												if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-													repeat wait()
-														game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-														Hiu = true
-														EquipWeapon(_G.Settings.Config["Select Weapon"]);
-														AutoHaki()
-														v.HumanoidRootPart.CanCollide = false
-														PosMon = v.HumanoidRootPart.CFrame
-														toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Config["Distance Enemy"],0))
-														if not _G.Settings.Config["Fast Attack"] then
-															game:GetService("VirtualUser"):CaptureController()
-															game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-														end
-														FastAttack = true
-													until not _G.Settings.Sword["Sea Anchor"] or not v.Parent or v.Humanoid.Health <= 0 or GetMaterial("Shark Tooth") >= 5
-													FastAttack = false
-													Hiu = false
+									local enemyTypes = {
+										{name = "Terrorshark", variable = "bjirTerrorshark"},
+										{name = "Shark", variable = "bjirShark"},
+										{name = "Piranha", variable = "bjirPiranha"},
+										{name = "FishBoat", variable = "bjirFishBoatddd"},
+									}
+									for _, enemyType in pairs(enemyTypes) do
+										local enemyName = enemyType.name
+										if game:GetService("Workspace").Enemies:FindFirstChild(enemyName) then
+											for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+												if v.Name == enemyName then
+													if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+														repeat wait()
+															game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
+															Mutant = true
+															EquipWeapon(_G.Settings.Config["Select Weapon"]);
+															AutoHaki()
+															v.HumanoidRootPart.CanCollide = false
+															PosMon = v.HumanoidRootPart.CFrame
+															toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Config["Distance Enemy"],0))
+															if not _G.Settings.Config["Fast Attack"] then
+																game:GetService("VirtualUser"):CaptureController()
+																game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+															end
+															FastAttack = true
+														until not _G.Settings.Sword["Sea Anchor"] or not v.Parent or v.Humanoid.Health <= 0 or GetMaterial("Mutant Tooth") >= 1
+														FastAttack = false
+														Mutant = false
+													end
 												end
 											end
-										end
-									else
-										if not game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]) then
-											buyb = toTargetP(CFrame.new(-30939.830078125, 3.729933261871338, 9256.4208984375))
-											if (CFrame.new(-30939.830078125, 3.729933261871338, 9256.4208984375).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
-												if buyb then buyb:Stop() end wait(.1)
-												local args = {
-													[1] = "BuyBoat",
-													[2] = _G.Settings.Main["Select Boats"]
-												}
-												game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-											end
-										elseif game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]) then
-											if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-												toTargetP(game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat.CFrame * CFrame.new(0,1,0))
+										else
+											if not game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]) then
+												buyb = toTargetP(CFrame.new(-16228, 9, 480))
+												if (CFrame.new(-16228, 9, 480).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
+													if buyb then buyb:Stop() end wait(.1)
+													local args = {
+														[1] = "BuyBoat",
+														[2] = _G.Settings.Main["Select Boats"]
+													}
+													game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+												end
 											else
-												for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
-													if v.Name == (_G.Settings.Main["Select Boats"]) then
-														repeat wait()
-															dangerzone = ShipTP(CFrame.new(-30939.830078125, 3.729933261871338, 9256.4208984375))
-															for _, t in pairs(workspace.Boats:FindFirstChild(_G.Settings.Main["Select Boats"]):GetDescendants()) do
-																if t:IsA("BasePart") or v:IsA("Part") or t.ClassName == "MeshPart" then
-																	if (CFrame.new(-30939.830078125, 3.729933261871338, 9256.4208984375).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude >= 10 then
-																		t.CanCollide = false   
-																	else
-																		t.CanCollide = true
-																		if dangerzone then dangerzone:Stop() end wait(.1)
+												if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+													toTargetP(game:GetService("Workspace").Boats:FindFirstChild(_G.Settings.Main["Select Boats"]).VehicleSeat.CFrame * CFrame.new(0,1,0))
+												else
+													for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
+														if v.Name == (_G.Settings.Main["Select Boats"]) then
+															repeat wait()
+																dangerzone = ShipTP(CFrame.new(-30939.830078125, 3.729933261871338, 9256.4208984375))
+																for _, t in pairs(workspace.Boats:FindFirstChild(_G.Settings.Main["Select Boats"]):GetDescendants()) do
+																	if t:IsA("BasePart") or v:IsA("Part") or t.ClassName == "MeshPart" then
+																		if (CFrame.new(-30939.830078125, 3.729933261871338, 9256.4208984375).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude >= 10 then
+																			t.CanCollide = false   
+																		else
+																			t.CanCollide = true
+																			if dangerzone then dangerzone:Stop() end wait(.1)
+																		end
 																	end
 																end
-															end
-														until Hiu == true or _G.Settings.Sword["Sea Anchor"] == false or game:GetService("Workspace").Enemies:FindFirstChild("Shark")
+															until Shark == true or _G.Settings.Sword["Sea Anchor"] == false or game:GetService("Workspace").Enemies:FindFirstChild(enemyName)
+														end
 													end
 												end
 											end
