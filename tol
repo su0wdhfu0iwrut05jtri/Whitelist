@@ -1185,7 +1185,7 @@ function AttackFunction()
 end
 
 spawn(function()
-	while task.wait(_G.Settings.Config["Fast Attack Delay"]) do
+	while wait(_G.Settings.Config["Fast Attack Delay"]) do
 		local ac = CombatFrameworkR.activeController
 		if ac and ac.equipped and FastAttack then
 			pcall(function()
