@@ -1185,14 +1185,14 @@ function AttackFunction()
 end
 
 spawn(function()
-	while wait() do
+	while task.wait(_G.Settings.Config["Fast Attack Delay"]) do
 		local ac = CombatFrameworkR.activeController
 		if ac and ac.equipped and FastAttack then
 			pcall(function()
 				if FastAttack and _G.Settings.Config["Fast Attack"] and not _G.Settings.Main["Auto Farm Fruit Mastery"] then
-					repeat task.wait(_G.Settings.Config["Fast Attack Delay"])
+					--repeat task.wait(_G.Settings.Config["Fast Attack Delay"])
 						AttackFunction()
-					until FastAttack == false or not _G.Settings.Config["Fast Attack"]
+					--until FastAttack == false or not _G.Settings.Config["Fast Attack"]
 				elseif FastAttack == false or not _G.Settings.Config["Fast Attack"] then
 					if ac.hitboxMagnitude ~= 55 then
 						ac.hitboxMagnitude = 55
@@ -12196,7 +12196,7 @@ function LoadScript()
 																game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
 															end
 															FastAttack = true
-														until not _G.Settings.Sword["Sea Anchor"] or not v.Parent or v.Humanoid.Health <= 0 or GetMaterial("Mutant Tooth") >= 1
+														until not _G.Settings.Sword["Sea Anchor"] or not v.Parent or v.Humanoid.Health <= 0 or GetMaterial("Shark Tooth") >= 1
 														FastAttack = false
 														Mutant = false
 													end
