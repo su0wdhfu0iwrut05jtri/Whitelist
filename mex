@@ -644,7 +644,7 @@ if World1 then
                 ["fields"] = {
                     {
                         ["name"] = "[ 🍒 ]  Fruit in Server :",
-                        ["value"] = "``` Absolute Zero ```"
+                        ["value"] = "``` "..fruit.Name.." ```"
                     },
                     {
                         ["name"] = "[ 👥 ]  Players In Server :",
@@ -693,7 +693,7 @@ elseif World2 then
                 ["fields"] = {
                     {
                         ["name"] = "[ 🍒 ]  Fruit in Server :",
-                        ["value"] = "``` Absolute Zero ```"
+                        ["value"] = "``` "..fruit.Name.." ```"
                     },
                     {
                         ["name"] = "[ 👥 ]  Players In Server :",
@@ -742,7 +742,7 @@ elseif World3 then
                 ["fields"] = {
                     {
                         ["name"] = "[ 🍒 ]  Fruit in Server :",
-                        ["value"] = "``` Absolute Zero ```"
+                        ["value"] = "``` "..fruit.Name.." ```"
                     },
                     {
                         ["name"] = "[ 👥 ]  Players In Server :",
