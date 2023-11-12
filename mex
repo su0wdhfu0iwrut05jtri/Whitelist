@@ -50,7 +50,7 @@ if not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServ
                         ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
                     }
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -95,7 +95,7 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
                         ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
                     }
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -140,7 +140,7 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
                         ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
                     },
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -187,7 +187,7 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
                         ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
                     }
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -233,7 +233,7 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
                         ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
                     }
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -279,7 +279,7 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
                         ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
                     }
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -325,7 +325,7 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
                         ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
                     }
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -371,7 +371,7 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
                         ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
                     }
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -417,7 +417,7 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
                         ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
                     }
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -464,7 +464,7 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
                     }
                     
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -510,7 +510,7 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
                         ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
                     }
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -556,7 +556,7 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
                         ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
                     } 
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -618,8 +618,8 @@ elseif not World1 and game:GetService("ReplicatedStorage").Remotes.CommF_:Invoke
     })
 end
 
--- [Fruit Finder]
-local fruit = chr:FindFirstChildOfClass("Tool") and chr:FindFirstChildOfClass("Tool").Name:find("Fruit") and chr:FindFirstChildOfClass("Tool") or (function()
+-- [Fruit Finder] plr.Character
+local fruit = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Name:find("Fruit") and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") or (function()
     for _,p in game.Players.LocalPlayer.Backpack:GetChildren() do
         if p.Name:find("Fruit") then
             return p
@@ -826,7 +826,7 @@ if World3 and game:GetService("Workspace").Map:FindFirstChild("MysticIsland") th
                         ["value"] = "```".."game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId,'"..game.JobId.."')".."```"
                     }
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -874,7 +874,7 @@ elseif World3 and game:GetService("Lighting").Sky.MoonTextureId=="http://www.rob
                     }
                     
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -920,7 +920,7 @@ elseif World2 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServ
                     }
                     
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -966,7 +966,7 @@ elseif World2 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServ
                     }
                     
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -1012,7 +1012,7 @@ elseif World2 and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServ
                     }
                     
                 },
-                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                 ["footer"] = {
                     ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                 }
@@ -1065,7 +1065,7 @@ for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
                                 ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
                             }
                         },
-                        ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                        ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                         ["footer"] = {
                             ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                         }
@@ -1107,7 +1107,7 @@ for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
                                 ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
                             }
                         },
-                        ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                        ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                         ["footer"] = {
                             ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                         }
@@ -1149,7 +1149,7 @@ for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
                                 ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
                             }
                         },
-                        ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                        ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                         ["footer"] = {
                             ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                         }
@@ -1191,7 +1191,7 @@ for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
                                 ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
                             }
                         },
-                        ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                        ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                         ["footer"] = {
                             ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                         }
@@ -1233,7 +1233,7 @@ for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
                                 ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
                             }
                         },
-                        ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                        ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                         ["footer"] = {
                             ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                         }
@@ -1277,7 +1277,7 @@ for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
                                 ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
                             }
                         },
-                        ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                        ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                         ["footer"] = {
                             ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                         }
@@ -1319,7 +1319,7 @@ for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
                                 ["name"] = "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")"
                             }
                         },
-                        ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..")",
+                        ["description"] =  "[Click here to Join for Roblox Web Version](https://www.roblox.com/home?placeId="..game.JobId..") | [Join Discord](https://discord.gg/EAasK6nBMr)",
                         ["footer"] = {
                             ["text"] = "Thunder Z • "..formattedDate.." at "..formattedTime
                         }
