@@ -111,11 +111,8 @@ _G.Settings = {
 		-- Rough Sea
 		["Remove Rough Sea"] = true,
 		["Auto Rough Sea"] = false,
-		["Auto Kill Shark"] = false,
-		["Auto Kill Terror Shark"] = false,
-		["Auto Kill Ship"] = false,
-		["Auto Kill Sea Beast"] = false,
-		["Auto Kill Piranha"] = false,
+		["Rough Sea Monster"] = {},
+		["Auto Kill Monster"] = false,
 		["Auto Kill Leviathan"] = false,
 	},
 
@@ -992,7 +989,7 @@ task.spawn(function()
 			-- [Raid]
 			or _G.Settings.Dungeon["Auto Farm Dungeon"]
 			-- [Sea Event]
-			or _G.Settings.SeaEvent["Auto Spawn Mirage"] or _G.Settings.SeaEvent["Auto Rough Sea"] or _G.Settings.SeaEvent["Auto Kill Shark"] or _G.Settings.SeaEvent["Auto Kill Terror Shark"] or _G.Settings.SeaEvent["Auto Kill Ship"] or _G.Settings.SeaEvent["Auto Kill Sea Beast"] or _G.Settings.SeaEvent["Auto Kill Piranha"] or _G.Settings.SeaEvent["Auto Kill Leviathan"]
+			or _G.Settings.SeaEvent["Auto Spawn Mirage"] or _G.Settings.SeaEvent["Auto Rough Sea"] or _G.Settings.SeaEvent["Auto Kill Monster"] or _G.Settings.SeaEvent["Auto Kill Terror Shark"] or _G.Settings.SeaEvent["Auto Kill Ship"] or _G.Settings.SeaEvent["Auto Kill Sea Beast"] or _G.Settings.SeaEvent["Auto Kill Piranha"] or _G.Settings.SeaEvent["Auto Kill Leviathan"]
 			then
 				if syn then
 					setfflag("HumanoidParallelRemoveNoPhysics", "False")
@@ -12685,54 +12682,23 @@ function LoadScript()
 			SaveSettings()
 		end)
 
-		AutoRoughSea:AddToggle("Shark", {Title = "Auto Kill Shark", Default = _G.Settings.SeaEvent["Auto Kill Shark"]})
+		AutoRoughSea:AddDropdown("MonsterRough", {
+			Title = "Monster to Kill",
+			Values = {"Shark","Piranha","Ship","Terrorshark","Seabeast"},
+			Multi = true,
+			Default = _G.Settings.SeaEvent["Rough Sea Monster"],
+		})
+		
+		Options.MonsterRough:OnChanged(function()
+			_G.Settings.SeaEvent["Rough Sea Monster"] = Options["MonsterRough"].Value
+			SaveSettings()
+		end)
+		
+
+		AutoRoughSea:AddToggle("Shark", {Title = "Enable Kill Selected Monster", Default = _G.Settings.SeaEvent["Auto Kill Monster"]})
 		Options.Shark:OnChanged(function()
-			_G.Settings.SeaEvent["Auto Kill Shark"] = Options["Shark"].Value
+			_G.Settings.SeaEvent["Auto Kill Monster"] = Options["Shark"].Value
 			if Options["Shark"].Value == false then
-				wait()
-				toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
-				wait()
-			end
-			SaveSettings()
-		end)
-
-		AutoRoughSea:AddToggle("Terror", {Title = "Auto Kill Terror Shark", Default = _G.Settings.SeaEvent["Auto Kill Terror Shark"]})
-		Options.Terror:OnChanged(function()
-			_G.Settings.SeaEvent["Auto Kill Terror Shark"] = Options["Terror"].Value
-			if Options["Terror"].Value == false then
-				wait()
-				toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
-				wait()
-			end
-			SaveSettings()
-		end)
-
-		AutoRoughSea:AddToggle("Ship", {Title = "Auto Kill Ship", Default = _G.Settings.SeaEvent["Auto Kill Ship"]})
-		Options.Ship:OnChanged(function()
-			_G.Settings.SeaEvent["Auto Kill Ship"] = Options["Ship"].Value
-			if Options["Ship"].Value == false then
-				wait()
-				toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
-				wait()
-			end
-			SaveSettings()
-		end)
-
-		AutoRoughSea:AddToggle("MonsterLaut", {Title = "Auto Kill Seabeast", Default = _G.Settings.SeaEvent["Auto Kill Sea Beast"]})
-		Options.MonsterLaut:OnChanged(function()
-			_G.Settings.SeaEvent["Auto Kill Sea Beast"] = Options["MonsterLaut"].Value
-			if Options["MonsterLaut"].Value == false then
-				wait()
-				toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
-				wait()
-			end
-			SaveSettings()
-		end)
-
-		AutoRoughSea:AddToggle("Iwak", {Title = "Auto Kill Piranha", Default = _G.Settings.SeaEvent["Auto Kill Piranha"]})
-		Options.Iwak:OnChanged(function()
-			_G.Settings.SeaEvent["Auto Kill Piranha"] = Options["Iwak"].Value
-			if Options["Iwak"].Value == false then
 				wait()
 				toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
 				wait()
@@ -12757,12 +12723,9 @@ function LoadScript()
 		})
 		_G.Settings.SeaEvent["Remove Rough Sea"] = false
 		_G.Settings.SeaEvent["Auto Kill Leviathan"] = false
-		_G.Settings.SeaEvent["Auto Kill Piranha"] = false
 		_G.Settings.SeaEvent["Auto Rough Sea"] = false
+		_G.Settings.SeaEvent["Rough Sea Monster"] = nil
 		_G.Settings.SeaEvent["Auto Kill Shark"] = false
-		_G.Settings.SeaEvent["Auto Kill Terror Shark"] = false
-		_G.Settings.SeaEvent["Auto Kill Ship"] = false
-		_G.Settings.SeaEvent["Auto Kill Sea Beast"] = false
 	end
 
 	spawn(function()
@@ -12779,7 +12742,7 @@ function LoadScript()
 
 	spawn(function()
 		while wait() do
-			if _G.Settings.SeaEvent["Auto Kill Ship"] and World3 then
+			if _G.Settings.SeaEvent["Auto Kill Monster"] and _G.Settings.SeaEvent["Rough Sea Monster"].Ship == true and World3 then
 				pcall(function()
 					if game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") or game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") or game:GetService("Workspace").Enemies:FindFirstChild("PirateBasic") or game:GetService("Workspace").Enemies:FindFirstChild("PirateGrandBrigade") then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
@@ -12795,7 +12758,7 @@ function LoadScript()
 											game:GetService("VirtualUser"):CaptureController()
 											game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
 										end
-									until v.Health.Value <= 0 or not v.Parent or _G.Settings.SeaEvent["Auto Kill Ship"] == false or v.Health.Value <= 0 or not v:FindFirstChild("VehicleSeat") 
+									until v.Health.Value <= 0 or not v.Parent or _G.Settings.SeaEvent["Rough Sea Monster"].Ship == false or _G.Settings.SeaEvent["Auto Kill Monster"] == false or v.Health.Value <= 0 or not v:FindFirstChild("VehicleSeat") 
 									FastAttack = false
 									BoatAktif = false
 								end
@@ -12809,7 +12772,7 @@ function LoadScript()
 
 	spawn(function()
 		while wait() do
-			if _G.Settings.SeaEvent["Auto Kill Sea Beast"] or _G.Settings.SeaEvent["Auto Kill Leviathan"] then
+			if (_G.Settings.SeaEvent["Auto Kill Monster"] and _G.Settings.SeaEvent["Rough Sea Monster"].Seabeast == true) or _G.Settings.SeaEvent["Auto Kill Leviathan"] then
 				pcall(function()                   
 					for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
 						if v:FindFirstChild("HumanoidRootPart") then
@@ -12887,7 +12850,7 @@ function LoadScript()
 								wait(.2)
 								game:GetService("VirtualInputManager"):SendKeyEvent(true,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
 								game:GetService("VirtualInputManager"):SendKeyEvent(false,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
-							until not v.Parent or v.Health.Value <= 0 or _G.Settings.SeaEvent["Auto Kill Sea Beast"] == false or v.Health.Value <= 0 or not v:FindFirstChild("HumanoidRootPart") or _G.Settings.SeaEvent["Auto Kill Leviathan"] == false
+							until not v.Parent or v.Health.Value <= 0 or _G.Settings.SeaEvent["Auto Kill Monster"] == false or v.Health.Value <= 0 or not v:FindFirstChild("HumanoidRootPart") or _G.Settings.SeaEvent["Auto Kill Leviathan"] == false
 							BoatAktif = false
 						end
 					end
@@ -12898,7 +12861,7 @@ function LoadScript()
 
 	spawn(function()
 		while wait() do
-			if _G.Settings.SeaEvent["Auto Kill Piranha"] and World3 then
+			if _G.Settings.SeaEvent["Auto Kill Monster"] and _G.Settings.SeaEvent["Rough Sea Monster"].Piranha == true and World3 then
 				pcall(function()
 					if game:GetService("Workspace").Enemies:FindFirstChild("Piranha") then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
@@ -12917,7 +12880,7 @@ function LoadScript()
 											game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
 										end
 										FastAttack = true
-									until not _G.Settings.SeaEvent["Auto Kill Piranha"] or not v.Parent or v.Humanoid.Health <= 0
+									until not _G.Settings.SeaEvent["Auto Kill Monster"] or _G.Settings.SeaEvent["Rough Sea Monster"].Piranha == false or not v.Parent or v.Humanoid.Health <= 0
 									FastAttack = false
 									BoatAktif = false
 								end
@@ -12931,7 +12894,7 @@ function LoadScript()
 
 	spawn(function()
 		while wait() do
-			if _G.Settings.SeaEvent["Auto Kill Shark"] and World3 then
+			if _G.Settings.SeaEvent["Auto Kill Monster"] and _G.Settings.SeaEvent["Rough Sea Monster"].Shark == true and World3 then
 				pcall(function()
 					if game:GetService("Workspace").Enemies:FindFirstChild("Shark") then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
@@ -12950,7 +12913,7 @@ function LoadScript()
 											game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
 										end
 										FastAttack = true
-									until not _G.Settings.SeaEvent["Auto Kill Shark"] or not v.Parent or v.Humanoid.Health <= 0
+									until not _G.Settings.SeaEvent["Auto Kill Monster"] or _G.Settings.SeaEvent["Rough Sea Monster"].Shark == false or not v.Parent or v.Humanoid.Health <= 0 
 									FastAttack = false
 									BoatAktif = false
 								end
@@ -12964,7 +12927,7 @@ function LoadScript()
 
 	spawn(function()
 		while wait() do
-			if _G.Settings.SeaEvent["Auto Kill Terror Shark"] and World3 then
+			if _G.Settings.SeaEvent["Auto Kill Monster"] and _G.Settings.SeaEvent["Rough Sea Monster"].Terrorshark == true and World3 then
 				pcall(function()
 					if game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
@@ -12983,7 +12946,7 @@ function LoadScript()
 											game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
 										end
 										FastAttack = true
-									until not _G.Settings.SeaEvent["Auto Kill Terror Shark"] or not v.Parent or v.Humanoid.Health <= 0
+									until not _G.Settings.SeaEvent["Auto Kill Monster"] or _G.Settings.SeaEvent["Rough Sea Monster"].Terrorshark == false or not v.Parent or v.Humanoid.Health <= 0
 									FastAttack = false
 									BoatAktif = false
 								end
@@ -13022,6 +12985,7 @@ function LoadScript()
 												if (CFrame.new(-41750, 18, 13432).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude >= 10 then
 													t.CanCollide = false   
 												else
+													print("Nyampe")
 													t.CanCollide = true
 													if dangerzone then dangerzone:Stop() end wait(.1)
 												end
