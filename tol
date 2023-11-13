@@ -12957,6 +12957,8 @@ function LoadScript()
 		end
 	end)
 
+	local BoatAktif = false
+
 	spawn(function()
 		while wait() do
 			if _G.Settings.SeaEvent["Auto Rough Sea"] and World3 then 
