@@ -12724,8 +12724,7 @@ function LoadScript()
 		_G.Settings.SeaEvent["Remove Rough Sea"] = false
 		_G.Settings.SeaEvent["Auto Kill Leviathan"] = false
 		_G.Settings.SeaEvent["Auto Rough Sea"] = false
-		_G.Settings.SeaEvent["Rough Sea Monster"] = nil
-		_G.Settings.SeaEvent["Auto Kill Shark"] = false
+		_G.Settings.SeaEvent["Auto Kill Monster"] = false
 	end
 
 	spawn(function()
