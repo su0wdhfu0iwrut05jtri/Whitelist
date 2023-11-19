@@ -2198,7 +2198,7 @@ function LoadScript()
     end)
 
     local Ireng = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ThundarZ/Welcome/main/Main/Function/Jawir.lua')))()
-
+    
     spawn(function()
         while task.wait() do
             if _G.Settings.Main["Auto Farm Level"] then
@@ -2448,7 +2448,7 @@ function LoadScript()
     if World1 then
         BossTable = {"[Lv 25] Bandit Boss", "[Lv 60] Clown Boss", "[Lv 120] Shark Boss", "[Lv 200] Bomb Boss", "[Lv 300] Krieg Boss", "[Lv 400] Tashii", "[Lv 550] King Gorilla", "[Lv 650] Marine Captain", "[Lv 750] Minotaur", "[Lv 850] Vice Admiral" ,"[Lv 900] Ice Admiral", "[Lv 1100] Thunder God", "[Lv 1250] Revolutionary Boss", "[Lv 1400] Warden", "[Lv 1500] Vergo", "[Lv 1550] Snow Harpy", "[Lv 1700] Neptune", "[Lv 1850] Shiryu", "[Lv 2000] G4 Boss","[Lv 2150] Ryummy"}
     elseif World2 then
-        BossTable = {"[Lv 2500] Mammoth","[Lv 2650] 3SS Boss","[Lv 2800] Desert Boss","[Lv 2950] MaceV2 Boss","[Lv 3100] Shadow Boss"}
+        BossTable = {"[Lv 2500] Mammoth","[Lv 2650] 3SS Boss","[Lv 2800] Desert Boss","[Lv 2950] MaceV2 Boss","[Lv 3100] Shadow Boss","[Lv 3250] Peanut Boss","[Lv 3400] Tree Boss","[Lv 3550] Soul Boss"}
     end
     local BossFa = Tabs.Main:AddSection("[ Boss Farm ]")
     BossFa:AddDropdown("BossMeki", {
