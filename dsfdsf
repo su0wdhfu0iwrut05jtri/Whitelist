@@ -11926,8 +11926,6 @@ function LoadScript()
 				pcall(function()
 					if _G.Settings.Sword["CDK"] and World3 then
 						if GetWeaponInventory("Cursed Dual Katana") == false then
-							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","StartTrial","Good")
-							wait(.1)
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","StartTrial","Evil")
 							for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress")) do
 								if i == "Good" and v == -3 then
