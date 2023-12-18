@@ -985,7 +985,7 @@ task.spawn(function()
 			--[World 2]
 			or _G.Settings.Main["Auto Third Sea"] or _G.Settings.Main["Auto Ectoplasm"] or _G.Settings.Main["Auto Bartilo Quest"] or _G.Settings.Main["Auto Don Swan Quest"] or _G.Settings.Main["Auto Factory"]
 			--[World 3]
-			or _G.Settings.Main["Auto Rainbow Haki Quest"] or _G.Settings.Main["Auto Haki V2 Quest"] or _G.Settings.Main["Auto Bone"] or _G.Settings.Main["Auto KatakuriV1"] or _G.Settings.Main["Auto KatakuriV2"] or _G.Settings.Main["Auto Elite Hunter"] or _G.Settings.Main["Pirate Raid"] or _G.Settings.Mirage["Spawn"] or _G.Settings.Sword["Tushita"] or _G.Settings.Sword["Sea Anchor"] or _G.Settings.Main["Auto Haki V2 Quest"]
+			or ToFindHaze or _G.Settings.Main["Auto Rainbow Haki Quest"] or _G.Settings.Main["Auto Haki V2 Quest"] or _G.Settings.Main["Auto Bone"] or _G.Settings.Main["Auto KatakuriV1"] or _G.Settings.Main["Auto KatakuriV2"] or _G.Settings.Main["Auto Elite Hunter"] or _G.Settings.Main["Pirate Raid"] or _G.Settings.Mirage["Spawn"] or _G.Settings.Sword["Tushita"] or _G.Settings.Sword["Sea Anchor"] or _G.Settings.Main["Auto Haki V2 Quest"]
 			-- [Raid]
 			or _G.Settings.Dungeon["Auto Farm Dungeon"]
 			-- [Sea Event]
