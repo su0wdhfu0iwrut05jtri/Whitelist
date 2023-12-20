@@ -12041,7 +12041,7 @@ function LoadScript()
 														tween:Cancel();
 													end)
 												end
-											until _G.Settings.Sword["CDK"] or v2:FindFirstChild("HazeESP") or not v == -4
+											until _G.Settings.Sword["CDK"] or v2:FindFirstChild("HazeESP") or not (i == "Evil" and v == -4) then
 										end
 									end
 								elseif i == "Evil" and v == -5 then
