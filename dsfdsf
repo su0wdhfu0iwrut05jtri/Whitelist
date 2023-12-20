@@ -11926,157 +11926,177 @@ function LoadScript()
 				pcall(function()
 					if _G.Settings.Sword["CDK"] and World3 then
 						if GetWeaponInventory("Cursed Dual Katana") == false then
-							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","StartTrial","Evil")
-							for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress")) do
-								if i == "Good" and v == -3 then
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","BoatQuest",workspace.NPCs:FindFirstChild("Luxury Boat Dealer"))
-									BTP(CFrame.new(-9546.990234375, 21.139892578125, 4686.1142578125))
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","BoatQuest",workspace.NPCs:FindFirstChild("Luxury Boat Dealer"))
-									wait(5)
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","BoatQuest",workspace.NPCs:FindFirstChild("Luxury Boat Dealer"))
-									BTP(CFrame.new(-6120.0576171875, 16.455780029296875, -2250.697265625))
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","BoatQuest",workspace.NPCs:FindFirstChild("Luxury Boat Dealer"))
-									wait(5)
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","BoatQuest",workspace.NPCs:FindFirstChild("Luxury Boat Dealer"))
-									BTP(CFrame.new(-9533.2392578125, 7.254445552825928, -8372.69921875))  
-									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","BoatQuest",workspace.NPCs:FindFirstChild("Luxury Boat Dealer"))  
-								elseif i == "Good" and v == -1 then
-									if game:GetService("Workspace").Enemies:FindFirstChild("Cake Queen") then
-										for i1,v1 in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-											if v1.Name == "Cake Queen" then
-												if v1:FindFirstChild("Humanoid") and v1:FindFirstChild("HumanoidRootPart") and v1.Humanoid.Health > 0 then
-													repeat wait()
-														AutoHaki()
-														EquipWeapon(_G.Settings.Config["Select Weapon"])
-														v1.HumanoidRootPart.CanCollide = false
-														v1.Humanoid.WalkSpeed = 0
-														toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0))
-														if not _G.Settings.Config["Fast Attack"] then
-															game:GetService("VirtualUser"):CaptureController()
-															game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+							if CheckMaterial("Alucard Fragment") == 0 then
+								if CheckMaterial("Alucard Fragment") == 1 then
+									if CheckMaterial("Alucard Fragment") == 2 then
+										if CheckMaterial("Alucard Fragment") == 3 then
+											if CheckMaterial("Alucard Fragment") == 4 then
+												if CheckMaterial("Alucard Fragment") == 5 then
+													if CheckMaterial("Alucard Fragment") == 6 then
+														for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress")) do
+															print("Memek")
+															if i == "Good" and v == -3 then
+																game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Good")
+																game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","BoatQuest",workspace.NPCs:FindFirstChild("Luxury Boat Dealer"))
+																BTP(CFrame.new(-9546.990234375, 21.139892578125, 4686.1142578125))
+																game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","BoatQuest",workspace.NPCs:FindFirstChild("Luxury Boat Dealer"))
+																wait(5)
+																game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","BoatQuest",workspace.NPCs:FindFirstChild("Luxury Boat Dealer"))
+																BTP(CFrame.new(-6120.0576171875, 16.455780029296875, -2250.697265625))
+																game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","BoatQuest",workspace.NPCs:FindFirstChild("Luxury Boat Dealer"))
+																wait(5)
+																game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","BoatQuest",workspace.NPCs:FindFirstChild("Luxury Boat Dealer"))
+																BTP(CFrame.new(-9533.2392578125, 7.254445552825928, -8372.69921875))  
+																game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","BoatQuest",workspace.NPCs:FindFirstChild("Luxury Boat Dealer"))  
+															elseif i == "Good" and v == -1 then
+																game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Good")
+																if game:GetService("Workspace").Enemies:FindFirstChild("Cake Queen") then
+																	for i1,v1 in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+																		if v1.Name == "Cake Queen" then
+																			if v1:FindFirstChild("Humanoid") and v1:FindFirstChild("HumanoidRootPart") and v1.Humanoid.Health > 0 then
+																				repeat wait()
+																					AutoHaki()
+																					EquipWeapon(_G.Settings.Config["Select Weapon"])
+																					v1.HumanoidRootPart.CanCollide = false
+																					v1.Humanoid.WalkSpeed = 0
+																					toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0))
+																					if not _G.Settings.Config["Fast Attack"] then
+																						game:GetService("VirtualUser"):CaptureController()
+																						game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+																					end
+																					sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
+																				until not _G.Settings.Sword["CDK"] or not v1.Parent or v1.Humanoid.Health <= 0
+																			end
+																		end
+																	end
+																else
+																	if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Queen") then
+																	toTarget(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Queen").HumanoidRootPart.CFrame * CFrame.new(5,10,7))
+																	else
+																		wait(3)
+																		Fluent:Notify({
+																			Title = "Thunder Notification",
+																			Content = "Cake Queen",
+																			SubContent = "Not Spawn Yet !",
+																			Duration = 3
+																		})
+																	end
+																end
+															elseif i == "Good" and v == -4 then
+																game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Good")
+																for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+																	if v.Name == "Raider" or v.Name == "Mercenary" or v.Name == "Swan Pirate" or v.Name == "Factory Staff" or v.Name == "Marine Lieutenant" or v.Name == "Marine Captain" or v.Name == "Vampire" or v.Name == "Zombie" or v.Name == "Snow Trooper" or v.Name == "Winter Warrior" or v.Name == "Lab Subordinate" or v.Name == "Horned Warrior" or v.Name == "Magma Ninja" or v.Name == "Lava Pirate" or v.Name == "Ship Deckhand" or v.Name == "Ship Engineer" or v.Name == "Ship Steward" or v.Name == "Ship Officer" or v.Name == "Arctic Warrior" or v.Name == "Snow Lurker" or v.Name == "Sea Soldier" or v.Name == "Water Fighter" then
+																		if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+																			repeat wait()
+																				AutoHaki()
+																				EquipWeapon(_G.Settings.Config["Select Weapon"])
+																				FastAttack = true
+																				v.HumanoidRootPart.CanCollide = false
+																				--v.Humanoid.WalkSpeed = 0
+																				v.Head.CanCollide = false 
+																				toTargetP(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Config["Distance Enemy"],0))
+																				--v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+																				if not _G.Settings.Config["Fast Attack"] then
+																					game:GetService("VirtualUser"):CaptureController()
+																					game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+																				end
+																			until not _G.Settings.Sword["CDK"] or not v.Parent or v.Humanoid.Health <= 0
+																			FastAttack = false
+																		end
+																	else
+																		if Auto_Farm_Level then _G.Settings.Main["Auto Farm Level"] = false end
+																		local CastlePos = CFrame.new(-5084.8447265625, 316.48101806641, -3145.3752441406)
+																		if (CastlePos.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+																			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4987.30908, 314.515503, -3060.17725, 0.990336478, 0, 0.13868615, -0, 1.00000012, -0, -0.138686165, 0, 0.990336359))
+																		end
+																		wait(3)
+																		Fluent:Notify({
+																			Title = "Tushita Quest",
+																			Content = "Waiting for Pirate Raid !",
+																			Duration = 3
+																		})
+																	end
+																end     
+															elseif i == "Evil" and v == -3 then
+																game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Evil")
+																repeat wait()
+																	toTargetP(CFrame.new(56.6141129, 24.7939301, -12861.0859, 0.699276984, 0, 0.714850843, 0, 1, 0, -0.714850843, 0, 0.699276984))
+																until not _G.Settings.Sword["CDK"]
+															elseif i == "Evil" and v == -4 then
+																game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Evil")
+																for i2,v2 in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+																	if v2:FindFirstChild("HazeESP") then
+																		v2.HazeESP.MaxDistance = "inf"
+																		print("Haze Killing : ",v2.Name)
+																		repeat wait()
+																			StartMagnet = true
+																			FastAttack = true
+																			-- sethiddenproperty(workspace, "StreamingEnabled", false)
+																			EquipWeapon(_G.Settings.Config["Select Weapon"])
+																			AutoHaki()  
+																			PosMonsEsp = v2.HumanoidRootPart.CFrame 
+																			toTarget(v2.HumanoidRootPart.CFrame * CFrame.new(0,25,0))
+																			if not _G.Settings.Config["Fast Attack"] then
+																				game:GetService("VirtualUser"):CaptureController()
+																				game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
+																			end
+																		until not _G.Settings.Sword["CDK"] or not v2.Parent or not v2:FindFirstChild("HazeESP") or v2.Humanoid.Health <= 0 
+																		FastAttack = false
+																		StartMagnet = false
+																	else
+																		repeat task.wait()
+																			if not v2:FindFirstChild("HazeESP") then
+																				ToFindHaze = true;
+																			else
+																				ToFindHaze = false;
+																				pcall(function()
+																					tween:Cancel();
+																				end)
+																			end
+																		until _G.Settings.Sword["CDK"] or v2:FindFirstChild("HazeESP") or not (i == "Evil" and v == -4)
+																	end
+																end
+															elseif i == "Evil" and v == -5 then
+																game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Evil")
+																if game:GetService("Workspace").Enemies:FindFirstChild("Soul Reaper") then
+																	for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+																		if string.find(v.Name , "Soul Reaper") then
+																			repeat wait()
+																				EquipWeapon(_G.Settings.Config["Select Weapon"])
+																				AutoHaki()
+																				toTarget(v.HumanoidRootPart.CFrame*CFrame.new(5,10,7))
+																				if not _G.Settings.Config["Fast Attack"] then
+																					game:GetService("VirtualUser"):CaptureController()
+																					game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670))
+																				end
+																				FastAttack = true
+																				v.HumanoidRootPart.Transparency = 1
+																				sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
+																			until v.Humanoid.Health <= 0 or _G.Settings.Sword["Scythe"] == false
+																			FastAttack = false
+																		end
+																	end
+																elseif game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hallow Essence") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Hallow Essence") then
+																	repeat toTargetP(CFrame.new(-8932.322265625, 146.83154296875, 6062.55078125)) wait() until (CFrame.new(-8932.322265625, 146.83154296875, 6062.55078125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 8                        
+																	EquipWeapon("Hallow Essence")
+																else
+																	if game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper") then
+																		toTargetP(game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper").HumanoidRootPart.CFrame * CFrame.new(5,10,7))
+																	else
+																		Fluent:Notify({
+																			Title = "Thunder Notification",
+																			Content = "Cursed Dual Katana",
+																			SubContent = "Soul Reaper Not Spawn Yet !",
+																			Duration = 3
+																		})
+																		wait(3)
+																	end
+																end
+															end
 														end
-														sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
-													until not _G.Settings.Sword["CDK"] or not v1.Parent or v1.Humanoid.Health <= 0
-												end
-											end
-										end
-									else
-										if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Queen") then
-										toTarget(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Queen").HumanoidRootPart.CFrame * CFrame.new(5,10,7))
-										else
-											wait(3)
-											Fluent:Notify({
-												Title = "Thunder Notification",
-												Content = "Cake Queen",
-												SubContent = "Not Spawn Yet !",
-												Duration = 3
-											})
-										end
-									end
-								elseif i == "Good" and v == -4 then
-									for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-										if v.Name == "Raider" or v.Name == "Mercenary" or v.Name == "Swan Pirate" or v.Name == "Factory Staff" or v.Name == "Marine Lieutenant" or v.Name == "Marine Captain" or v.Name == "Vampire" or v.Name == "Zombie" or v.Name == "Snow Trooper" or v.Name == "Winter Warrior" or v.Name == "Lab Subordinate" or v.Name == "Horned Warrior" or v.Name == "Magma Ninja" or v.Name == "Lava Pirate" or v.Name == "Ship Deckhand" or v.Name == "Ship Engineer" or v.Name == "Ship Steward" or v.Name == "Ship Officer" or v.Name == "Arctic Warrior" or v.Name == "Snow Lurker" or v.Name == "Sea Soldier" or v.Name == "Water Fighter" then
-											if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-												repeat wait()
-													AutoHaki()
-													EquipWeapon(_G.Settings.Config["Select Weapon"])
-													FastAttack = true
-													v.HumanoidRootPart.CanCollide = false
-													--v.Humanoid.WalkSpeed = 0
-													v.Head.CanCollide = false 
-													toTargetP(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Config["Distance Enemy"],0))
-													--v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-													if not _G.Settings.Config["Fast Attack"] then
-														game:GetService("VirtualUser"):CaptureController()
-														game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
 													end
-												until not _G.Settings.Sword["CDK"] or not v.Parent or v.Humanoid.Health <= 0
-												FastAttack = false
-											end
-										else
-											if Auto_Farm_Level then _G.Settings.Main["Auto Farm Level"] = false end
-											local CastlePos = CFrame.new(-5084.8447265625, 316.48101806641, -3145.3752441406)
-											if (CastlePos.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
-												game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4987.30908, 314.515503, -3060.17725, 0.990336478, 0, 0.13868615, -0, 1.00000012, -0, -0.138686165, 0, 0.990336359))
-											end
-											wait(3)
-											Fluent:Notify({
-												Title = "Tushita Quest",
-												Content = "Waiting for Pirate Raid !",
-												Duration = 3
-											})
-										end
-									end     
-								elseif i == "Evil" and v == -3 then
-									repeat wait()
-										toTargetP(CFrame.new(56.6141129, 24.7939301, -12861.0859, 0.699276984, 0, 0.714850843, 0, 1, 0, -0.714850843, 0, 0.699276984))
-									until not _G.Settings.Sword["CDK"]
-								elseif i == "Evil" and v == -4 then
-									for i2,v2 in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-										if v2:FindFirstChild("HazeESP") then
-											v2.HazeESP.MaxDistance = "inf"
-											print("Haze Killing : ",v2.Name)
-											repeat wait()
-												StartMagnet = true
-												FastAttack = true
-												-- sethiddenproperty(workspace, "StreamingEnabled", false)
-												EquipWeapon(_G.Settings.Config["Select Weapon"])
-												AutoHaki()  
-												PosMonsEsp = v2.HumanoidRootPart.CFrame 
-												toTarget(v2.HumanoidRootPart.CFrame * CFrame.new(0,25,0))
-												if not _G.Settings.Config["Fast Attack"] then
-													game:GetService("VirtualUser"):CaptureController()
-													game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
 												end
-											until not _G.Settings.Sword["CDK"] or not v2.Parent or not v2:FindFirstChild("HazeESP") or v2.Humanoid.Health <= 0 
-											FastAttack = false
-											StartMagnet = false
-										else
-											repeat task.wait()
-												if not v2:FindFirstChild("HazeESP") then
-													ToFindHaze = true;
-												else
-													ToFindHaze = false;
-													pcall(function()
-														tween:Cancel();
-													end)
-												end
-											until _G.Settings.Sword["CDK"] or v2:FindFirstChild("HazeESP") or not (i == "Evil" and v == -4) then
-										end
-									end
-								elseif i == "Evil" and v == -5 then
-									if game:GetService("Workspace").Enemies:FindFirstChild("Soul Reaper") then
-										for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-											if string.find(v.Name , "Soul Reaper") then
-												repeat wait()
-													EquipWeapon(_G.Settings.Config["Select Weapon"])
-													AutoHaki()
-													toTarget(v.HumanoidRootPart.CFrame*CFrame.new(5,10,7))
-													if not _G.Settings.Config["Fast Attack"] then
-														game:GetService("VirtualUser"):CaptureController()
-														game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670))
-													end
-													FastAttack = true
-													v.HumanoidRootPart.Transparency = 1
-													sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
-												until v.Humanoid.Health <= 0 or _G.Settings.Sword["Scythe"] == false
-												FastAttack = false
 											end
-										end
-									elseif game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hallow Essence") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Hallow Essence") then
-										repeat toTargetP(CFrame.new(-8932.322265625, 146.83154296875, 6062.55078125)) wait() until (CFrame.new(-8932.322265625, 146.83154296875, 6062.55078125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 8                        
-										EquipWeapon("Hallow Essence")
-									else
-										if game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper") then
-											toTargetP(game:GetService("ReplicatedStorage"):FindFirstChild("Soul Reaper").HumanoidRootPart.CFrame * CFrame.new(5,10,7))
-										else
-											Fluent:Notify({
-												Title = "Thunder Notification",
-												Content = "Cursed Dual Katana",
-												SubContent = "Soul Reaper Not Spawn Yet !",
-												Duration = 3
-											})
-											wait(3)
 										end
 									end
 								end
