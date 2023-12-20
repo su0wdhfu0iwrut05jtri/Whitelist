@@ -11939,7 +11939,7 @@ function LoadScript()
 						if GetWeaponInventory("Cursed Dual Katana") == false then
 							repeat wait(.5)
 								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Good")
-
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Evil")
 							until GetWeaponInventory("Cursed Dual Katana") == true or _G.Settings.Sword["CDK"] == false
 						end
 					end
