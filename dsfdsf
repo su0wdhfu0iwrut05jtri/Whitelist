@@ -1926,6 +1926,17 @@ function LoadScript()
 		end 
 	end
 
+	function MaterialMek(Material)
+		for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")) do
+			if v.Type == "Material" then
+				if v.Name == Material then
+					return v.Count
+				end
+			end
+		end
+		return 0
+	end
+
 	-- [Check Quest]
 	function CheckQuest()
 		local MyLevel = game.Players.LocalPlayer.Data.Level.Value
@@ -11926,13 +11937,13 @@ function LoadScript()
 				pcall(function()
 					if _G.Settings.Sword["CDK"] and World3 then
 						if GetWeaponInventory("Cursed Dual Katana") == false then
-							if CheckMaterial("Alucard Fragment") == 0 then
-								if CheckMaterial("Alucard Fragment") == 1 then
-									if CheckMaterial("Alucard Fragment") == 2 then
-										if CheckMaterial("Alucard Fragment") == 3 then
-											if CheckMaterial("Alucard Fragment") == 4 then
-												if CheckMaterial("Alucard Fragment") == 5 then
-													if CheckMaterial("Alucard Fragment") == 6 then
+							if MaterialMek("Alucard Fragment") == 0 then
+								if MaterialMek("Alucard Fragment") == 1 then
+									if MaterialMek("Alucard Fragment") == 2 then
+										if MaterialMek("Alucard Fragment") == 3 then
+											if MaterialMek("Alucard Fragment") == 4 then
+												if MaterialMek("Alucard Fragment") == 5 then
+													if MaterialMek("Alucard Fragment") == 6 then
 														for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress")) do
 															print("Memek")
 															if i == "Good" and v == -3 then
