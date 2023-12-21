@@ -11938,9 +11938,9 @@ function LoadScript()
 					if _G.Settings.Sword["CDK"] and World3 then
 						if GetWeaponInventory("Cursed Dual Katana") == false then
 							repeat wait(.5)
-								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Good")
-								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Evil")
-							until GetWeaponInventory("Cursed Dual Katana") == true or _G.Settings.Sword["CDK"] == false
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","StartTrial","Good")
+								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","StartTrial","Evil")
+							until GetWeaponInventory("Cursed Dual Katana") == true or not _G.Settings.Sword["CDK"]
 						end
 					end
 				end)
@@ -11954,7 +11954,6 @@ function LoadScript()
 					if _G.Settings.Sword["CDK"] and World3 then
 						if GetWeaponInventory("Cursed Dual Katana") == false then
 							for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress")) do
-								print("Memek")
 								if i == "Good" and v == -3 then
 									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","BoatQuest",workspace.NPCs:FindFirstChild("Luxury Boat Dealer"))
 									BTP(CFrame.new(-9546.990234375, 21.139892578125, 4686.1142578125))
