@@ -870,7 +870,7 @@ function KeySystem()
 		})
 		local key = KEY_ENTER.Text; --Get from Key Tab
 		
-		if PandaAuth:ValidateKey(key) then
+		if PandaAuth:ValidateKey(ServiceID, key) then
 			ThunderNotification({
 				Title = "Key System",
 				Content = "Key Valid ! , Load Script",
@@ -912,14 +912,14 @@ function KeySystem()
 		):Play()
 	end)
 	TextBtn.MouseButton1Click:Connect(function()
-		setclipboard(PandaAuth:GetLink())
+		setclipboard(PandaAuth:GetLink(ServiceID))
 		TextBtn.Text = "COPIED"
 		ThunderNotification({
 			Title = "Key System",
 			Content = "Success Copied to Clipboard , if not Copied try copy on Textbox",
 			Delay = 5
 		})
-		KEY_ENTER.Text = PandaAuth:GetLink()
+		KEY_ENTER.Text = PandaAuth:GetLink(ServiceID)
 		wait(1)
 		TextBtn.Text = "GET KEY"
 	end)
@@ -932,7 +932,7 @@ task.spawn(function()
 		if hasExistingKey and hasExistingKey ~= nil then
 			print('attempting to load key...')
 			local foundKey = readfile("THUNDERZKey.txt")
-			if PandaAuth:ValidateKey(foundKey) then
+			if PandaAuth:ValidateKey(ServiceID, foundKey) then
 				print("Key Valid")
 				ThunderNotification({
 					Title = "Key System",
