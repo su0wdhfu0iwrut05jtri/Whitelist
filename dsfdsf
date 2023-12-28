@@ -12022,10 +12022,14 @@ function LoadScript()
 												FastAttack = false
 											end
 										else
-											if Auto_Farm_Level then _G.Settings.Main["Auto Farm Level"] = false end
-											local CastlePos = CFrame.new(-5084.8447265625, 316.48101806641, -3145.3752441406)
-											if (CastlePos.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
-												game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4987.30908, 314.515503, -3060.17725, 0.990336478, 0, 0.13868615, -0, 1.00000012, -0, -0.138686165, 0, 0.990336359))
+											for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+												if v.Name == "Raider" or v.Name == "Mercenary" or v.Name == "Swan Pirate" or v.Name == "Factory Staff" or v.Name == "Marine Lieutenant" or v.Name == "Marine Captain" or v.Name == "Vampire" or v.Name == "Zombie" or v.Name == "Snow Trooper" or v.Name == "Winter Warrior" or v.Name == "Lab Subordinate" or v.Name == "Horned Warrior" or v.Name == "Magma Ninja" or v.Name == "Lava Pirate" or v.Name == "Ship Deckhand" or v.Name == "Ship Engineer" or v.Name == "Ship Steward" or v.Name == "Ship Officer" or v.Name == "Arctic Warrior" or v.Name == "Snow Lurker" or v.Name == "Sea Soldier" or v.Name == "Water Fighter" then
+													if Auto_Farm_Level then _G.Settings.Main["Auto Farm Level"] = false end
+													local CastlePos = CFrame.new(-5084.8447265625, 316.48101806641, -3145.3752441406)
+													if (CastlePos.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+														game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4987.30908, 314.515503, -3060.17725, 0.990336478, 0, 0.13868615, -0, 1.00000012, -0, -0.138686165, 0, 0.990336359))
+													end
+												end
 											end
 											wait(3)
 											Fluent:Notify({
@@ -12158,6 +12162,38 @@ function LoadScript()
 											end
 											game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
 										end
+									end
+								elseif MaterialMek("Alucard Fragment") == 6 then
+									if game:GetService("Workspace").Enemies:FindFirstChild("Cursed Skeleton Boss") or game:GetService("Workspace").ReplicatedStorage:FindFirstChild("Cursed Skeleton Boss") then
+										if game:GetService("Workspace").Enemies:FindFirstChild("Cursed Skeleton Boss") or game:GetService("Workspace").Enemies:FindFirstChild("Cursed Skeleton") then
+											for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+												if v.Name == "Cursed Skeleton Boss" or v.Name == "Cursed Skeleton" then
+													if v.Humanoid.Health > 0 then
+														repeat wait()
+															AutoHaki()
+															v.HumanoidRootPart.CanCollide = false
+															v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+															TP(v.HumanoidRootPart.CFrame * CFrame.new(_G.Distance_X,_G.Distance_Y,_G.Distance_Z))
+															Attack()
+														until v.Humanoid.Health <= 0 or not v.Parent or _G.Auto_Cursed_Dual_Katana == false
+													end
+												end
+											end
+										end
+									else
+										if (CFrame.new(-12361.7060546875, 603.3547973632812, -6550.5341796875).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 100 then
+											game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Good")
+											wait(1)
+											game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Evil")
+											wait(1)
+											toTargetP(CFrame.new(-12361.7060546875, 603.3547973632812, -6550.5341796875))
+											wait(1.5)
+											game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, game)
+											wait(1.5)
+											toTargetP(CFrame.new(-12253.5419921875, 598.8999633789062, -6546.8388671875))
+										else
+											toTargetP(CFrame.new(-12361.7060546875, 603.3547973632812, -6550.5341796875))
+										end   
 									end
 								end
 							end
